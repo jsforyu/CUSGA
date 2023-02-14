@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
+    //背包的管理 有保存背包和读取背包功能  可以创建一个画布放这个脚本  画布下放背包的ui
 { public class DragData
     {
         public SlotHolder originalHolder;
@@ -51,8 +52,8 @@ public class InventoryManager : MonoBehaviour
             CharactersCanvas.SetActive(isOpen);      
         }
         //更新人物信息
-        UpdateStatsText(player.GetComponent<CharacterStats>().characterData.maxHealth, player.GetComponent<CharacterStats>().attackData.minDamge, player.
-            GetComponent<CharacterStats>().attackData.maxDamge);
+        //UpdateStatsText(player.GetComponent<CharacterStats>().characterData.maxHealth, player.GetComponent<CharacterStats>().attackData.minDamge, player.
+        //    GetComponent<CharacterStats>().attackData.maxDamge);
     }
     public void SavaData()
     {

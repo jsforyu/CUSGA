@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Photon.Pun;
 [RequireComponent(typeof(ItemUI))]
-public class DragItem : MonoBehaviourPunCallbacks, IBeginDragHandler,IDragHandler,IEndDragHandler
+public class DragItem : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler
 {
+    //这是可以拖动道具到其他格子 例如穿戴装备 将可使用的道具拖到道具栏
     ItemUI currentItemUI;
     SlotHolder currentHolder; //当前格子
     SlotHolder targetHolder;  //目标格子
@@ -62,49 +62,27 @@ public class DragItem : MonoBehaviourPunCallbacks, IBeginDragHandler,IDragHandle
                     if(currentItemUI.Bag.items[currentItemUI.Index].ItemData.itemType==ItemType.Useable)
                         SwapItem();
                         break;
-            //case SlotType.TRASH:
-            //            Vector3 position = GameObject.Find("Player").GetComponent<Transform>().position;
-            //            position += new Vector3(0, 1, 5);
-            //            PhotonNetwork.Instantiate("Sword_world", position, Quaternion.identity, 0);
-            //            currentHolder.itemUI.Bag.items[currentHolder.itemUI.Index] = null;
-            //            break;
                 }
-                currentHolder.UpdateItem();
-        targetHolder.UpdateItem();
     }
        }
-        //else
-        //{   
-        //    Vector3 position=GameObject.Find("Player").GetComponent<Transform>().position;
-        //    position += new Vector3(0, 0, 5);
-        //    GameObject a =Instantiate(currentHolder.itemUI.GetItem().weaponPrefab);
-        //    a.transform.position = position;
-        //    currentHolder.itemUI.Bag.items[currentHolder.itemUI.Index] = null;
-        //}
-
-        //将物品放回原来的父节点下面
-        //Vector3 position = GameObject.Find("Player").GetComponent<Transform>().position;
-        //position += new Vector3(0, 0, 5);
-        //PhotonNetwork.Instantiate("Sword_world", position, Quaternion.identity, 0);
-        //currentHolder.itemUI.Bag.items[currentHolder.itemUI.Index] = null;
         transform.SetParent(InventoryManager.currentDrag.originalParent);
         RectTransform t = transform as RectTransform;
         t.offsetMax = -Vector2.one * 5;
         t.offsetMin = Vector2.one * 5;
     }
-    public void SwapItem()
+    public void SwapItem()   //拖拽到另一个格子时判断
 {
     var targetItem = targetHolder.itemUI.Bag.items[targetHolder.itemUI.Index];
     var tempItem = currentHolder.itemUI.Bag.items[currentHolder.itemUI.Index];
     //判断是不是同一个物品
         bool isSameItem = tempItem.ItemData == targetItem.ItemData; 
-    if (isSameItem && targetItem.ItemData.stackable)
+    if (isSameItem && targetItem.ItemData.stackable)  //是同一道具则将数量加1
     {
         targetItem.amount += tempItem.amount;
         tempItem.ItemData = null;
         tempItem.amount = 0;
     }
-    else
+    else  //否则摧毁
     {
         currentHolder.itemUI.Bag.items[currentHolder.itemUI.Index] = targetItem;
         targetHolder.itemUI.Bag.items[targetHolder.itemUI.Index] = tempItem;

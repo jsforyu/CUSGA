@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ItemUI : MonoBehaviour
 {
+    //判断背包中对应当前格子是否有物品 有的话将Image激活  无则隐藏
     public Image icon = null;
     public Text amount = null;
     public InventoryData_SO Bag { get; set; }

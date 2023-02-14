@@ -4,6 +4,7 @@ using UnityEngine;
 
 public  class ContainerUI : MonoBehaviour
 {
+    //给所有格子赋值编号 省去手动在Inspector赋值步骤
       public SlotHolder[] slotHolders;
     public void Update()
     {
@@ -15,7 +16,6 @@ public  class ContainerUI : MonoBehaviour
 
         {
             slotHolders[i].itemUI.Index = i;
-            slotHolders[i].UpdateItem();
         }
     }
 }

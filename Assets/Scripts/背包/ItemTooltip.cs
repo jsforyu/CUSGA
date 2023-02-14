@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ItemTooltip : MonoBehaviour
 {
+    //这是道具说明栏 当鼠标移到道具上会有道具的详细说明
+    //使用方法：创建一个text UpdatePosition将text的位置跟随鼠标 SetupTooltip在 
     public Text itemNameText;
     public Text itemInfoText;
     RectTransform rectTransform;

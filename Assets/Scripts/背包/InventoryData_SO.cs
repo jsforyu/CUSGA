@@ -4,7 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="New Inventroy",menuName="Inventory/Inventory")]
 public class InventoryData_SO : ScriptableObject
 {
-    public List<InventoryItem> items = new List<InventoryItem>();
+    //充当背包功能 
+    public List<InventoryItem> items = new List<InventoryItem>(); 
     public void AddItem(ItemData_SO newItemData,int amount)
     {
         bool found = false;
@@ -29,7 +30,7 @@ public class InventoryData_SO : ScriptableObject
                 break;
             }
         }
-    }
+    } //添加物品的方法
 }
 [System.Serializable]  //序列化 在列表中可以看见
 public class InventoryItem
