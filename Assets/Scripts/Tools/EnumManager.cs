@@ -5,6 +5,7 @@ public enum PlayerStats
 };
 public enum EnemyStats
 {
-    
+    Attack,
+    Defence
 };
 
