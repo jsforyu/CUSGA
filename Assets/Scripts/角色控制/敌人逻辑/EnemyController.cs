@@ -11,7 +11,7 @@ public class EnemyController : BasicController
     {
         base.Awake();
         characterData = Instantiate(tempData);
-        characterData.Ãô½İ = 1;
+        characterData.Ãô½İ = 10;
         SetAnimatorSpeed(0, "Enemy_Attack", 1 / characterData.¹¥»÷ËÙ¶È);
         SetAnimatorSpeed(0, "Enemy_Defence", 1 / characterData.¹¥»÷ËÙ¶È);
     }
