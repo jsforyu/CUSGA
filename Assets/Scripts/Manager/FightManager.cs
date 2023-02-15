@@ -16,6 +16,7 @@ public class FightManager : Singleton<FightManager>
     public float recodeTime = 0;
     public int enemyAttackNums=0;
     public bool canAttack = true;
+    public bool canChange = true;
     public GameObject[] enemyAttackDir;
     private void Start()
     {
@@ -41,13 +42,11 @@ public class FightManager : Singleton<FightManager>
             canAttack = false;
             int temp = Random.Range(0, 6);
             ClearDir();
-            Debug.Log(temp);
             enemyAttackDir[temp].SetActive(true);
             enemyAttackDir[temp].GetComponent<EnemyAttackDir>().AttackTime = enemyData.攻击速度;
             enemyAttackNums--;
-            Debug.Log("挥刀次数"+enemyAttackNums);
         }
-        if (enemyAttackNums <= 0 && canAttack) { ChangeAllStates(); }
+        if (enemyAttackNums <= 0 && canChange&&canAttack) { ChangeAllStates(); }
     }
     public void ClearDir()
     {
