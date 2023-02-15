@@ -21,16 +21,16 @@ public class CharacterData_SO : ScriptableObject
     {
         get { return (int)(8 + 体质 * 0.1 + 力量 * 0.8 + 敏捷 * 0.1); }
     }
-    public double 攻击速度
+    public float 攻击速度
     {
-        get { return 0.6 - 敏捷 * 0.03 - 反应 * 0.01; }
+        get { return (float)(0.6 - 敏捷 * 0.03 - 反应 * 0.01); }
     }
     public int 挥刀次数
     {
        get{return (int)(2+体质*0.1+力量*0.1+敏捷*0.3+反应*0.3);}
     }
-    public double 剩余时间
+    public float 剩余时间
     {
-        get { return 2 + 反应 * 0.3; }
+        get { return (float)(2 + 反应 * 0.3); }
     }
 }
