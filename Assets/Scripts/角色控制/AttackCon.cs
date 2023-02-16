@@ -8,7 +8,7 @@ public class AttackCon : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        FightManager.Instance.canAttack = false;
+        FightManager.Instance.canChange = false;
         foreach (var signal in clearEnter)
         {
             animator.ResetTrigger(signal);
@@ -24,8 +24,7 @@ public class AttackCon : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        FightManager.Instance.canAttack = true;
-        FightManager.Instance.ClearDir();
+        FightManager.Instance.canChange = true;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

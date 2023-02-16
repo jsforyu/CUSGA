@@ -16,14 +16,13 @@ public class EnemyAttackDir : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        time += Time.deltaTime;
         if (Input.GetKeyDown(key))
         {
             FightManager.Instance.playerAni.SetTrigger("Defence");
-            FightManager.Instance.enemyAni.SetTrigger("Defence");
             this.gameObject.SetActive(false);
-            FightManager.Instance.canAttack = true;
         }
+        if (time >= AttackTime) { Debug.Log(time); this.gameObject.SetActive(false); }
     }
     private void OnEnable()
     {
@@ -32,5 +31,6 @@ public class EnemyAttackDir : MonoBehaviour
     private void OnDisable()
     {
         time = 0;
+        FightManager.Instance.canAttack = true;
     }
 }
