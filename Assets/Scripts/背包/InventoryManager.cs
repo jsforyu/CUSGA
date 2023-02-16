@@ -4,20 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
-    //背包的管理 有保存背包和读取背包功能  可以创建一个画布放这个脚本  画布下放背包的ui
+//背包的管理 有保存背包和读取背包功能  可以创建一个画布放这个脚本  画布下放背包的ui
 { public class DragData
     {
         public SlotHolder originalHolder;
         public RectTransform originalParent;
     }
     public GameObject player;
+    public static InventoryManager instance;
     //保存数据
     [Header("Inventory Data")]
-    public InventoryData_SO inventoryData;
+    public InventoryData_SO inventoryData;//不同背包
     public InventoryData_SO actionData;
     public InventoryData_SO equipmentData;
     [Header("ContainerS")]
-    public ContainerUI inventoryUI;
+    public ContainerUI inventoryUI;//不同背包的UI
     public ContainerUI actionUI;
     public ContainerUI equipmentUI;
     [Header("Drag Canvas")]
@@ -31,25 +32,32 @@ public class InventoryManager : MonoBehaviour
     public Text attackText;
     [Header("Tooltip")]
     public ItemTooltip tooltip;
- 
+
     private void Start()
     {
         Cursor.visible = false;
         LoadData();    //加载数据
         inventoryUI.RefreshUI();
-        actionUI.RefreshUI();
-        equipmentUI.RefreshUI();
+        //actionUI.RefreshUI();
+        //equipmentUI.RefreshUI();
 
+    }
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
     public void Update()
     {
         SavaData();  //保存数据
-        if (Input.GetKeyDown(KeyCode.B))   //打开背包
+        if (Input.GetKeyDown(KeyCode.B))   //打开or关闭背包
         {
             isOpen = !isOpen;
             Cursor.visible = isOpen;
             BagCanvas.SetActive(isOpen);
-            CharactersCanvas.SetActive(isOpen);      
+            CharactersCanvas.SetActive(isOpen);
         }
         //更新人物信息
         //UpdateStatsText(player.GetComponent<CharacterStats>().characterData.maxHealth, player.GetComponent<CharacterStats>().attackData.minDamge, player.
@@ -58,14 +66,14 @@ public class InventoryManager : MonoBehaviour
     public void SavaData()
     {
         Save(inventoryData, inventoryData.name);
-        Save(actionData, actionData.name);
-        Save(equipmentData, equipmentData.name);
+        //Save(actionData, actionData.name);
+        //Save(equipmentData, equipmentData.name);
     }
     public void LoadData()
     {
         Load(inventoryData, inventoryData.name);
-        Load(actionData, actionData.name);
-        Load(equipmentData, equipmentData.name);
+        //Load(actionData, actionData.name);
+        //Load(equipmentData, equipmentData.name);
     }
     public void Save(Object data, string key)
     {
@@ -80,7 +88,7 @@ public class InventoryManager : MonoBehaviour
             JsonUtility.FromJsonOverwrite(PlayerPrefs.GetString(key), data);
         }
     }
-    public void UpdateStatsText(int health,int min,int max)
+    public void UpdateStatsText(int health, int min, int max)
     {
         healthText.text = health.ToString();
         attackText.text = min + " - " + max;
@@ -88,14 +96,14 @@ public class InventoryManager : MonoBehaviour
     #region 检查拖拽物品是否在每一个slot范围内
     public bool CheckInInventoryUI(Vector3 position)
     {
-        for(int i=0;i<inventoryUI.slotHolders.Length;i++)
+        for (int i = 0; i < inventoryUI.slotHolders.Length; i++)
         {
             RectTransform t = inventoryUI.slotHolders[i].transform as RectTransform;
-            if(RectTransformUtility.RectangleContainsScreenPoint(t,position))
-           {
+            if (RectTransformUtility.RectangleContainsScreenPoint(t, position))
+            {
                 return true;
             }
-         }
+        }
         return false;
     }
     public bool CheckInActionUI(Vector3 position)

@@ -10,7 +10,7 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
     //在Inventory Canvas下创建一个图片起名 Inventory Bag 充当背包背景
     //在Inventory Bag下创建一个Panel管理所有格子 起名Inventory Contaniner 挂载Container UI 和Grid Layout Group组件
     //背包格子的创建：
-    //创建一个Image 起名SlotHolder 挂载当前脚本 Image为背包的图片
+    //创建一个Image 起名SlotHolder 挂载当前脚本 Image为背包格子的图片
     //在其子物体下创建一个空物体 起名 ItemSlot 挂载Item UI 和 Drag Item 脚本
     //ItemSlot子物体下创建图片 显示当前物品的图片 可以在图片下创建text 显示当前数量
     //将SlotHolder设为预制体 SlotHolder则为格子
