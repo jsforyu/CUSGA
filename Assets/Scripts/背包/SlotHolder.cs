@@ -20,12 +20,19 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
     public SlotType slotType;
     public ItemUI itemUI;
     public GameObject tooptip;
+    private void Update()
+    {
+        //ResreshitemUI();
+    }
     private void Awake()
     {
         tooptip = GameObject.Find("Inventroy Canvas").GetComponent<InventoryManager>().tooltip.gameObject;
     }
-
-   public void OnPointerEnter(PointerEventData eventData) //当鼠标移到当前格子时 更新道具说明栏的文本
+    private void Start()
+    {
+      
+    }
+    public void OnPointerEnter(PointerEventData eventData) //当鼠标移到当前格子时 更新道具说明栏的文本
     {
         if(itemUI.GetItem())
         {
@@ -41,5 +48,12 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
     {
         //GameObject.Find("Inventroy Canvas").GetComponent<InventoryManager>().tooltip.gameObject.SetActive(false);
         tooptip.SetActive(false);
+    }
+    public void ResreshitemUI()
+    {
+        if (itemUI.GetItem())
+        {
+            itemUI.SetupItemUI(itemUI.GetItem(), itemUI.GetItem().itemAmount);
+        }
     }
 }

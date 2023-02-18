@@ -36,7 +36,7 @@ public class InventoryManager : MonoBehaviour
     private void Start()
     {
         Cursor.visible = false;
-        LoadData();    //加载数据
+        //LoadData();    //加载数据
         inventoryUI.RefreshUI();
         //actionUI.RefreshUI();
         //equipmentUI.RefreshUI();
@@ -51,13 +51,14 @@ public class InventoryManager : MonoBehaviour
     }
     public void Update()
     {
-        SavaData();  //保存数据
+        //SavaData();  //保存数据
         if (Input.GetKeyDown(KeyCode.B))   //打开or关闭背包
         {
             isOpen = !isOpen;
             Cursor.visible = isOpen;
             BagCanvas.SetActive(isOpen);
-            CharactersCanvas.SetActive(isOpen);
+            //CharactersCanvas.SetActive(isOpen);
+            tooltip.gameObject.SetActive(isOpen);
         }
         //更新人物信息
         //UpdateStatsText(player.GetComponent<CharacterStats>().characterData.maxHealth, player.GetComponent<CharacterStats>().attackData.minDamge, player.
@@ -96,7 +97,7 @@ public class InventoryManager : MonoBehaviour
     #region 检查拖拽物品是否在每一个slot范围内
     public bool CheckInInventoryUI(Vector3 position)
     {
-        for (int i = 0; i < inventoryUI.slotHolders.Length; i++)
+        for (int i = 0; i < inventoryUI.slotHolders.Count; i++)
         {
             RectTransform t = inventoryUI.slotHolders[i].transform as RectTransform;
             if (RectTransformUtility.RectangleContainsScreenPoint(t, position))
@@ -108,7 +109,7 @@ public class InventoryManager : MonoBehaviour
     }
     public bool CheckInActionUI(Vector3 position)
     {
-        for (int i = 0; i < actionUI.slotHolders.Length; i++)
+        for (int i = 0; i < actionUI.slotHolders.Count; i++)
         {
             RectTransform t = actionUI.slotHolders[i].transform as RectTransform;
             if (RectTransformUtility.RectangleContainsScreenPoint(t, position))
@@ -120,7 +121,7 @@ public class InventoryManager : MonoBehaviour
     }
     public bool CheckInEquipmentUI(Vector3 position)
     {
-        for (int i = 0; i < equipmentUI.slotHolders.Length; i++)
+        for (int i = 0; i < equipmentUI.slotHolders.Count; i++)
         {
             RectTransform t = equipmentUI.slotHolders[i].transform as RectTransform;
             if (RectTransformUtility.RectangleContainsScreenPoint(t, position))

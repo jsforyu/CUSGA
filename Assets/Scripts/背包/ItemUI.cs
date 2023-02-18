@@ -30,6 +30,9 @@ public class ItemUI : MonoBehaviour
     }
     public ItemData_SO GetItem()
     {
+
         return Bag.items[Index].ItemData;
     }
+
+
 }

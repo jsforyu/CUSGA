@@ -17,4 +17,4 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemAmount: 0
   description: "\u8FD9\u662F\u4E00\u53CC\u978B"
-  stackable: 0
+  stackable: 1

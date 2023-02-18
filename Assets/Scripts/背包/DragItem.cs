@@ -14,7 +14,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
     {
         currentItemUI = GetComponent<ItemUI>();
         currentHolder = GetComponentInParent<SlotHolder>();
-        drag = GameObject.Find("Drag Canvas").transform;
+        //drag = GameObject.Find("Drag Canvas").transform;
     }
   public void OnBeginDrag(PointerEventData eventData)
     {
@@ -22,7 +22,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
         InventoryManager.currentDrag.originalHolder = GetComponentInParent<SlotHolder>();
         InventoryManager.currentDrag.originalParent = (RectTransform)transform.parent;
         //记录原始数据 回到原来的格子里
-        transform.SetParent(drag, true);
+        //transform.SetParent(drag, true);
     }
    public void OnDrag(PointerEventData eventData)
     {
