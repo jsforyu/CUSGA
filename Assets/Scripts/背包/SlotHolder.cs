@@ -10,7 +10,7 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
     //在Inventory Canvas下创建一个图片起名 Inventory Bag 充当背包背景
     //在Inventory Bag下创建一个Panel管理所有格子 起名Inventory Contaniner 挂载Container UI 和Grid Layout Group组件
     //背包格子的创建：
-    //创建一个Image 起名SlotHolder 挂载当前脚本 Image为背包的图片
+    //创建一个Image 起名SlotHolder 挂载当前脚本 Image为背包格子的图片
     //在其子物体下创建一个空物体 起名 ItemSlot 挂载Item UI 和 Drag Item 脚本
     //ItemSlot子物体下创建图片 显示当前物品的图片 可以在图片下创建text 显示当前数量
     //将SlotHolder设为预制体 SlotHolder则为格子
@@ -20,12 +20,20 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
     public SlotType slotType;
     public ItemUI itemUI;
     public GameObject tooptip;
+    private void Update()
+    {
+        
+    }
     private void Awake()
     {
         tooptip = GameObject.Find("Inventroy Canvas").GetComponent<InventoryManager>().tooltip.gameObject;
+        ResreshitemUI();
     }
-
-   public void OnPointerEnter(PointerEventData eventData) //当鼠标移到当前格子时 更新道具说明栏的文本
+    private void Start()
+    {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+    }
+    public void OnPointerEnter(PointerEventData eventData) //当鼠标移到当前格子时 更新道具说明栏的文本
     {
         if(itemUI.GetItem())
         {
@@ -41,5 +49,13 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
     {
         //GameObject.Find("Inventroy Canvas").GetComponent<InventoryManager>().tooltip.gameObject.SetActive(false);
         tooptip.SetActive(false);
+    }
+    public void ResreshitemUI()
+    {
+        if (itemUI.GetItem())
+        {
+            Debug.Log(itemUI.GetItem().itemAmount);
+            itemUI.SetupItemUI(itemUI.GetItem(), itemUI.GetItem().itemAmount);
+        }
     }
 }

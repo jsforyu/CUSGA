@@ -5,17 +5,47 @@ using UnityEngine;
 public  class ContainerUI : MonoBehaviour
 {
     //给所有格子赋值编号 省去手动在Inspector赋值步骤
-      public SlotHolder[] slotHolders;
+    public List<SlotHolder> slotHolders=new List<SlotHolder>();
+    public GameObject slot; 
     public void Update()
     {
-        RefreshUI();
+        //RefreshUI();
+        //RefreshSlot();
+    }
+    private void Awake()
+    {
+        RefreshSlot();
+    }
+    private void OnEnable()
+    {
+        
     }
     public void RefreshUI()
     {
-        for(int i=0;i<slotHolders.Length;i++)
+        for(int i=0;i< InventoryManager.instance.inventoryData.items.Count; i++)//给存在的所有格子编号
 
         {
-            slotHolders[i].itemUI.Index = i;
+            //slotHolders[i].itemUI.Index = i;
         }
+        
+    }
+
+    public void RefreshSlot()
+    {
+        if (this.transform.childCount > 0)//删除所有格子
+        {
+            for (int i = 0; i < this.transform.childCount; i++)
+            {
+                Destroy(this.transform.GetChild(i).gameObject);
+            }
+        }
+        for (int i=0;i< InventoryManager.instance.inventoryData.items.Count; i++)//重新生成格子
+        {
+           GameObject slotholder=Instantiate(slot, this.transform);
+            slotholder.GetComponent<SlotHolder>().itemUI.Index = i;//给赋值
+            slotHolders.Add(slotholder.GetComponent<SlotHolder>());
+            
+        }
+        Debug.Log("初始化格子");
     }
 }
