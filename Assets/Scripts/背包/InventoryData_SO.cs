@@ -15,6 +15,7 @@ public class InventoryData_SO : ScriptableObject
             if (items[i].ItemData == newItemData && !found)//找到了在背包里
             {
                 items[i].amount += amount;
+                newItemData.itemAmount += amount;
                 found = true;
                 break;
             }
@@ -26,6 +27,7 @@ public class InventoryData_SO : ScriptableObject
             {
                 items[i].ItemData = newItemData;
                 items[i].amount = amount;
+                newItemData.itemAmount = amount;
                 found = true;
                 break;
             }

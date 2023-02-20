@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 7996351708900753068}
   amount: {fileID: 7996351708816162407}
+  Bag: {fileID: 11400000, guid: c0354a490b7116644b8cc5ffbe2b9bac, type: 2}
 --- !u!114 &7996351708796331649
 MonoBehaviour:
   m_ObjectHideFlags: 0

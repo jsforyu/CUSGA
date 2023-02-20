@@ -44,6 +44,7 @@ public  class ContainerUI : MonoBehaviour
            GameObject slotholder=Instantiate(slot, this.transform);
             slotholder.GetComponent<SlotHolder>().itemUI.Index = i;//给赋值
             slotHolders.Add(slotholder.GetComponent<SlotHolder>());
+            
         }
         Debug.Log("初始化格子");
     }
