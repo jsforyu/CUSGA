@@ -41,51 +41,53 @@ public class DragItem : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
                 || GameObject.Find("Inventroy Canvas").GetComponent<InventoryManager>().CheckInInventoryUI(eventData.position))
             {
                 //判断鼠标进入的格子里是否有物品
+                Debug.Log("开始判断");
                 if (eventData.pointerEnter.gameObject.GetComponent<SlotHolder>())
                     targetHolder = eventData.pointerEnter.gameObject.GetComponent<SlotHolder>();
                    else
                    targetHolder = eventData.pointerEnter.gameObject.GetComponentInParent<SlotHolder>();
-        switch (targetHolder.slotType)
-        {
-            case SlotType.BAG:
+                    switch (targetHolder.slotType)
+                {
+                    case SlotType.BAG:
                             SwapItem();
-                break;
-            case SlotType.WEAPON:
+                    break;
+                    case SlotType.WEAPON:
                         if (currentItemUI.Bag.items[currentItemUI.Index].ItemData.itemType == ItemType.Weapon)
                             SwapItem();
                         break;
-            case SlotType.ARMOR:
+                    case SlotType.ARMOR:
                         if (currentItemUI.Bag.items[currentItemUI.Index].ItemData.itemType == ItemType.Armor)
                             SwapItem();
                         break;
-            case SlotType.ACTION:
-                    if(currentItemUI.Bag.items[currentItemUI.Index].ItemData.itemType==ItemType.Useable)
+                    case SlotType.ACTION:
+                        if(currentItemUI.Bag.items[currentItemUI.Index].ItemData.itemType==ItemType.Useable)
                         SwapItem();
                         break;
                 }
-    }
-       }
+        }
+            }
         transform.SetParent(InventoryManager.currentDrag.originalParent);
         RectTransform t = transform as RectTransform;
         t.offsetMax = -Vector2.one * 5;
         t.offsetMin = Vector2.one * 5;
     }
+
     public void SwapItem()   //拖拽到另一个格子时判断
-{
-    var targetItem = targetHolder.itemUI.Bag.items[targetHolder.itemUI.Index];
-    var tempItem = currentHolder.itemUI.Bag.items[currentHolder.itemUI.Index];
-    //判断是不是同一个物品
-        bool isSameItem = tempItem.ItemData == targetItem.ItemData; 
-    if (isSameItem && targetItem.ItemData.stackable)  //是同一道具则将数量加1
     {
-        targetItem.amount += tempItem.amount;
-        tempItem.ItemData = null;
-        tempItem.amount = 0;
+        var targetItem = targetHolder.itemUI.Bag.items[targetHolder.itemUI.Index];
+        var tempItem = currentHolder.itemUI.Bag.items[currentHolder.itemUI.Index];
+        //判断是不是同一个物品
+            bool isSameItem = tempItem.ItemData == targetItem.ItemData; 
+        if (isSameItem && targetItem.ItemData.stackable)  //是同一道具则将数量加1
+        {
+            targetItem.amount += tempItem.amount;
+            tempItem.ItemData = null;
+            tempItem.amount = 0;
+        }
+        else  //否则摧毁
+        {
+            currentHolder.itemUI.Bag.items[currentHolder.itemUI.Index] = targetItem;
+            targetHolder.itemUI.Bag.items[targetHolder.itemUI.Index] = tempItem;
+        }
     }
-    else  //否则摧毁
-    {
-        currentHolder.itemUI.Bag.items[currentHolder.itemUI.Index] = targetItem;
-        targetHolder.itemUI.Bag.items[targetHolder.itemUI.Index] = tempItem;
-    }
-}
 }
