@@ -5,22 +5,34 @@ using UnityEngine.UI;
 public class FightManager : Singleton<FightManager>
 {
     [Header("角色属性")]
+    [HideInInspector]
     public CharacterData_SO playerData;
+    [HideInInspector]
     public CharacterData_SO enemyData;
+    [HideInInspector]
     public Animator playerAni;
+    [HideInInspector]
     public Animator enemyAni;
+    [HideInInspector]
     public PlayerController playerController;
+    [HideInInspector]
     public EnemyController enemyContorller;
     [Header("战斗数据")]
+    [HideInInspector]
     public float attackTime=0;
+    [HideInInspector]
     public float recodeTime = 0;
+    [HideInInspector]
     public int enemyAttackNums=0;
+    [HideInInspector]
     public bool canAttack = true;
+    [HideInInspector]
     public bool canChange = true;
+    [Header("音符数据")]
     public GameObject[] alphas;
-    public float speed;
     public float[] normalAlphas;
     public float[] bestAlphas;
+    public float speed;
     private void Start()
     {
         JudgeAttackSpeed();
