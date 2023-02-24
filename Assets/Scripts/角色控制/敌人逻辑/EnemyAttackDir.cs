@@ -17,12 +17,22 @@ public class EnemyAttackDir : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (Input.GetKeyDown(key))
+        if (Input.anyKeyDown)
         {
-            FightManager.Instance.playerAni.SetTrigger("Defence");
-            this.gameObject.SetActive(false);
+            if (Input.GetKeyDown(key))
+            {
+                FightManager.Instance.playerAni.SetTrigger("Defence");
+                this.gameObject.SetActive(false);
+                FightManager.Instance.a++;
+                Debug.Log(FightManager.Instance.a);
+            }
+            else
+            {
+                //TODO:ПлбЊ
+                
+            }
         }
-        if (time >= AttackTime) { Debug.Log(time); this.gameObject.SetActive(false); }
+        if (time >= AttackTime) { this.gameObject.SetActive(false); }
     }
     private void OnEnable()
     {

@@ -25,6 +25,10 @@ public class AttackCon : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         FightManager.Instance.canChange = true;
+        foreach (var signal in clearEnter)
+        {
+            animator.ResetTrigger(signal);
+        }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

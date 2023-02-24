@@ -17,6 +17,7 @@ public class FightManager : Singleton<FightManager>
     public int enemyAttackNums=0;
     public bool canAttack = true;
     public bool canChange = true;
+    public int a;
     public GameObject[] enemyAttackDir;
     private void Start()
     {
