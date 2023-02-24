@@ -22,12 +22,12 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
     public GameObject tooptip;
     private void Update()
     {
-        
+        RefreshitemUI();
     }
     private void Awake()
     {
         tooptip = GameObject.Find("Inventroy Canvas").GetComponent<InventoryManager>().tooltip.gameObject;
-        ResreshitemUI();
+        //ResfeshitemUI();
     }
     private void Start()
     {
@@ -50,11 +50,10 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
         //GameObject.Find("Inventroy Canvas").GetComponent<InventoryManager>().tooltip.gameObject.SetActive(false);
         tooptip.SetActive(false);
     }
-    public void ResreshitemUI()
+    public void RefreshitemUI()
     {
         if (itemUI.GetItem())
         {
-            Debug.Log(itemUI.GetItem().itemAmount);
             itemUI.SetupItemUI(itemUI.GetItem(), itemUI.GetItem().itemAmount);
         }
     }

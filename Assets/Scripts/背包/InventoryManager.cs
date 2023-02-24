@@ -59,6 +59,8 @@ public class InventoryManager : MonoBehaviour
             BagCanvas.SetActive(isOpen);
             //CharactersCanvas.SetActive(isOpen);
             tooltip.gameObject.SetActive(isOpen);
+            inventoryUI.RefreshSlot();
+            
         }
         //更新人物信息
         //UpdateStatsText(player.GetComponent<CharacterStats>().characterData.maxHealth, player.GetComponent<CharacterStats>().attackData.minDamge, player.
@@ -100,7 +102,7 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < inventoryUI.slotHolders.Count; i++)
         {
             RectTransform t = inventoryUI.slotHolders[i].transform as RectTransform;
-            if (RectTransformUtility.RectangleContainsScreenPoint(t, position))
+            if (RectTransformUtility.RectangleContainsScreenPoint(t, position))//判断position是否在t的范围内
             {
                 return true;
             }

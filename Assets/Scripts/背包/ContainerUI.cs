@@ -14,7 +14,7 @@ public  class ContainerUI : MonoBehaviour
     }
     private void Awake()
     {
-        RefreshSlot();
+        //RefreshSlot();
     }
     private void OnEnable()
     {
