@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class FightManager : Singleton<FightManager>
 {
     [Header("角色属性")]
@@ -17,8 +17,10 @@ public class FightManager : Singleton<FightManager>
     public int enemyAttackNums=0;
     public bool canAttack = true;
     public bool canChange = true;
-    public int a;
-    public GameObject[] enemyAttackDir;
+    public GameObject[] alphas;
+    public float speed;
+    public float[] normalAlphas;
+    public float[] bestAlphas;
     private void Start()
     {
         JudgeAttackSpeed();
@@ -30,30 +32,19 @@ public class FightManager : Singleton<FightManager>
             case PlayerStats.Attack:
                 break;
             case PlayerStats.Defence:
-                EnemyAttack();
+                Enemy_Attack();
                 break;
             default: break;
         }
     }
-    void EnemyAttack()
+    void Enemy_Attack()
     {
-        if (enemyAttackNums>0 && canAttack)
+        if(canAttack&&enemyAttackNums>0)
         {
-            enemyAni.SetTrigger("Attack");
+            int temp_alpha = Random.Range(0, 5);
+            alphas[temp_alpha].SetActive(true);
             canAttack = false;
-            int temp = Random.Range(0, 6);
-            ClearDir();
-            enemyAttackDir[temp].SetActive(true);
-            enemyAttackDir[temp].GetComponent<EnemyAttackDir>().AttackTime = enemyData.攻击速度;
             enemyAttackNums--;
-        }
-        if (enemyAttackNums <= 0 && canChange&&canAttack) { ChangeAllStates(); }
-    }
-    public void ClearDir()
-    {
-        foreach (var dir in enemyAttackDir)
-        {
-            dir.SetActive(false);
         }
     }
     void JudgeAttackSpeed()
