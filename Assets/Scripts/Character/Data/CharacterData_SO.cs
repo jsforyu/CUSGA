@@ -23,14 +23,22 @@ public class CharacterData_SO : ScriptableObject
     }
     public float 攻击速度
     {
-        get { return (float)(0.6 - 敏捷 * 0.03 - 反应 * 0.01); }
+        get {
+            if (敏捷 <= 10)
+            { return (float)(0.6 - 敏捷 * 0.02 - 反应 * 0.01); }
+            return (float)(0.6 - 敏捷 * 0.005 - 反应 * 0.01);
+        }
     }
     public int 挥刀次数
     {
-       get{return (int)(2+体质*0.1+力量*0.1+敏捷*0.3+反应*0.3);}
+        get { return (int)(2 + 体质 * 0.1 + 力量 * 0.1 + 敏捷 * 0.3 + 反应 * 0.3); }
     }
     public float 剩余时间
     {
         get { return (float)(2 + 反应 * 0.3); }
+    }
+    public float Block(CharacterData_SO player,CharacterData_SO enemy)
+    {
+        return (float)(0.5 * (enemy.反应 + enemy.敏捷 * 0.6 - player.敏捷 * 0.4 - player.反应 * 0.2));
     }
 }

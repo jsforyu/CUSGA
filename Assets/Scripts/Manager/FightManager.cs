@@ -1,23 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class FightManager : Singleton<FightManager>
 {
     [Header("角色属性")]
+    [HideInInspector]
     public CharacterData_SO playerData;
+    [HideInInspector]
     public CharacterData_SO enemyData;
+    [HideInInspector]
     public Animator playerAni;
+    [HideInInspector]
     public Animator enemyAni;
+    [HideInInspector]
     public PlayerController playerController;
+    [HideInInspector]
     public EnemyController enemyContorller;
     [Header("战斗数据")]
+    [HideInInspector]
     public float attackTime=0;
+    [HideInInspector]
     public float recodeTime = 0;
+    [HideInInspector]
     public int enemyAttackNums=0;
+    [HideInInspector]
     public bool canAttack = true;
+    [HideInInspector]
     public bool canChange = true;
-    public GameObject[] enemyAttackDir;
+    [Header("音符数据")]
+    public GameObject[] alphas;
+    public float[] normalAlphas;
+    public float[] bestAlphas;
+    public float speed;
     private void Start()
     {
         JudgeAttackSpeed();
@@ -29,30 +44,19 @@ public class FightManager : Singleton<FightManager>
             case PlayerStats.Attack:
                 break;
             case PlayerStats.Defence:
-                EnemyAttack();
+                Enemy_Attack();
                 break;
             default: break;
         }
     }
-    void EnemyAttack()
+    void Enemy_Attack()
     {
-        if (enemyAttackNums>0 && canAttack)
+        if(canAttack&&enemyAttackNums>0)
         {
-            enemyAni.SetTrigger("Attack");
+            int temp_alpha = Random.Range(0, 5);
+            alphas[temp_alpha].SetActive(true);
             canAttack = false;
-            int temp = Random.Range(0, 6);
-            ClearDir();
-            enemyAttackDir[temp].SetActive(true);
-            enemyAttackDir[temp].GetComponent<EnemyAttackDir>().AttackTime = enemyData.攻击速度;
             enemyAttackNums--;
-        }
-        if (enemyAttackNums <= 0 && canChange&&canAttack) { ChangeAllStates(); }
-    }
-    public void ClearDir()
-    {
-        foreach (var dir in enemyAttackDir)
-        {
-            dir.SetActive(false);
         }
     }
     void JudgeAttackSpeed()
