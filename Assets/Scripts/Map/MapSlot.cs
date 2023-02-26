@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class MapSlot : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
 {
-
+    public GameObject tipUI;
     public GameObject HighlightObject;
     // Start is called before the first frame update
     void Start()
