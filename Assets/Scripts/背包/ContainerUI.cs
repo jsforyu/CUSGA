@@ -46,6 +46,5 @@ public  class ContainerUI : MonoBehaviour
             slotHolders.Add(slotholder.GetComponent<SlotHolder>());
             
         }
-        Debug.Log("初始化格子");
     }
 }
