@@ -1,3 +1,4 @@
+using OpenCover.Framework.Model;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
@@ -24,7 +25,7 @@ public class BasicController : MonoBehaviour
     {
         if(transform.position!=pos)
         transform.position = pos;
-    }
+    }   
     public void SetAnimatorSpeed(int _layer, string _stateName, float _speed)
     {
         for (int i = 0; i < animController.layers[_layer].stateMachine.states.Length; i++)
