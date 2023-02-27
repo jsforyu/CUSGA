@@ -11,18 +11,21 @@ public class ItemUI : MonoBehaviour
     public Text amount = null;
     public InventoryData_SO Bag;
     public int Index;
+
     public void SetupItemUI(ItemData_SO item,int itemAmount)  
     {
         if (item == null)
         {
             Bag.items[Index].ItemData = null;
             icon.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
             return;
         }
         if(itemAmount==0)
         {
             Bag.items[Index].ItemData = null;
             icon.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
             return;
         }
         if(item!=null)
