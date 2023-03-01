@@ -13,10 +13,11 @@ public class CharacterData_SO : ScriptableObject
     public int 敏捷;
     public int 反应;
     public int 剩余属性点;
-    public int 生命值
+    public int 最大生命值
     {
         get { return 50 + 体质 * 3; }
     }
+    public int 当前生命值;
     public int 攻击力
     {
         get { return (int)(8 + 体质 * 0.1 + 力量 * 0.8 + 敏捷 * 0.1); }
@@ -41,4 +42,6 @@ public class CharacterData_SO : ScriptableObject
     {
         return (float)(0.5 * (enemy.反应 + enemy.敏捷 * 0.6 - player.敏捷 * 0.4 - player.反应 * 0.2));
     }
+    public float 当前架势条;
+    public float 最大架势条;
 }
