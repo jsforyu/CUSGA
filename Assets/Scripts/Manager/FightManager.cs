@@ -63,6 +63,8 @@ public class FightManager : Singleton<FightManager>
     {
         if (playerData.攻击速度 <= enemyData.攻击速度) { playerController.playerStats = PlayerStats.Attack;  }
         else { enemyContorller.enemyStats = EnemyStats.Attack; enemyAttackNums = enemyData.挥刀次数; }
+        playerData.当前架势条 = 0;
+        enemyData.当前架势条 = 0;
     }
     void ChangeAllStates()
     {
