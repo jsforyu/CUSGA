@@ -5,10 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-public class MapSlot : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
+public class MapSlot : MonoBehaviour
 {
     public GameObject tipUI;
     public GameObject HighlightObject;
+    bool isstay;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,18 +26,14 @@ public class MapSlot : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
     {
        
     }
-
-    public void OnPointerEnter(PointerEventData eventData)
+    private void OnMouseEnter()
     {
-            HighlightObject.SetActive(true);
-        
+        this.transform.localScale = new Vector3(2, 2, 1);
+
     }
-
-    public void OnPointerExit(PointerEventData eventData)
+    private void OnMouseExit()
     {
+        this.transform.localScale = new Vector3(1, 1, 1);
 
-            HighlightObject.SetActive(false);
-
-       
     }
 }
