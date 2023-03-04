@@ -20,7 +20,7 @@ public class EnemyAttackDir : MonoBehaviour
         {
             //TODO:扣血
             gameObject.SetActive(false);
-            Debug.Log("a");
+            Debug.Log("未成功按键");
         }
         transform.Translate(Vector3.right * FightManager.Instance.speed * Time.deltaTime);
         if (Input.GetKeyDown(KeyCode.A)|| Input.GetKeyDown(KeyCode.S)|| Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.X))
@@ -33,11 +33,13 @@ public class EnemyAttackDir : MonoBehaviour
                     if (FightManager.Instance.bestAlphas[0] < transform.localPosition.x && transform.localPosition.x < FightManager.Instance.bestAlphas[1])
                     {
                         //TODO:少量增加主角架势条，增加敌人架势条
+                        FightManager.Instance.PlayerPerfectBlock();
                         Debug.Log("完美按键");
                     }
                     else
                     {
                         //TODO:增加主角架势条
+                        FightManager.Instance.PlayerNormalBlock();
                         Debug.Log("普通按键");
                     }
                     this.gameObject.SetActive(false);
@@ -45,6 +47,7 @@ public class EnemyAttackDir : MonoBehaviour
                 else
                 {
                     //TODO:扣血 增加架势条
+                    FightManager.Instance.PlayerNoBlock();
                     Debug.Log("按键偏差过大");
                     gameObject.SetActive(false);
                 }
@@ -52,6 +55,7 @@ public class EnemyAttackDir : MonoBehaviour
             else
             {
                 //TODO:扣血 增加架势条
+                FightManager.Instance.PlayerNoBlock();
                 Debug.Log("按键不符合");
                 gameObject.SetActive(false);
             }
