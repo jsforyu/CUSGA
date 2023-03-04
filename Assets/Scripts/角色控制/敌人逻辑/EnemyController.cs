@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 
 public class EnemyController : BasicController
@@ -11,7 +12,7 @@ public class EnemyController : BasicController
     {
         base.Awake();
         characterData = Instantiate(tempData);
-        characterData.敏捷 = 10;
+        characterData.当前生命值 = characterData.最大生命值;
         //SetAnimatorSpeed(0, "Enemy_Attack", 1 / characterData.攻击速度);
         //SetAnimatorSpeed(0, "Enemy_Defence", 1 / characterData.攻击速度);
     }
