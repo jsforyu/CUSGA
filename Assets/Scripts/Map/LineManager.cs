@@ -19,7 +19,10 @@ public class LineManager : MonoBehaviour
     void Start()
     {
          
-            
+            for(int i = 0; i < Lines.Count; i++)
+        {
+            Debug.Log("第一个slot" + Lines[i].slot1.index + "第二个slot" + Lines[i].slot2.index);
+        }
     }
 
     // Update is called once per frame

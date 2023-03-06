@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using PathCreation;
 public class PlayerInMap : MonoBehaviour
 {
     public int mapindex;//当前所在的地图节点
@@ -10,6 +10,7 @@ public class PlayerInMap : MonoBehaviour
     public bool ismove;
     public float speed;
     public int currentindex;
+    public PathCreator pathcreater;
     Queue<Vector3> potion = new Queue<Vector3>();
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class PlayerInMap : MonoBehaviour
         OnMove();
     }
 
-    public void OnMove()
+    public void OnMove()//相邻点的移动
     {
         LineRenderer linere = LineManager.Instance.Lines[LineManager.Instance.lineindex].GetComponent<LineRenderer>();
         if (ismove&&this.transform.position!=tomapslot.transform.position)
