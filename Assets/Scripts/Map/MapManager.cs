@@ -5,7 +5,7 @@ using UnityEngine;
 public class MapManager : MonoBehaviour
 {
 
-    public List<MapSlot> Mapslots=new List<MapSlot>();
+    public List<MapSlot> Mapslots=new List<MapSlot>();//顶点的集合
     void Start()
     {
         
