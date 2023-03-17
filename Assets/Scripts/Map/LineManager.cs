@@ -6,8 +6,10 @@ public class LineManager : MonoBehaviour
 {
 
     public List<Line> Lines;//边的集合
+    public Line[] lines;//每一个index对应一条线
     public static LineManager Instance;
     public int lineindex;//选中的线的编号
+    public List<Line> linepoints;//选中的路线
     private void Awake()
     {
         if (Instance == null)
