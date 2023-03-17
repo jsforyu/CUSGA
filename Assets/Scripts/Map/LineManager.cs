@@ -5,7 +5,7 @@ using UnityEngine;
 public class LineManager : MonoBehaviour
 {
 
-    public List<Line> Lines;
+    public List<Line> Lines;//边的集合
     public static LineManager Instance;
     public int lineindex;//选中的线的编号
     private void Awake()
