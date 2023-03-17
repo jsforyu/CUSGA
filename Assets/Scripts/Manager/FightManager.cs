@@ -77,6 +77,7 @@ public class FightManager : Singleton<FightManager>
     }
     void Enemy_Attack()
     {
+        enemyAni.SetTrigger("Attack");
         if (canAttack && enemyAttackNums > 0)
         {
             int temp_alpha = Random.Range(0, 5);

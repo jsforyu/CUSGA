@@ -24,7 +24,9 @@ public class BasicController : MonoBehaviour
     public void ReturnToAttackPos(Vector3 pos)
     {
         if(transform.position!=pos)
-        transform.position = pos;
+        {
+            transform.position = pos;
+        }
     }   
     public void SetAnimatorSpeed(int _layer, string _stateName, float _speed)
     {
