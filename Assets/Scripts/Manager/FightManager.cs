@@ -43,6 +43,9 @@ public class FightManager : Singleton<FightManager>
     public float[] normalAlphas;
     public float[] bestAlphas;
     public float speed;
+    [Header("架势条")]
+    public GameObject rip;
+    public float ripSpeed;
     private void Start()
     {
         JudgeAttackSpeed();
@@ -77,6 +80,7 @@ public class FightManager : Singleton<FightManager>
     }
     void Enemy_Attack()
     {
+        enemyAni.SetTrigger("Attack");
         if (canAttack && enemyAttackNums > 0)
         {
             int temp_alpha = Random.Range(0, 5);
@@ -114,11 +118,18 @@ public class FightManager : Singleton<FightManager>
     }
     #endregion
     #region------架势条系统------
+    public void JudgeAnger()
+    {
+        JudgeEnemyAnger();
+        JudgePlayerAnger(); 
+    }
     public void JudgeEnemyAnger()
     {
         if(enemyData.当前架势条>=enemyData.最大架势条)
         {
             Time.timeScale = 0;
+            rip.SetActive(true);
+            enemyData.当前架势条 = 0;
         }
     }
     public void JudgePlayerAnger()

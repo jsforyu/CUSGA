@@ -23,42 +23,31 @@ public class EnemyAttackDir : MonoBehaviour
             Debug.Log("未成功按键");
         }
         transform.Translate(Vector3.right * FightManager.Instance.speed * Time.deltaTime);
-        if (Input.GetKeyDown(KeyCode.A)|| Input.GetKeyDown(KeyCode.S)|| Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(key))
         {
-            if (Input.GetKeyDown(key))
+            if (transform.localPosition.x > FightManager.Instance.normalAlphas[0] && transform.localPosition.x < FightManager.Instance.normalAlphas[1])
             {
-                if (transform.localPosition.x > FightManager.Instance.normalAlphas[0] && transform.localPosition.x < FightManager.Instance.normalAlphas[1])
+                FightManager.Instance.playerAni.SetTrigger("Defence");
+                if (FightManager.Instance.bestAlphas[0] < transform.localPosition.x && transform.localPosition.x < FightManager.Instance.bestAlphas[1])
                 {
-                    FightManager.Instance.playerAni.SetTrigger("Defence");
-                    if (FightManager.Instance.bestAlphas[0] < transform.localPosition.x && transform.localPosition.x < FightManager.Instance.bestAlphas[1])
-                    {
-                        //TODO:少量增加主角架势条，增加敌人架势条
-                        FightManager.Instance.PlayerPerfectBlock();
-                        Debug.Log("完美按键");
-                    }
-                    else
-                    {
-                        //TODO:增加主角架势条
-                        FightManager.Instance.PlayerNormalBlock();
-                        Debug.Log("普通按键");
-                    }
-                    this.gameObject.SetActive(false);
+                    FightManager.Instance.PlayerPerfectBlock();
                 }
                 else
                 {
-                    //TODO:扣血 增加架势条
-                    FightManager.Instance.PlayerNoBlock();
-                    Debug.Log("按键偏差过大");
-                    gameObject.SetActive(false);
+                    FightManager.Instance.PlayerNormalBlock();
                 }
+                this.gameObject.SetActive(false);
             }
             else
             {
-                //TODO:扣血 增加架势条
                 FightManager.Instance.PlayerNoBlock();
-                Debug.Log("按键不符合");
                 gameObject.SetActive(false);
             }
+        }
+        else
+        {
+            FightManager.Instance.PlayerNoBlock();
+            gameObject.SetActive(false);
         }
     }
     private void OnEnable()
