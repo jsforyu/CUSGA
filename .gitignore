@@ -60,3 +60,9 @@ crashlytics-build.properties
 
 UserSettings/EditorUserSettings.asset
 UserSettings/Layouts/default-2021.dwlt
+*.cs
+*.cs
+*.meta
+*.cs
+*.cs
+*.unity
