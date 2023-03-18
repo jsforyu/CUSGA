@@ -11,6 +11,7 @@ public class PlayerInMap : MonoBehaviour
     public int currentindex;
     int onfirst;
     Line online;
+    Animator an;
     private void Awake()
     {
         if (Instance == null)
@@ -22,12 +23,20 @@ public class PlayerInMap : MonoBehaviour
     void Start()
     {
         currentindex = 0;
+        an = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        if (!ismove)
+        {
+            an.SetBool("walking", false);
+        }
+        else
+        {
+            an.SetBool("walking", true);
+        }
     }
 
     public void OnMove(Line line, int next)//相邻点的移动，所有的slot1坐标都比slot2小
@@ -44,13 +53,15 @@ public class PlayerInMap : MonoBehaviour
         { 
             tomapslot = line.slot2;
             StartCoroutine(ToMove(tomapslot, linere, next));
-        }     
+        }
+        tomapslot.SlotFunction();
     }
     public void Move(Line line, int next)
     {
         ismove = true;
         online = line;
         onfirst = next;
+        an.SetBool("walking", true);
         OnMove(online, onfirst);
     }
     IEnumerator ToMove(MapSlot tomapslot, LineRenderer linere,int next)
@@ -70,7 +81,6 @@ public class PlayerInMap : MonoBehaviour
                 yield return IE_MoveToTarget(linere.GetPosition(currentindex) + linere.transform.localPosition + linere.transform.parent.position);
                 currentindex++;
             }
-
         }
         ismove = false;
         yield return null;

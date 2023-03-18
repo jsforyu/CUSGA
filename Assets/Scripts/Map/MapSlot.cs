@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-
+public enum MapSlotType
+{
+    City,
+    Village,
+    Outside
+}
 public class MapSlot : MonoBehaviour
 {
     public GameObject tipUI;
+    public MapSlotType Maptype;
     public int index;//½áµã±àºÅ
-    bool isstay;
+    bool isstay; 
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +34,7 @@ public class MapSlot : MonoBehaviour
             isstay = false;
         }
     }
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
         isstay = true;
         this.transform.localScale = new Vector3(2, 2, 1);
@@ -39,7 +46,7 @@ public class MapSlot : MonoBehaviour
         this.transform.localScale = new Vector3(1, 1, 1);
     }
 
-    void SlotFunction()
+    public void SlotFunction()
     {
 
     }
