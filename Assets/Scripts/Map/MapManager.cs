@@ -42,7 +42,7 @@ public class MapManager : MonoBehaviour
             List<int> slotindex = new List<int>();
             Slotslist.Add(i, slotindex);
         }
-        for(int i = 0; i < LineManager.Instance.Lines.Count; i++)
+        for(int i = 1; i < LineManager.Instance.Lines.Length; i++)
         {
             Slotslist[LineManager.Instance.Lines[i].slot1.index ].Add(LineManager.Instance.Lines[i].slot2.index);
             Slotslist[LineManager.Instance.Lines[i].slot2.index].Add(LineManager.Instance.Lines[i].slot1.index);

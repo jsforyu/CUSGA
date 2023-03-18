@@ -70,7 +70,7 @@ public class MapSlot : MonoBehaviour
 
     Line FindLine(int first,int next)
     {
-       for(int i=0;i < LineManager.Instance.Lines.Count; i++)
+       for(int i=1;i < LineManager.Instance.Lines.Length; i++)
         {
             if ((LineManager.Instance.Lines[i].slot1.index == first && LineManager.Instance.Lines[i].slot2.index == next)
                  || (LineManager.Instance.Lines[i].slot1.index == next && LineManager.Instance.Lines[i].slot2.index == first))
