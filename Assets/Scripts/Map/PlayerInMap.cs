@@ -47,11 +47,19 @@ public class PlayerInMap : MonoBehaviour
         if (line.slot1.index == next)
         {
             tomapslot = line.slot1;
+            if (transform.localScale.x > 0&&tomapslot.transform.position.x<transform.position.x)
+            {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            }
             StartCoroutine(BackMove(tomapslot, linere, next));
         }
         else
         { 
             tomapslot = line.slot2;
+            if (transform.localScale.x < 0 && tomapslot.transform.position.x > transform.position.x)
+            {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            }
             StartCoroutine(ToMove(tomapslot, linere, next));
         }
         tomapslot.SlotFunction();
@@ -122,6 +130,15 @@ public class PlayerInMap : MonoBehaviour
             transform.position = nextStep;
             //Debug.Log(nextStep + ":" + target);
             yield return null;
+        }
+    }
+
+
+    void TurnPlyaer()
+    {
+        if (transform.localScale.x > 0)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
     }
 }

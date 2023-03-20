@@ -373,6 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 10
 --- !u!61 &102098970
 BoxCollider2D:
@@ -607,6 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 2
 --- !u!212 &217662733
 SpriteRenderer:
@@ -686,7 +688,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242354768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1265,6 +1267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 2
 --- !u!61 &419893254
 BoxCollider2D:
@@ -1391,6 +1394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 7
 --- !u!61 &435665955
 BoxCollider2D:
@@ -1754,7 +1758,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &485434492
 Transform:
   m_ObjectHideFlags: 0
@@ -1762,8 +1766,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485434490}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.17, y: 10.21, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.265, y: 8.53, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1906,6 +1910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 19
 --- !u!61 &522090294
 BoxCollider2D:
@@ -2032,6 +2037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 15
 --- !u!61 &543696227
 BoxCollider2D:
@@ -2158,6 +2164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 12
 --- !u!61 &550959591
 BoxCollider2D:
@@ -2435,6 +2442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 14
 --- !u!61 &596411770
 BoxCollider2D:
@@ -2560,6 +2568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 0
 --- !u!1 &664667941
 GameObject:
@@ -2725,6 +2734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 4
 --- !u!212 &720937196
 SpriteRenderer:
@@ -2965,6 +2975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 6
 --- !u!61 &814457459
 BoxCollider2D:
@@ -3851,6 +3862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 20
 --- !u!61 &954712119
 BoxCollider2D:
@@ -4204,6 +4216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 1
 --- !u!212 &1052845281
 SpriteRenderer:
@@ -4466,6 +4479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 11
 --- !u!61 &1098216063
 BoxCollider2D:
@@ -4746,6 +4760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 17
 --- !u!61 &1254349633
 BoxCollider2D:
@@ -4872,6 +4887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 16
 --- !u!61 &1277389842
 BoxCollider2D:
@@ -5229,6 +5245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 4
 --- !u!61 &1346438510
 BoxCollider2D:
@@ -5587,6 +5604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 3
 --- !u!61 &1527367268
 BoxCollider2D:
@@ -5931,6 +5949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 18
 --- !u!61 &1690102651
 BoxCollider2D:
@@ -6057,6 +6076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 9
 --- !u!61 &1693780529
 BoxCollider2D:
@@ -6621,6 +6641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 6
 --- !u!212 &1835949539
 SpriteRenderer:
@@ -6889,7 +6910,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928370645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.49, y: 10.21, z: -10}
+  m_LocalPosition: {x: 25.585, y: 8.53, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7163,6 +7184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 8
 --- !u!61 &1945894581
 BoxCollider2D:
@@ -7442,6 +7464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 3
 --- !u!61 &1953647677
 BoxCollider2D:
@@ -7718,6 +7741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 13
 --- !u!61 &2009249805
 BoxCollider2D:
@@ -7823,7 +7847,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022911233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.513658, y: 1.875, z: -10}
+  m_LocalPosition: {x: 8.590654, y: 1.875, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7937,6 +7961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 0
 --- !u!212 &2029038884
 SpriteRenderer:
@@ -8215,6 +8240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 5
 --- !u!212 &2079119753
 SpriteRenderer:
@@ -8367,6 +8393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 5
 --- !u!61 &2095280693
 BoxCollider2D:
@@ -8493,6 +8520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 1
 --- !u!61 &2115148781
 BoxCollider2D:
