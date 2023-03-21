@@ -5,9 +5,10 @@ using UnityEngine;
 public class LineManager : MonoBehaviour
 {
 
-    public List<Line> Lines;//边的集合
+    public Line[] Lines;//每一个index对应一条线
     public static LineManager Instance;
     public int lineindex;//选中的线的编号
+    public List<Line> linepoints;//选中的路线
     private void Awake()
     {
         if (Instance == null)
@@ -19,7 +20,7 @@ public class LineManager : MonoBehaviour
     void Start()
     {
          
-            for(int i = 0; i < Lines.Count; i++)
+            for(int i = 1; i < Lines.Length; i++)
         {
             Debug.Log("第一个slot" + Lines[i].slot1.index + "第二个slot" + Lines[i].slot2.index);
         }
