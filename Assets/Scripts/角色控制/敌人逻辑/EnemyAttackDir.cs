@@ -23,31 +23,35 @@ public class EnemyAttackDir : MonoBehaviour
             Debug.Log("Î´³É¹¦°´¼ü");
         }
         transform.Translate(Vector3.right * FightManager.Instance.speed * Time.deltaTime);
-        if (Input.GetKeyDown(key))
+        if (Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.S)|| Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.X))
         {
-            if (transform.localPosition.x > FightManager.Instance.normalAlphas[0] && transform.localPosition.x < FightManager.Instance.normalAlphas[1])
+            if (Input.GetKeyDown(key))
             {
-                FightManager.Instance.playerAni.SetTrigger("Defence");
-                if (FightManager.Instance.bestAlphas[0] < transform.localPosition.x && transform.localPosition.x < FightManager.Instance.bestAlphas[1])
+                if (transform.localPosition.x > FightManager.Instance.normalAlphas[0] && transform.localPosition.x < FightManager.Instance.normalAlphas[1])
                 {
-                    FightManager.Instance.PlayerPerfectBlock();
+                    FightManager.Instance.playerAni.SetTrigger("Defence");
+                    if (FightManager.Instance.bestAlphas[0] < transform.localPosition.x && transform.localPosition.x < FightManager.Instance.bestAlphas[1])
+                    {
+                        FightManager.Instance.PlayerPerfectBlock();
+                    }
+                    else
+                    {
+                        FightManager.Instance.PlayerNormalBlock();
+                    }
+                    this.gameObject.SetActive(false);
                 }
+
                 else
                 {
-                    FightManager.Instance.PlayerNormalBlock();
+                    FightManager.Instance.PlayerNoBlock();
+                    gameObject.SetActive(false);
                 }
-                this.gameObject.SetActive(false);
             }
             else
             {
                 FightManager.Instance.PlayerNoBlock();
                 gameObject.SetActive(false);
             }
-        }
-        else
-        {
-            FightManager.Instance.PlayerNoBlock();
-            gameObject.SetActive(false);
         }
     }
     private void OnEnable()
