@@ -26,10 +26,9 @@ public class MapSlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isstay && Input.GetMouseButtonDown(0)&&!PlayerInMap.Instance.ismove)
+        if (isstay && Input.GetMouseButtonDown(0) && !PlayerInMap.Instance.ismove)
         {
             Debug.Log("开始一次寻路");
-
             StartCoroutine(FindSlot());//使用协程
             isstay = false;
         }
@@ -38,12 +37,14 @@ public class MapSlot : MonoBehaviour
     {
         isstay = true;
         this.transform.localScale = new Vector3(2, 2, 1);
+        Debug.Log("触碰到了");
 
     }
     private void OnMouseExit()
     {
         isstay = false;
         this.transform.localScale = new Vector3(1, 1, 1);
+        Debug.Log("退出");
     }
 
     public void SlotFunction()
@@ -53,7 +54,7 @@ public class MapSlot : MonoBehaviour
     IEnumerator FindSlot()
     {
         FindSlotFir();
-        List<int> realwaypoints=new List<int>();
+        List<int> realwaypoints = new List<int>();
         int first = index;//逆序找路径
         while (first != PlayerInMap.Instance.mapindex)
         {
