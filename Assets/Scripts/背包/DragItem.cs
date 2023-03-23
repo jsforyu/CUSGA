@@ -42,10 +42,18 @@ public class DragItem : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
             {
                 //判断鼠标进入的格子里是否有物品
                 Debug.Log("开始判断");
+                Debug.Log("结果" + eventData.pointerEnter.gameObject.GetComponent<SlotHolder>());
                 if (eventData.pointerEnter.gameObject.GetComponent<SlotHolder>())
+                {
                     targetHolder = eventData.pointerEnter.gameObject.GetComponent<SlotHolder>();
-                   else
-                   targetHolder = eventData.pointerEnter.gameObject.GetComponentInParent<SlotHolder>();
+                    Debug.Log("hh"+targetHolder.itemUI.Index);
+                }
+                else
+                { 
+                    targetHolder = eventData.pointerEnter.gameObject.GetComponentInParent<SlotHolder>();
+                    Debug.Log("yy"+targetHolder.itemUI.Index);
+                
+                }
                     switch (targetHolder.slotType)
                 {
                     case SlotType.BAG:
@@ -77,6 +85,15 @@ public class DragItem : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
         var targetItem = targetHolder.itemUI.Bag.items[targetHolder.itemUI.Index];
         var tempItem = currentHolder.itemUI.Bag.items[currentHolder.itemUI.Index];
         //判断是不是同一个物品
+        if(targetHolder.itemUI.Index== currentHolder.itemUI.Index)
+        {
+            //是同一个格子
+            transform.SetParent(InventoryManager.currentDrag.originalParent);
+            RectTransform t = transform as RectTransform;
+            t.offsetMax = -Vector2.one * 5;
+            t.offsetMin = Vector2.one * 5;
+            return;
+        }
             bool isSameItem = tempItem.ItemData == targetItem.ItemData; 
         if (isSameItem && targetItem.ItemData.stackable)  //是同一道具则将数量加1
         {
