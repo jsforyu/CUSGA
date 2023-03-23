@@ -17,7 +17,6 @@ public class CharacterData_SO : ScriptableObject
     {
         get { return 50 + 体质 * 3; }
     }
-    [HideInInspector]
     public float 当前生命值;
     public int 攻击力
     {
