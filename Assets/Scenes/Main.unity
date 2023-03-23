@@ -272,8 +272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 15
-  slot1: {fileID: 2009249804}
-  slot2: {fileID: 596411769}
+  slot1: {fileID: 596411769}
+  slot2: {fileID: 2009249804}
 --- !u!1 &102098966
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,9 +286,9 @@ GameObject:
   - component: {fileID: 102098968}
   - component: {fileID: 102098969}
   - component: {fileID: 102098970}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (9)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,6 +375,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 10
+  isstay: 0
 --- !u!61 &102098970
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -690,6 +691,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 2
+  isstay: 0
 --- !u!212 &217662733
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1457,9 +1459,9 @@ GameObject:
   - component: {fileID: 419893252}
   - component: {fileID: 419893253}
   - component: {fileID: 419893254}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (1)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1546,6 +1548,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 2
+  isstay: 0
 --- !u!61 &419893254
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1660,9 +1663,9 @@ GameObject:
   - component: {fileID: 435665953}
   - component: {fileID: 435665954}
   - component: {fileID: 435665955}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (6)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1749,6 +1752,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 7
+  isstay: 0
 --- !u!61 &435665955
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2121,7 +2125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485434490}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.265, y: 8.53, z: 0}
+  m_LocalPosition: {x: -14.8, y: 9.1, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2160,10 +2164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9ede9a1ca91ef46a8825365174748c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapindex: 18
+  mapindex: 12
   curretnmapslot: {fileID: 0}
   ismove: 0
-  speed: 2
+  speed: 5
   currentindex: 0
 --- !u!82 &485434495
 AudioSource:
@@ -2273,9 +2277,9 @@ GameObject:
   - component: {fileID: 522090292}
   - component: {fileID: 522090293}
   - component: {fileID: 522090294}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (18)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2362,6 +2366,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 19
+  isstay: 0
 --- !u!61 &522090294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2400,9 +2405,9 @@ GameObject:
   - component: {fileID: 543696225}
   - component: {fileID: 543696226}
   - component: {fileID: 543696227}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (14)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2489,6 +2494,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 15
+  isstay: 0
 --- !u!61 &543696227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2527,9 +2533,9 @@ GameObject:
   - component: {fileID: 550959589}
   - component: {fileID: 550959590}
   - component: {fileID: 550959591}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (11)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2616,6 +2622,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 12
+  isstay: 0
 --- !u!61 &550959591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2805,9 +2812,9 @@ GameObject:
   - component: {fileID: 596411768}
   - component: {fileID: 596411769}
   - component: {fileID: 596411770}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (13)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2894,6 +2901,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 14
+  isstay: 0
 --- !u!61 &596411770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3020,6 +3028,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 0
+  isstay: 0
 --- !u!1 &659188688
 GameObject:
   m_ObjectHideFlags: 0
@@ -3313,6 +3322,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 4
+  isstay: 0
 --- !u!212 &720937196
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3541,9 +3551,9 @@ GameObject:
   - component: {fileID: 814457457}
   - component: {fileID: 814457458}
   - component: {fileID: 814457459}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (5)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3630,6 +3640,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 6
+  isstay: 0
 --- !u!61 &814457459
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4428,9 +4439,9 @@ GameObject:
   - component: {fileID: 954712117}
   - component: {fileID: 954712118}
   - component: {fileID: 954712119}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (19)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4517,6 +4528,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 20
+  isstay: 0
 --- !u!61 &954712119
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4951,6 +4963,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 1
+  isstay: 0
 --- !u!212 &1052845281
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5125,9 +5138,9 @@ GameObject:
   - component: {fileID: 1098216061}
   - component: {fileID: 1098216062}
   - component: {fileID: 1098216063}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (10)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5214,6 +5227,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 11
+  isstay: 0
 --- !u!61 &1098216063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5406,9 +5420,9 @@ GameObject:
   - component: {fileID: 1254349631}
   - component: {fileID: 1254349632}
   - component: {fileID: 1254349633}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (16)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5495,6 +5509,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 17
+  isstay: 0
 --- !u!61 &1254349633
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5609,9 +5624,9 @@ GameObject:
   - component: {fileID: 1277389840}
   - component: {fileID: 1277389841}
   - component: {fileID: 1277389842}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (15)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5698,6 +5713,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 16
+  isstay: 0
 --- !u!61 &1277389842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5967,9 +5983,9 @@ GameObject:
   - component: {fileID: 1346438508}
   - component: {fileID: 1346438509}
   - component: {fileID: 1346438510}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (3)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6056,6 +6072,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 4
+  isstay: 0
 --- !u!61 &1346438510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6453,6 +6470,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 3
+  isstay: 0
 --- !u!61 &1527367268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7012,8 +7030,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 16
-  slot1: {fileID: 596411769}
-  slot2: {fileID: 814457458}
+  slot1: {fileID: 814457458}
+  slot2: {fileID: 596411769}
 --- !u!1 &1662219150
 GameObject:
   m_ObjectHideFlags: 0
@@ -7185,9 +7203,9 @@ GameObject:
   - component: {fileID: 1690102649}
   - component: {fileID: 1690102650}
   - component: {fileID: 1690102651}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (17)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7274,6 +7292,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 18
+  isstay: 0
 --- !u!61 &1690102651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7312,9 +7331,9 @@ GameObject:
   - component: {fileID: 1693780527}
   - component: {fileID: 1693780528}
   - component: {fileID: 1693780529}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (8)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7401,6 +7420,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 9
+  isstay: 0
 --- !u!61 &1693780529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7506,7 +7526,7 @@ GameObject:
   - component: {fileID: 1765342498}
   - component: {fileID: 1765342497}
   - component: {fileID: 1765342500}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: "\u5730\u56FE\u5E95\u56FE"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8033,6 +8053,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 6
+  isstay: 0
 --- !u!212 &1835949539
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8300,7 +8321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928370645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.585, y: 8.53, z: -10}
+  m_LocalPosition: {x: -14.4800005, y: 9.1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8621,9 +8642,9 @@ GameObject:
   - component: {fileID: 1945894579}
   - component: {fileID: 1945894580}
   - component: {fileID: 1945894581}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (7)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8710,6 +8731,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 8
+  isstay: 0
 --- !u!61 &1945894581
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8901,9 +8923,9 @@ GameObject:
   - component: {fileID: 1953647675}
   - component: {fileID: 1953647676}
   - component: {fileID: 1953647677}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (2)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8990,6 +9012,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 3
+  isstay: 0
 --- !u!61 &1953647677
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9164,8 +9187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 14
-  slot1: {fileID: 550959590}
-  slot2: {fileID: 2009249804}
+  slot1: {fileID: 2009249804}
+  slot2: {fileID: 550959590}
 --- !u!1 &2009249801
 GameObject:
   m_ObjectHideFlags: 0
@@ -9178,9 +9201,9 @@ GameObject:
   - component: {fileID: 2009249803}
   - component: {fileID: 2009249804}
   - component: {fileID: 2009249805}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (12)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9267,6 +9290,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 13
+  isstay: 0
 --- !u!61 &2009249805
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9371,7 +9395,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022911233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.2196426, y: 1.875, z: -10}
+  m_LocalPosition: {x: -14.444445, y: 1.875, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9487,6 +9511,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 0
+  isstay: 0
 --- !u!212 &2029038884
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9766,6 +9791,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 5
+  isstay: 0
 --- !u!212 &2079119753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9830,9 +9856,9 @@ GameObject:
   - component: {fileID: 2095280691}
   - component: {fileID: 2095280692}
   - component: {fileID: 2095280693}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9 (4)"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9919,6 +9945,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 5
+  isstay: 0
 --- !u!61 &2095280693
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9957,9 +9984,9 @@ GameObject:
   - component: {fileID: 2115148779}
   - component: {fileID: 2115148780}
   - component: {fileID: 2115148781}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u8282\u70B9"
-  m_TagString: Untagged
+  m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10046,6 +10073,7 @@ MonoBehaviour:
   tipUI: {fileID: 0}
   Maptype: 0
   index: 1
+  isstay: 0
 --- !u!61 &2115148781
 BoxCollider2D:
   m_ObjectHideFlags: 0

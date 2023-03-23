@@ -10,6 +10,7 @@ public class MapManager : MonoBehaviour
     public int[] waypoints;
     public static MapManager instance;
     public int slotnumber;
+    
     private void Awake()
     {
         if (instance == null)
@@ -31,7 +32,7 @@ public class MapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     void CreatList()//根据路线创建邻接表

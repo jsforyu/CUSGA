@@ -16,7 +16,8 @@ public class MapSlot : MonoBehaviour
     public GameObject tipUI;
     public MapSlotType Maptype;
     public int index;//结点编号
-    bool isstay; 
+    public bool isstay;
+    bool ischose;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class MapSlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (isstay && Input.GetMouseButtonDown(0)&&!PlayerInMap.Instance.ismove)
         {
             Debug.Log("开始一次寻路");
@@ -33,21 +35,23 @@ public class MapSlot : MonoBehaviour
             StartCoroutine(FindSlot());//使用协程
             isstay = false;
         }
+       
     }
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
-        isstay = true;
         this.transform.localScale = new Vector3(2, 2, 1);
-
+        isstay = true;
     }
-    private void OnMouseExit()
+    public void OnMouseExit()
     {
-        isstay = false;
         this.transform.localScale = new Vector3(1, 1, 1);
+        isstay = false;
     }
 
     public void SlotFunction()
     {
+
+
 
     }
     IEnumerator FindSlot()
