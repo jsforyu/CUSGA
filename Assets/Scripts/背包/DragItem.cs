@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 [RequireComponent(typeof(ItemUI))]
 public class DragItem : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler
 {
@@ -10,6 +12,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
     SlotHolder currentHolder; //当前格子
     SlotHolder targetHolder;  //目标格子
     Transform drag;
+    Transform imageui;
     void Awake()
     {
         currentItemUI = GetComponent<ItemUI>();
@@ -21,6 +24,10 @@ public class DragItem : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
         InventoryManager.currentDrag = new InventoryManager.DragData();
         InventoryManager.currentDrag.originalHolder = GetComponentInParent<SlotHolder>();
         InventoryManager.currentDrag.originalParent = (RectTransform)transform.parent;
+        imageui = transform.GetChild(0);
+        imageui.GetComponent<Image>().raycastTarget = false;//不再检测
+        transform.SetParent(transform.parent.parent);
+
         //记录原始数据 回到原来的格子里
         //transform.SetParent(drag, true);
     }
@@ -45,6 +52,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
                 Debug.Log("结果" + eventData.pointerEnter.gameObject.GetComponent<SlotHolder>());
                 if (eventData.pointerEnter.gameObject.GetComponent<SlotHolder>())
                 {
+                    //没有物体
                     targetHolder = eventData.pointerEnter.gameObject.GetComponent<SlotHolder>();
                     Debug.Log("hh"+targetHolder.itemUI.Index);
                 }
@@ -78,12 +86,15 @@ public class DragItem : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
         RectTransform t = transform as RectTransform;
         t.offsetMax = -Vector2.one * 5;
         t.offsetMin = Vector2.one * 5;
+        imageui = transform.GetChild(0);
+        imageui.GetComponent<Image>().raycastTarget =true;//再检测
     }
 
     public void SwapItem()   //拖拽到另一个格子时判断
     {
         var targetItem = targetHolder.itemUI.Bag.items[targetHolder.itemUI.Index];
         var tempItem = currentHolder.itemUI.Bag.items[currentHolder.itemUI.Index];
+        Debug.Log(targetItem.ItemData);
         //判断是不是同一个物品
         if(targetHolder.itemUI.Index== currentHolder.itemUI.Index)
         {
@@ -97,9 +108,12 @@ public class DragItem : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
             bool isSameItem = tempItem.ItemData == targetItem.ItemData; 
         if (isSameItem && targetItem.ItemData.stackable)  //是同一道具则将数量加1
         {
-            targetItem.amount += tempItem.amount;
+            targetItem.ItemData.itemAmount += tempItem.ItemData.itemAmount;//加物体中的
+            targetItem.amount = targetItem.ItemData.itemAmount;
+            tempItem.ItemData.itemAmount = 0; //改物体中的
             tempItem.ItemData = null;
             tempItem.amount = 0;
+            
         }
         else  //否则摧毁
         {
