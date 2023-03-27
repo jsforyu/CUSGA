@@ -39,6 +39,7 @@ public class OptionUI : MonoBehaviour
                 else
                 {
                     QuestManager.Instance.tasks.Add(newTask);
+                    QuestManager.Instance.GetTask(newTask.questData).IsStarted=true;
                 }
             }
         }
