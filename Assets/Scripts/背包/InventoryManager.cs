@@ -59,7 +59,6 @@ public class InventoryManager : MonoBehaviour
             BagCanvas.SetActive(isOpen);
             //CharactersCanvas.SetActive(isOpen);
             tooltip.gameObject.SetActive(isOpen);
-            inventoryUI.RefreshSlot();
             
         }
         //更新人物信息

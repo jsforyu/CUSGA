@@ -15,8 +15,9 @@ public class MapSlot : MonoBehaviour
 {
     public GameObject tipUI;
     public MapSlotType Maptype;
-    public int index;//½áµã±àºÅ
-    bool isstay; 
+    public int index;//ï¿½ï¿½ï¿½ï¿½ï¿½
+    public bool isstay;
+    bool ischose;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,34 +29,37 @@ public class MapSlot : MonoBehaviour
     {
         if (isstay && Input.GetMouseButtonDown(0) && !PlayerInMap.Instance.ismove)
         {
-            Debug.Log("¿ªÊ¼Ò»´ÎÑ°Â·");
-            StartCoroutine(FindSlot());//Ê¹ÓÃÐ­³Ì
+            Debug.Log("ï¿½ï¿½Ê¼Ò»ï¿½ï¿½Ñ°Â·");
+            StartCoroutine(FindSlot());//Ê¹ï¿½ï¿½Ð­ï¿½ï¿½
             isstay = false;
         }
+       
     }
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
-        isstay = true;
         this.transform.localScale = new Vector3(2, 2, 1);
-        Debug.Log("´¥Åöµ½ÁË");
+        isstay = true;
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
     }
-    private void OnMouseExit()
+    public void OnMouseExit()
     {
-        isstay = false;
         this.transform.localScale = new Vector3(1, 1, 1);
-        Debug.Log("ÍË³ö");
+        isstay = false;
+        Debug.Log("ï¿½Ë³ï¿½");
     }
 
     public void SlotFunction()
     {
+
+
 
     }
     IEnumerator FindSlot()
     {
         FindSlotFir();
         List<int> realwaypoints = new List<int>();
-        int first = index;//ÄæÐòÕÒÂ·¾¶
+        int first = index;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
         while (first != PlayerInMap.Instance.mapindex)
         {
             realwaypoints.Add(first);
@@ -65,7 +69,7 @@ public class MapSlot : MonoBehaviour
         first = PlayerInMap.Instance.mapindex;
         for(int i = 0; i < realwaypoints.Count; i++)
         {
-            while (PlayerInMap.Instance.ismove)//½ÇÉ«»¹ÔÚÒÆ¶¯
+            while (PlayerInMap.Instance.ismove)//ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
             {
                 yield return null;
             }
@@ -88,7 +92,7 @@ public class MapSlot : MonoBehaviour
         }
         return null;
     }
-    void FindSlotFir()//¹ã¶ÈÓÅÏÈ±éÀúÕÒµã,´Óµ±Ç°µãµ½Ä¿±êµã»÷µÄÕâ¸öµã,·µ»Ø½á¹ûÊÇÒ»¸öµãµÄ¼¯ºÏ
+    void FindSlotFir()//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È±ï¿½ï¿½ï¿½ï¿½Òµï¿½,ï¿½Óµï¿½Ç°ï¿½ãµ½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ø½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
     {
         Queue<int> q=new Queue<int>();
         bool[] visted=new bool[MapManager.instance.slotnumber];
@@ -100,7 +104,7 @@ public class MapSlot : MonoBehaviour
             
             if (temp == index)
             {
-                //ÕÒµ½Õâ¸öµãÁË
+                //ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 return;
             }
             for(int i = 0; i < MapManager.instance.Slotslist[temp].Count; i++)
