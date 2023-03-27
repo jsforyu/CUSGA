@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -60,9 +61,10 @@ public class DialogueUI : Singleton<DialogueUI>
                 Destroy(optionPanel.GetChild(i).gameObject);
             }
         }
-        //for(int i=0;i<length;i++)
-        //{
-
-        //}
+       for(int i=0;i<piece.options.Count;i++)
+        {
+            var option = Instantiate(optionPrefab, optionPanel);
+            option.UpdateOption(piece, piece.options[i]);
+        }
     }
 }
