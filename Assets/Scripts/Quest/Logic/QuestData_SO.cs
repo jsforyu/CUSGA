@@ -13,6 +13,7 @@ public class QuestData_SO : ScriptableObject
     public bool isComplete;
     public bool isFinished;
     public List<QuestRequire> questRequires = new List<QuestRequire>();
+    public List<InventoryItem> rewards=new List<InventoryItem>();
 }
 [System.Serializable]
 public class QuestRequire

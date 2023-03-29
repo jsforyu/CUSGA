@@ -12,18 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271e0cd647a1ac744a9a963b12494e43, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  pieces:
-  - ID: 1
-    image: {fileID: 0}
-    text: "\u4F60\u597D!"
-    options:
-    - text: "\u4F60\u597D"
-      targetID: 
-      takeQuest: 0
-    - text: "\u6211\u4E0D\u597D"
-      targetID: 
-      takeQuest: 0
+  dialoguePieces:
   - ID: 
     image: {fileID: 0}
     text: 
-    options: []
+    quest: {fileID: 0}
+    options:
+    - text: 
+      targetID: 
+      takeQuest: 0
+    - text: 
+      targetID: 
+      takeQuest: 0

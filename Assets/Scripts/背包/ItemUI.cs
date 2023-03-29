@@ -30,6 +30,7 @@ public class ItemUI : MonoBehaviour
         }
         if(item!=null)
         {
+            this.gameObject.SetActive(true);
             icon.sprite = item.itemIcon;
             amount.text=itemAmount.ToString(); 
             icon.gameObject.SetActive(true);
