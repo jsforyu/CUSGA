@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+
 
 public enum MapSlotType
 {
@@ -33,7 +35,11 @@ public class MapSlot : MonoBehaviour
             StartCoroutine(FindSlot());//ʹ��Э��
             isstay = false;
         }
-       
+        if(tipUI!=null&& Vector3.Distance(this.transform.position, PlayerInMap.Instance.transform.position) > 0.0001f)
+        {
+            tipUI.SetActive(false);
+        }
+
     }
     private void OnMouseEnter()
     {
@@ -51,9 +57,18 @@ public class MapSlot : MonoBehaviour
 
     public void SlotFunction()
     {
+        switch (Maptype)//请把触发对话写在这个函数中
+        {
+            case MapSlotType.City:
+            tipUI.SetActive(true);
+                break;
+            case MapSlotType.Village:
+                tipUI.SetActive(true);
+                break;
+            case MapSlotType.Outside:
+                return;
 
-
-
+        }
     }
     IEnumerator FindSlot()
     {
@@ -118,5 +133,10 @@ public class MapSlot : MonoBehaviour
             }
 
         }
+    }
+    public void EnterScene()
+    {
+        tipUI.SetActive(false);
+        //SceneManager.LoadScene("");切换场景函数
     }
 }
