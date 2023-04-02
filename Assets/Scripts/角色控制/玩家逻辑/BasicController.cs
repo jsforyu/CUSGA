@@ -4,30 +4,43 @@ using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
 
-public class BasicController : MonoBehaviour
+public class BasicController<T> : Singleton<T> where T: BasicController<T>
 {
     public Vector3 startPos;
+    public Vector3 attackPos;
     public Animator ani;
     private AnimatorController animController;
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
-        startPos = transform.position;
+        base.Awake();
+        ReturnToStartPos();
         ani = GetComponent<Animator>();
         animController = ani.runtimeAnimatorController as AnimatorController;
     }
+
     public void ReturnToStartPos()
     {
-        if(transform.position!=startPos)
         transform.position = startPos;
     }
-    public void ReturnToAttackPos(Vector3 pos)
+
+    public void ReturnToAttackPos()
     {
-        if(transform.position!=pos)
-        {
-            transform.position = pos;
-        }
-    }   
+        transform.position = attackPos;
+    }
+
+    public void Attack(int dir)
+    {
+        ani.SetInteger("AttackDir", dir);
+        ani.SetTrigger("Attack");
+    }
+
+    public void Block(bool isSuccess)
+    {
+        ani.SetBool("BlockResult", isSuccess);
+        ani.SetTrigger("Block");
+    }
+
     public void SetAnimatorSpeed(int _layer, string _stateName, float _speed)
     {
         for (int i = 0; i < animController.layers[_layer].stateMachine.states.Length; i++)
@@ -38,5 +51,4 @@ public class BasicController : MonoBehaviour
             }
         }
     }
-
 }
