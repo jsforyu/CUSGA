@@ -19,6 +19,8 @@ public class MapSlot : MonoBehaviour
     public MapSlotType Maptype;
     public int index;//�����
     public bool isstay;
+    public DialogueData_SO currentData;
+    public GameObject DialoguePanel;
     bool ischose;
     // Start is called before the first frame update
     void Start()
@@ -137,6 +139,9 @@ public class MapSlot : MonoBehaviour
     public void EnterScene()
     {
         tipUI.SetActive(false);
+        DialoguePanel.SetActive(true);
+        DialogueUI.Instance.UpdateDialogueData(currentData);
+        DialogueUI.Instance.UpdateMainDialogue(currentData.dialoguePieces[0]);
         //SceneManager.LoadScene("");切换场景函数
     }
 }
