@@ -62,7 +62,6 @@ public class PlayerInMap : MonoBehaviour
             }
             StartCoroutine(ToMove(tomapslot, linere, next));
         }
-        tomapslot.SlotFunction();
     }
     public void Move(Line line, int next)
     {
@@ -71,6 +70,7 @@ public class PlayerInMap : MonoBehaviour
         onfirst = next;
         an.SetBool("walking", true);
         OnMove(online, onfirst);
+        
     }
     IEnumerator ToMove(MapSlot tomapslot, LineRenderer linere,int next)
     {
@@ -91,6 +91,7 @@ public class PlayerInMap : MonoBehaviour
             }
         }
         ismove = false;
+        tomapslot.SlotFunction();
         yield return null;
     }
     IEnumerator BackMove(MapSlot tomapslot, LineRenderer linere, int next)
@@ -114,6 +115,7 @@ public class PlayerInMap : MonoBehaviour
 
         }
         ismove = false;
+        tomapslot.SlotFunction();
         yield return null;
     }
 
