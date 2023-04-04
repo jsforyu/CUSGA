@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class HealthManager : MonoBehaviour
+public class HealthManager : Singleton<HealthManager>
 {
     public Image playerHealth;
     public Image enemyHealth;
