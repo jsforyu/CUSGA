@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : BasicController<PlayerController>
+public class PlayerController : CharacterController<PlayerController>
 {
     protected override void Awake()
     {

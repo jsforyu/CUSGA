@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
 
-public class EnemyController : BasicController<EnemyController>
+public class EnemyController : CharacterController<EnemyController>
 {
     protected override void Awake()
     {
