@@ -280,7 +280,7 @@ public class FightManager : Singleton<FightManager>
             // 攻击成功
             if (result <= attackSuccessGap)
             {
-                playerController.Attack(attackDir);
+                playerController.Attack(attackDir, true);
                 enemyController.Block(PlayerAttackSuccess());
             }
             // 攻击失败
@@ -295,27 +295,27 @@ public class FightManager : Singleton<FightManager>
             if (result < blockPerfectGap)
             {
                 PlayerPerfectBlock();
-                enemyController.Attack(attackDir);
+                enemyController.Attack(attackDir, true);
                 playerController.Block(true);
             }
             // 普通格挡
             else if (result < blockSuccessGap)
             {
                 PlayerNormalBlock();
-                enemyController.Attack(attackDir);
+                enemyController.Attack(attackDir, true);
                 playerController.Block(true);
             }
             // 格挡失败
             else
             {
                 PlayerNoBlock();
-                enemyController.Attack(attackDir);
+                enemyController.Attack(attackDir, true);
                 playerController.Block(false);
             }
         }
         else if (Round.PlayerExecution == round)
         {
-            if (result > float.MaxValue - 1)
+            if (result > float.MaxValue - 10)
             {
                 // 玩家处决失败，停顿一下进入下一次
                 WaitToNextStep(attackFailWaitDuration);
@@ -324,7 +324,7 @@ public class FightManager : Singleton<FightManager>
             {
                 // 玩家处决成功
                 EnemyExecuted();
-                playerController.Attack(attackDir);
+                playerController.Attack(attackDir, false);
             }
         }
     }
@@ -402,7 +402,7 @@ public class FightManager : Singleton<FightManager>
                 //playerController.SetAnimatorSpeed(0, "PlayerIdle", 0);
                 // 不调用字符判定系统，直接调用敌人处决
                 PlayerExecuted();
-                enemyController.Attack(Random.Range(0, 3));
+                enemyController.Attack(Random.Range(0, 3), false);
                 // 处决结束
                 if (++enemyExecutionRecord >= enemyExecutionCount)
                 {

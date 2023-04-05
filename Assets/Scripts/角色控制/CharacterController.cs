@@ -29,9 +29,9 @@ public class CharacterController<T> : Singleton<T> where T: CharacterController<
         transform.position = attackPos;
     }
 
-    public void Attack(int dir)
+    public void Attack(int dir, bool toAttackPos)
     {
-        TurnToAttackPos();
+        if (toAttackPos) { TurnToAttackPos(); }
         ani.SetInteger("AttackDir", dir);
         ani.SetTrigger("Attack");
     }
