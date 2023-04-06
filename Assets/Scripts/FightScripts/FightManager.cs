@@ -50,7 +50,7 @@ public class FightManager : Singleton<FightManager>
     int canEnterNextStep = 0;   // 达到2时（玩家、敌人皆准备完毕时），进入下一小回合
 
     
-    private float ab_move_speed = 300;        // 字符移动速度
+    private float ab_move_speed = 400;        // 字符移动速度
     private float area_move_speed = 50;    // 判定区域移动速度
 
     private float enemyExecutedDamage = 0;

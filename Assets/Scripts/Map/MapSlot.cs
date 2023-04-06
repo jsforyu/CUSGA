@@ -76,7 +76,7 @@ public class MapSlot : MonoBehaviour
     {
         FindSlotFir();
         List<int> realwaypoints = new List<int>();
-        int first = index;//������·��
+        int first = index;
         while (first != PlayerInMap.Instance.mapindex)
         {
             realwaypoints.Add(first);
@@ -121,7 +121,7 @@ public class MapSlot : MonoBehaviour
             
             if (temp == index)
             {
-                //�ҵ��������
+                
                 return;
             }
             for(int i = 0; i < MapManager.instance.Slotslist[temp].Count; i++)
@@ -142,6 +142,28 @@ public class MapSlot : MonoBehaviour
         DialoguePanel.SetActive(true);
         DialogueUI.Instance.UpdateDialogueData(currentData);
         DialogueUI.Instance.UpdateMainDialogue(currentData.dialoguePieces[0]);
-        //SceneManager.LoadScene("");切换场景函数
+        StartCoroutine(LoadScene());
     }
+
+    IEnumerator LoadScene()
+    {
+
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex+1);
+        asyncOperation.allowSceneActivation = false;
+
+        while (asyncOperation.progress < 0.9f)
+        {
+            Debug.Log(" progress = " + asyncOperation.progress);
+        }
+
+        asyncOperation.allowSceneActivation = true;
+        yield return null;
+
+        if (asyncOperation.isDone)
+        {
+            Debug.Log("完成加载");
+        }
+    }
+
+
 }

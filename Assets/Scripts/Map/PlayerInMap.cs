@@ -9,6 +9,8 @@ public class PlayerInMap : MonoBehaviour
     public bool ismove;
     public float speed;
     public int currentindex;
+    public PlayeInMapData data;
+
     int onfirst;
     Line online;
     Animator an;
@@ -22,6 +24,7 @@ public class PlayerInMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LoadPlayer();
         currentindex = 0;
         an = this.GetComponent<Animator>();
     }
@@ -91,6 +94,7 @@ public class PlayerInMap : MonoBehaviour
             }
         }
         ismove = false;
+        data.mapindex = mapindex;
         tomapslot.SlotFunction();
         yield return null;
     }
@@ -115,6 +119,7 @@ public class PlayerInMap : MonoBehaviour
 
         }
         ismove = false;
+        data.mapindex = mapindex;
         tomapslot.SlotFunction();
         yield return null;
     }
@@ -143,4 +148,11 @@ public class PlayerInMap : MonoBehaviour
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
     }
+
+    void LoadPlayer()
+    {
+        mapindex = data.mapindex;
+        this.transform.position = MapManager.instance.Mapslots[mapindex].gameObject.transform.position;
+    }
+
 }
