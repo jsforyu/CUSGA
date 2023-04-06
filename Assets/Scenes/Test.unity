@@ -339,7 +339,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
+  Maptype: 0
   index: 0
+  isstay: 0
+  currentData: {fileID: 0}
+  DialoguePanel: {fileID: 0}
 --- !u!61 &374741980
 BoxCollider2D:
   m_ObjectHideFlags: 0
