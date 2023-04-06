@@ -54,22 +54,22 @@ public class AlphabetController : Singleton<AlphabetController>
         if (Input.GetKeyDown(KeyCode.D))
         {
             if (Alphabet.D == alphabet) { RespondResult(Mathf.Abs(alphabet_obj.transform.localPosition.x - active_area.transform.localPosition.x)); }
-            else { RespondResult(float.MaxValue); }
+            else { RespondResult(-1); }
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
             if (Alphabet.W == alphabet) { RespondResult(Mathf.Abs(alphabet_obj.transform.localPosition.x - active_area.transform.localPosition.x)); }
-            else { RespondResult(float.MaxValue); }
+            else { RespondResult(-1); }
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             if (Alphabet.A == alphabet) { RespondResult(Mathf.Abs(alphabet_obj.transform.localPosition.x - active_area.transform.localPosition.x)); }
-            else { RespondResult(float.MaxValue); }
+            else { RespondResult(-1); }
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             if (Alphabet.S == alphabet) { RespondResult(Mathf.Abs(alphabet_obj.transform.localPosition.x - active_area.transform.localPosition.x)); }
-            else { RespondResult(float.MaxValue); }
+            else { RespondResult(-1); }
         }
 
         // 字符在不同回合的策略
@@ -91,22 +91,23 @@ public class AlphabetController : Singleton<AlphabetController>
             // 判定区域的随机反向
             float area_reverse_interval = player_attack_time / (total_reverse_count + 1);
             time_record += Time.deltaTime;
+            Countdown.Instance.FreshCountDown(time_record, player_attack_time);
             if (time_record > area_reverse_interval * reverse_record)
             {
                 area_move_dir = Random.Range(0, 2) * 2 - 1;
                 reverse_record += 1;
             }
             // 超过时间，判定失败
-            if (time_record > player_attack_time) { RespondResult(float.MaxValue); }
+            if (time_record > player_attack_time) { RespondResult(-1); }
         }
 
         // 敌人回合
         // 字符到达最左边，判定失败
-        else if (Round.Enemy == round && alphabet_obj.transform.localPosition.x < -move_range) { RespondResult(float.MaxValue); }
+        else if (Round.Enemy == round && alphabet_obj.transform.localPosition.x < -move_range) { RespondResult(-1); }
 
         // 玩家处决期间
         // 字符到达最右边，判定失败
-        else if (Round.PlayerExecution == round && alphabet_obj.transform.localPosition.x > move_range) { RespondResult(float.MaxValue); }
+        else if (Round.PlayerExecution == round && alphabet_obj.transform.localPosition.x > move_range) { RespondResult(-1); }
     }
 
     // 由FightManager调用的接口
@@ -147,7 +148,7 @@ public class AlphabetController : Singleton<AlphabetController>
         alphabet_obj.transform.localPosition = new Vector3(move_range, 0, 0);
         ab_move_dir = -1;
         // 判定区固定在某个位置
-        active_area.transform.localPosition = new Vector3(Random.Range(-move_range, move_range * 0.6f), 0, 0);
+        active_area.transform.localPosition = new Vector3(Random.Range(-move_range * 0.3f, move_range * 0.7f), 0, 0);
     }
 
     private void PlayerExecution()
@@ -165,5 +166,6 @@ public class AlphabetController : Singleton<AlphabetController>
         is_working = false;
         alphabet_obj.SetActive(false);
         active_area.SetActive(false);
+        // 非玩家处决阶段，清空计时条
     }
 }

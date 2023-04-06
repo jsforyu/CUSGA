@@ -89,6 +89,7 @@ public class FightManager : Singleton<FightManager>
         if (Round.PlayerExecution == round && !stopExecution)
         {
             playerExcutionRecord += Time.deltaTime;
+            Countdown.Instance.FreshCountDown(playerExcutionRecord, playerExecutionDuration);
             // 结束玩家处决
             if (playerExcutionRecord > playerExecutionDuration)
             {
@@ -278,7 +279,7 @@ public class FightManager : Singleton<FightManager>
         if (Round.Player == round)
         {
             // 攻击成功
-            if (result <= attackSuccessGap)
+            if (result <= attackSuccessGap && result >= 0)
             {
                 playerController.Attack(attackDir, true);
                 enemyController.Block(PlayerAttackSuccess());
@@ -292,14 +293,14 @@ public class FightManager : Singleton<FightManager>
         else if (Round.Enemy == round)
         {
             // 完美格挡
-            if (result < blockPerfectGap)
+            if (result <= blockPerfectGap && result >= 0)
             {
                 PlayerPerfectBlock();
                 enemyController.Attack(attackDir, true);
                 playerController.Block(true);
             }
             // 普通格挡
-            else if (result < blockSuccessGap)
+            else if (result <= blockSuccessGap && result >= 0)
             {
                 PlayerNormalBlock();
                 enemyController.Attack(attackDir, true);
@@ -315,10 +316,10 @@ public class FightManager : Singleton<FightManager>
         }
         else if (Round.PlayerExecution == round)
         {
-            if (result > float.MaxValue - 10)
+            if (result == -1)
             {
                 // 玩家处决失败，停顿一下进入下一次
-                WaitToNextStep(attackFailWaitDuration);
+                StartCoroutine(WaitToNextStep(attackFailWaitDuration));
             }
             else
             {
@@ -338,6 +339,8 @@ public class FightManager : Singleton<FightManager>
             if (JudgeHP()) { return; }
             JudgeAnger();
         }
+        // 清空计时条
+        if (Round.PlayerExecution != round) { Countdown.Instance.FreshCountDown(1, 1); }
 
         if (Round.Player == round)
         {
@@ -370,7 +373,7 @@ public class FightManager : Singleton<FightManager>
             if (stopExecution)
             {
                 round = next_rounds.Pop();
-                //enemyController.SetAnimatorSpeed(0, "EnemyIdle", 1);
+                enemyController.SetAnimatorSpeed(1);
                 enemyController.Block(false);
                 canEnterNextStep++;
                 enemyData.当前架势条 = 0;
@@ -380,7 +383,7 @@ public class FightManager : Singleton<FightManager>
             }
             else
             {
-                //enemyController.SetAnimatorSpeed(0, "EnemyIdle", 0);
+                enemyController.SetAnimatorSpeed(0.5f);
                 AlphabetController.Instance.StartWorking(Round.PlayerExecution, playerExeAlpMoveSpeed);
             }
         }
@@ -389,7 +392,7 @@ public class FightManager : Singleton<FightManager>
             if (stopExecution)
             {
                 round = next_rounds.Pop();
-                //playerController.SetAnimatorSpeed(0, "PlayerIdle", 1);
+                playerController.SetAnimatorSpeed(1);
                 playerController.Block(false);
                 canEnterNextStep++;
                 playerData.当前架势条 = 0;
@@ -399,7 +402,7 @@ public class FightManager : Singleton<FightManager>
             }
             else
             {
-                //playerController.SetAnimatorSpeed(0, "PlayerIdle", 0);
+                playerController.SetAnimatorSpeed(0.5f);
                 // 不调用字符判定系统，直接调用敌人处决
                 PlayerExecuted();
                 enemyController.Attack(Random.Range(0, 3), false);

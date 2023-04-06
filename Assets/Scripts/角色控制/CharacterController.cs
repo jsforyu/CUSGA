@@ -9,14 +9,12 @@ public class CharacterController<T> : Singleton<T> where T: CharacterController<
     public Vector3 startPos;
     public Vector3 attackPos;
     private Animator ani;
-    private AnimatorController animController;
 
     protected override void Awake()
     {
         base.Awake();
         TurnToStartPos();
         ani = GetComponent<Animator>();
-        animController = ani.runtimeAnimatorController as AnimatorController;
     }
 
     public void TurnToStartPos()
@@ -47,14 +45,8 @@ public class CharacterController<T> : Singleton<T> where T: CharacterController<
         ani.SetTrigger("Death");
     }
 
-    public void SetAnimatorSpeed(int _layer, string _stateName, float _speed)
+    public void SetAnimatorSpeed(float _speed)
     {
-        for (int i = 0; i < animController.layers[_layer].stateMachine.states.Length; i++)
-        {
-            if (animController.layers[_layer].stateMachine.states[i].state.name == _stateName)
-            {
-                animController.layers[_layer].stateMachine.states[i].state.speed = _speed;
-            }
-        }
+        ani.speed = _speed;
     }
 }
