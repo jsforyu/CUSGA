@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Project
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 118
+  controlID: 19
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 3384
+  controlID: 107
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 54
+  controlID: 108
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -337,9 +337,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 746c0000
+      m_SelectedIDs: f8720000
       m_LastClickedID: 0
-      m_ExpandedIDs: 0cfbffff3a6400007c640000
+      m_ExpandedIDs: b2f4ffff0ef7ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -775,7 +775,7 @@ MonoBehaviour:
       width: 1708.3053
       height: 864
     m_MinimalGUI: 1
-  m_defaultScale: 0.46712965
+  m_defaultScale: 0.4914352
   m_LastWindowPixelSize: {x: 997.50006, y: 530.75}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -815,7 +815,6 @@ MonoBehaviour:
     - {fileID: 2427109558661030294, guid: c7cb0dbf6a6dc074290f22f28dec9f1d, type: 2}
     - {fileID: 7183420682738714266, guid: 012ee367e9bddf940afbc656373cf80f, type: 2}
     - {fileID: 1002081843504518431, guid: f4989114d47909f42a1e0dfeb50a8774, type: 2}
-    - {fileID: 4250558640024930969, guid: 5b648a689921e8c44ad34114e1e6f7c3, type: 2}
     - {fileID: -1174529077608391980, guid: b0b1bbc4c0e14f040926272b190c70d9, type: 2}
     - {fileID: -1043036687051685789, guid: e125b5c1528dcaa41b241e5f665b8026, type: 2}
     m_ValueSerializationHelper:
@@ -859,22 +858,6 @@ MonoBehaviour:
       e11: 1
       e12: 0
       e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.6513684
-      e01: 0
-      e02: 0
-      e03: -17.56842
-      e10: 0
-      e11: 0.6513684
-      e12: 0
-      e13: 136.29053
       e20: 0
       e21: 0
       e22: 1
@@ -972,22 +955,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - "Assets/Art/UI/\u80CC\u5305UI"
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - "Assets/Art/UI/\u80CC\u5305UI"
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProject\MedievalSimulator\CUSGA
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 119.80002}
-    m_SelectedIDs: 966a0000
-    m_LastClickedID: 27286
-    m_ExpandedIDs: 0000000016690000186900001a6900001e6900008269000000ca9a3b
+    scrollPos: {x: 0, y: 15.800018}
+    m_SelectedIDs: d4710000
+    m_LastClickedID: 29140
+    m_ExpandedIDs: 000000008e71000094710000d67100000a73000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1015,7 +998,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000016690000186900001a6900001c6900001e690000
+    m_ExpandedIDs: 000000008e71000090710000927100009471000096710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
