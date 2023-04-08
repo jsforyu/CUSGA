@@ -24,6 +24,16 @@ public class DialogueData_SO : ScriptableObject
     //            dialogueIndex.Add(piece.ID, piece);
     //    }
     //}
+    public QuestData_SO GetQuest()
+    {
+        QuestData_SO currentQuest=null;
+        foreach(var piece in dialoguePieces)
+        {
+            if(piece.quest!=null)
+                currentQuest=piece.quest;
+        }
+        return currentQuest;
+    }
 }
 
 [System.Serializable]

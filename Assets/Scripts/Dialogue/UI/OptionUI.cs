@@ -34,12 +34,20 @@ public class OptionUI : MonoBehaviour
             {
                 if(QuestManager.Instance.HaveQuest(newTask.questData))
                 {
-
+                    if(QuestManager.Instance.GetTask(newTask.questData).IsComplete)
+                    {
+                        newTask.questData.GiveRewards();
+                        QuestManager.Instance.GetTask(newTask.questData).IsFinished = true;
+                    }
                 }
                 else
                 {
                     QuestManager.Instance.tasks.Add(newTask);
                     QuestManager.Instance.GetTask(newTask.questData).IsStarted=true;
+                    foreach(var requireItem in newTask.questData.RequireTargetName())
+                    {
+                        InventoryManager.instance.CheckQuestItemInBag(requireItem);
+                    }
                 }
             }
         }

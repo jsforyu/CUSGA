@@ -133,5 +133,29 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
     #endregion
+
+    #region 检测任务物品
+    public void CheckQuestItemInBag(string questItemName)
+    {
+        foreach(var item in inventoryData.items)
+        {
+            if(item.ItemData!=null)
+            {
+                if(item.ItemData.itemName==questItemName)
+                {
+                    QuestManager.Instance.UpdateQuestProgress(item.ItemData.itemName, item.amount);
+                }
+            }
+        }
+    }
+    #endregion
+    public InventoryItem QuestItemInBag(ItemData_SO questItem)
+    {
+        return inventoryData.items.Find(i => i.ItemData == questItem);
+    }
+    public InventoryItem QuestItemInAction(ItemData_SO questItem)
+    {
+        return actionData.items.Find(i => i.ItemData == questItem);
+    }
 }
 

@@ -14,6 +14,43 @@ public class QuestManager : Singleton<QuestManager>
 
     }
     public List<QuestTask> tasks = new List<QuestTask>();
+    private void Start()
+    {
+        LoadQuestManager();
+    }
+    public void LoadQuestManager()
+    {
+        var questCount = PlayerPrefs.GetInt("QuestCount");
+        for(int i=0;i<questCount; i++)
+        {
+            var newQuest = ScriptableObject.CreateInstance<QuestData_SO>();
+            SaveManager.Instance.Load(newQuest, "task" + i);
+            tasks.Add(new QuestTask { questData=newQuest });
+        }
+    }
+    public void SaveQuestSystem()
+    {
+        PlayerPrefs.SetInt("QuestCount",tasks.Count);
+        for(int i=0;i<tasks.Count;i++)
+        {
+            SaveManager.Instance.Save(tasks[i].questData, "task" + i);
+        }
+    }
+    //在每个敌人死亡后执行这个函数 获得物品执行
+    public void UpdateQuestProgress(string requireName,int amount)
+    {
+         foreach(var task in tasks)
+        {
+            if (task.IsFinished)
+                continue;
+            var matchTask = task.questData.questRequires.Find(r => r.name == requireName);
+            if(matchTask!=null)
+            {
+                matchTask.currentAmount += amount;
+            }
+            task.questData.CheckQuestProgress();
+        }
+    }
     public bool HaveQuest(QuestData_SO quest)   //判断是否有任务
     {
         if (quest != null)

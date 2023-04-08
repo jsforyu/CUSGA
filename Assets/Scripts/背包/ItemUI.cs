@@ -9,6 +9,7 @@ public class ItemUI : MonoBehaviour
     //判断背包中对应当前格子是否有物品 有的话将Image激活  无则隐藏
     public Image icon = null;
     public Text amount = null;
+    public ItemData_SO currentItemData;
     public InventoryData_SO Bag;
     public int Index;
 
@@ -28,8 +29,13 @@ public class ItemUI : MonoBehaviour
             this.gameObject.SetActive(false);
             return;
         }
+        if(itemAmount<0)
+        {
+            item = null;
+        }
         if(item!=null)
         {
+            currentItemData= item;
             this.gameObject.SetActive(true);
             icon.sprite = item.itemIcon;
             amount.text=itemAmount.ToString(); 
