@@ -2865,7 +2865,6 @@ MonoBehaviour:
   ismove: 0
   speed: 5
   currentindex: 0
-  data: {fileID: 11400000, guid: 371db5f7b441b224cafed739183017ce, type: 2}
 --- !u!82 &485434495
 AudioSource:
   m_ObjectHideFlags: 0
