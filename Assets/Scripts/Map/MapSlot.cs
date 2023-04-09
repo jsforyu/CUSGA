@@ -21,7 +21,7 @@ public class MapSlot : MonoBehaviour
     public bool isstay;
     public DialogueData_SO currentData;
     public GameObject DialoguePanel;
-    bool ischose;
+    bool ischose=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,15 +43,25 @@ public class MapSlot : MonoBehaviour
         }
 
     }
+    private void OnMouseOver()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            ischose= true;
+            this.transform.localScale = new Vector3(2, 2, 1);
+        }
+    }
     private void OnMouseEnter()
     {
-        this.transform.localScale = new Vector3(3, 3, 1);
+        if (PlayerInMap.Instance.mapindex != index&&!ischose)
+        { this.transform.localScale = new Vector3(3, 3, 1); }
         isstay = true;
         Debug.Log("��������");
 
     }
     public void OnMouseExit()
     {
+        ischose=false;
         this.transform.localScale = new Vector3(2, 2, 1);
         isstay = false;
         Debug.Log("�˳�");
