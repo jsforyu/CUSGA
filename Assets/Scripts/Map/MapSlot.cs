@@ -45,14 +45,14 @@ public class MapSlot : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        this.transform.localScale = new Vector3(2, 2, 1);
+        this.transform.localScale = new Vector3(3, 3, 1);
         isstay = true;
         Debug.Log("��������");
 
     }
     public void OnMouseExit()
     {
-        this.transform.localScale = new Vector3(1, 1, 1);
+        this.transform.localScale = new Vector3(2, 2, 1);
         isstay = false;
         Debug.Log("�˳�");
     }

@@ -465,7 +465,7 @@ Transform:
   m_GameObject: {fileID: 102098966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.24, y: -3.29, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -1769,7 +1769,7 @@ Transform:
   m_GameObject: {fileID: 419893250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -32.08, y: 7.74, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 169517263}
@@ -2073,7 +2073,7 @@ Transform:
   m_GameObject: {fileID: 435665951}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.19, y: -13.86, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -3050,7 +3050,7 @@ GameObject:
   - component: {fileID: 522090293}
   - component: {fileID: 522090294}
   m_Layer: 3
-  m_Name: "\u8282\u70B9 (18)"
+  m_Name: "\u5546\u4EBA\uFF0C\u8282\u70B9 (18)"
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3065,7 +3065,7 @@ Transform:
   m_GameObject: {fileID: 522090290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.33, y: -5.93, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -3113,7 +3113,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 063c5bae37ab31341836142f4bca8dcb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.3284216, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3135,11 +3135,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274affd8db0ed241aa6e6e8a5e54d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipUI: {fileID: 0}
-  Maptype: 0
+  tipUI: {fileID: 451481052}
+  Maptype: 1
   index: 19
   isstay: 0
-  currentData: {fileID: 0}
+  currentData: {fileID: 11400000, guid: 2825297868f96cb47b2910ad364179be, type: 2}
   DialoguePanel: {fileID: 1696414782}
 --- !u!61 &522090294
 BoxCollider2D:
@@ -3195,7 +3195,7 @@ Transform:
   m_GameObject: {fileID: 543696223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.78, y: 2.27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -3310,7 +3310,7 @@ GameObject:
   - component: {fileID: 550959590}
   - component: {fileID: 550959591}
   m_Layer: 3
-  m_Name: "\u8282\u70B9 (11)"
+  m_Name: "\u4E66\u7C4D\uFF0C\u8282\u70B9 (11)"
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3325,7 +3325,7 @@ Transform:
   m_GameObject: {fileID: 550959587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.95, y: 8.86, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -3373,7 +3373,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 063c5bae37ab31341836142f4bca8dcb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.3284216, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3395,11 +3395,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274affd8db0ed241aa6e6e8a5e54d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipUI: {fileID: 0}
-  Maptype: 0
+  tipUI: {fileID: 451481052}
+  Maptype: 1
   index: 12
   isstay: 0
-  currentData: {fileID: 0}
+  currentData: {fileID: 11400000, guid: 8babcce6668dea34f833b617a1e68e5a, type: 2}
   DialoguePanel: {fileID: 1696414782}
 --- !u!61 &550959591
 BoxCollider2D:
@@ -3590,7 +3590,7 @@ GameObject:
   - component: {fileID: 596411769}
   - component: {fileID: 596411770}
   m_Layer: 3
-  m_Name: "\u8282\u70B9 (13)"
+  m_Name: "\u91CE\u5916\uFF0C\u8282\u70B9 (13)"
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3605,7 +3605,7 @@ Transform:
   m_GameObject: {fileID: 596411766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.99, y: -0.71, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -3653,7 +3653,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 063c5bae37ab31341836142f4bca8dcb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.3284216, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3675,11 +3675,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274affd8db0ed241aa6e6e8a5e54d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipUI: {fileID: 0}
-  Maptype: 0
+  tipUI: {fileID: 451481052}
+  Maptype: 1
   index: 14
   isstay: 0
-  currentData: {fileID: 0}
+  currentData: {fileID: 11400000, guid: 3f48aea9473396f4ba67832ecfeedfa5, type: 2}
   DialoguePanel: {fileID: 1696414782}
 --- !u!61 &596411770
 BoxCollider2D:
@@ -3934,9 +3934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e5998c6b67bf64297ee0e6b32c028f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SetPanel: {fileID: 1005511588}
-  musicSlider: {fileID: 1627153479}
-  audioSource: []
 --- !u!1 &663814834
 GameObject:
   m_ObjectHideFlags: 0
@@ -4540,7 +4537,7 @@ Transform:
   m_GameObject: {fileID: 814457455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -24.83, y: -6.47, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -5495,7 +5492,7 @@ GameObject:
   - component: {fileID: 954712118}
   - component: {fileID: 954712119}
   m_Layer: 3
-  m_Name: "\u8282\u70B9 (19)"
+  m_Name: "\u91CE\u5916\uFF0C\u8282\u70B9 (19)"
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5510,7 +5507,7 @@ Transform:
   m_GameObject: {fileID: 954712115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.74, y: -13.09, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -5558,7 +5555,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 063c5bae37ab31341836142f4bca8dcb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.3284216, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5580,11 +5577,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274affd8db0ed241aa6e6e8a5e54d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipUI: {fileID: 0}
-  Maptype: 2
+  tipUI: {fileID: 451481052}
+  Maptype: 1
   index: 20
   isstay: 0
-  currentData: {fileID: 0}
+  currentData: {fileID: 11400000, guid: 6b5a669200837ff4eaac7585c3217abb, type: 2}
   DialoguePanel: {fileID: 1696414782}
 --- !u!61 &954712119
 BoxCollider2D:
@@ -6442,7 +6439,7 @@ Transform:
   m_GameObject: {fileID: 1098216059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.23, y: 1.12, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -6925,7 +6922,7 @@ GameObject:
   - component: {fileID: 1254349632}
   - component: {fileID: 1254349633}
   m_Layer: 3
-  m_Name: "\u8282\u70B9 (16)"
+  m_Name: "\u9152\u9986\uFF0C\u8282\u70B9 (16)"
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -6940,7 +6937,7 @@ Transform:
   m_GameObject: {fileID: 1254349629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.77, y: 7.23, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 451481053}
@@ -6989,7 +6986,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 063c5bae37ab31341836142f4bca8dcb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.3284216, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7012,7 +7009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 451481052}
-  Maptype: 0
+  Maptype: 1
   index: 17
   isstay: 0
   currentData: {fileID: 11400000, guid: 780ef60f04109714e9d62a1b1e0bb7f6, type: 2}
@@ -7147,7 +7144,7 @@ Transform:
   m_GameObject: {fileID: 1277389838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.23, y: 8.31, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -7508,7 +7505,7 @@ Transform:
   m_GameObject: {fileID: 1346438506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -48.61, y: -5.73, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -9468,7 +9465,7 @@ GameObject:
   - component: {fileID: 1690102650}
   - component: {fileID: 1690102651}
   m_Layer: 3
-  m_Name: "\u8282\u70B9 (17)"
+  m_Name: "\u5C0F\u5973\u5B69\uFF0C\u8282\u70B9 (17)"
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -9483,7 +9480,7 @@ Transform:
   m_GameObject: {fileID: 1690102647}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 25.27, y: 8.51, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -9531,7 +9528,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 063c5bae37ab31341836142f4bca8dcb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.3284216, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9553,11 +9550,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274affd8db0ed241aa6e6e8a5e54d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipUI: {fileID: 0}
-  Maptype: 0
+  tipUI: {fileID: 451481052}
+  Maptype: 1
   index: 18
   isstay: 0
-  currentData: {fileID: 0}
+  currentData: {fileID: 11400000, guid: efdda9af2531cb64ea980fcb16ea1ea4, type: 2}
   DialoguePanel: {fileID: 1696414782}
 --- !u!61 &1690102651
 BoxCollider2D:
@@ -9613,7 +9610,7 @@ Transform:
   m_GameObject: {fileID: 1693780525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.84, y: -12.74, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1997834236}
@@ -10815,8 +10812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed3cb160f7e72c46a62574681d48eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStats: {fileID: 11400000, guid: 19a2fb3a6de8be3449d52e718d14aa15, type: 2}
-  inventoryManager: {fileID: 991441099}
 --- !u!4 &1869247797
 Transform:
   m_ObjectHideFlags: 0
@@ -10864,15 +10859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b355ef79479b541ba1e8bd3958ac19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questPanel: {fileID: 0}
-  tooltip: {fileID: 0}
-  questListTransform: {fileID: 0}
-  questNameButton: {fileID: 0}
-  questContentText: {fileID: 0}
-  requireTransform: {fileID: 0}
-  requirement: {fileID: 0}
-  rewardTransform: {fileID: 0}
-  rewardUI: {fileID: 0}
 --- !u!114 &1926555502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11459,7 +11445,7 @@ GameObject:
   - component: {fileID: 1945894580}
   - component: {fileID: 1945894581}
   m_Layer: 3
-  m_Name: "\u8282\u70B9 (7)"
+  m_Name: "\u91CE\u5916\uFF0C\u8282\u70B9 (7)"
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -11474,7 +11460,7 @@ Transform:
   m_GameObject: {fileID: 1945894577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.01, y: -13.36, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -11522,7 +11508,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 063c5bae37ab31341836142f4bca8dcb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.3284216, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11544,11 +11530,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274affd8db0ed241aa6e6e8a5e54d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipUI: {fileID: 0}
-  Maptype: 2
+  tipUI: {fileID: 451481052}
+  Maptype: 1
   index: 8
   isstay: 0
-  currentData: {fileID: 0}
+  currentData: {fileID: 11400000, guid: e15acaefad61acc4ba8b98949a14edbe, type: 2}
   DialoguePanel: {fileID: 1696414782}
 --- !u!61 &1945894581
 BoxCollider2D:
@@ -11757,7 +11743,7 @@ Transform:
   m_GameObject: {fileID: 1953647673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -31.85, y: -3.06, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -12260,7 +12246,7 @@ Transform:
   m_GameObject: {fileID: 2009249801}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.74, y: 5.76, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -12331,7 +12317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipUI: {fileID: 0}
-  Maptype: 0
+  Maptype: 2
   index: 13
   isstay: 0
   currentData: {fileID: 0}
@@ -12780,7 +12766,7 @@ GameObject:
   - component: {fileID: 2095280692}
   - component: {fileID: 2095280693}
   m_Layer: 3
-  m_Name: "\u8282\u70B9 (4)"
+  m_Name: "\u91CE\u5916\u3002\u8282\u70B9 (4)"
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -12795,7 +12781,7 @@ Transform:
   m_GameObject: {fileID: 2095280689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -32.5, y: -8.75, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -12843,7 +12829,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 063c5bae37ab31341836142f4bca8dcb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.3284216, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12865,11 +12851,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274affd8db0ed241aa6e6e8a5e54d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipUI: {fileID: 0}
-  Maptype: 2
+  tipUI: {fileID: 451481052}
+  Maptype: 1
   index: 5
   isstay: 0
-  currentData: {fileID: 0}
+  currentData: {fileID: 11400000, guid: 8943eb75ef8932b458876994b7b61874, type: 2}
   DialoguePanel: {fileID: 1696414782}
 --- !u!61 &2095280693
 BoxCollider2D:
@@ -12910,7 +12896,7 @@ GameObject:
   - component: {fileID: 2115148780}
   - component: {fileID: 2115148781}
   m_Layer: 3
-  m_Name: "\u8282\u70B9"
+  m_Name: "\u5947\u9047\uFF0C\u8282\u70B9"
   m_TagString: Slot
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -12925,7 +12911,7 @@ Transform:
   m_GameObject: {fileID: 2115148777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -35.33, y: 13.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1765342499}
@@ -12973,7 +12959,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 063c5bae37ab31341836142f4bca8dcb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.3284216, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12995,11 +12981,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274affd8db0ed241aa6e6e8a5e54d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipUI: {fileID: 0}
-  Maptype: 2
+  tipUI: {fileID: 451481052}
+  Maptype: 1
   index: 1
   isstay: 0
-  currentData: {fileID: 0}
+  currentData: {fileID: 11400000, guid: d5ca4c3a81e2cb444a8f58694d80316b, type: 2}
   DialoguePanel: {fileID: 1696414782}
 --- !u!61 &2115148781
 BoxCollider2D:
