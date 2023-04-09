@@ -23,6 +23,9 @@ public class AlphabetController : Singleton<AlphabetController>
     [SerializeField]
     [Tooltip("角色攻击判定时间内判定区域的可能转向次数")]
     private int total_reverse_count;
+    [SerializeField]
+    [Tooltip("玩家格挡判定时的判定区域随机位置范围(0-1)")]
+    private float[] active_area_range;
 
     // 字符移动速度和方向
     private float ab_move_speed;
@@ -148,7 +151,7 @@ public class AlphabetController : Singleton<AlphabetController>
         alphabet_obj.transform.localPosition = new Vector3(move_range, 0, 0);
         ab_move_dir = -1;
         // 判定区固定在某个位置
-        active_area.transform.localPosition = new Vector3(Random.Range(-move_range * 0.3f, move_range * 0.7f), 0, 0);
+        active_area.transform.localPosition = new Vector3(Random.Range(move_range * (active_area_range[0] - 0.5f) * 2, move_range * (active_area_range[1] - 0.5f) * 2), 0, 0);
     }
 
     private void PlayerExecution()
