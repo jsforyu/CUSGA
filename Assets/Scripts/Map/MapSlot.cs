@@ -142,7 +142,7 @@ public class MapSlot : MonoBehaviour
         DialoguePanel.SetActive(true);
         DialogueUI.Instance.UpdateDialogueData(currentData);
         DialogueUI.Instance.UpdateMainDialogue(currentData.dialoguePieces[0]);
-        StartCoroutine(LoadScene());
+        //StartCoroutine(LoadScene());
     }
 
     IEnumerator LoadScene()
