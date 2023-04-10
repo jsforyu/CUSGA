@@ -9,9 +9,9 @@ using UnityEngine.SceneManagement;
 
 public enum MapSlotType
 {
-    City,
-    Village,
-    Outside
+    City,//触发对话，对话结束后进入战斗
+    Village,//触发对话，对话结束后不进入战斗
+    Outside//普通结点，无任何功能
 }
 public class MapSlot : MonoBehaviour
 {
@@ -72,10 +72,12 @@ public class MapSlot : MonoBehaviour
         switch (Maptype)//请把触发对话写在这个函数中
         {
             case MapSlotType.City:
+            if(tipUI!=null)
             tipUI.SetActive(true);
                 break;
             case MapSlotType.Village:
-                tipUI.SetActive(true);
+                if (tipUI != null)
+                    tipUI.SetActive(true);
                 break;
             case MapSlotType.Outside:
                 return;
