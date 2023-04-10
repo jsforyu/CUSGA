@@ -12,6 +12,7 @@ public class FightManager : Singleton<FightManager>
 {
     [Header("角色属性")]
     public CharacterData_SO playerData;
+    public ItemData_SO skillData;
     public CharacterData_SO enemyData;
 
     [Header("字符判定参数")]
@@ -68,6 +69,7 @@ public class FightManager : Singleton<FightManager>
     public float enemyAttackedMag = 0.25f;
 
     // 控制记录参数
+    private int skillIndex = 0;             // 当前处于剑技第几式
     private int playerAttackCount;          // 玩家攻击总次数
     private int enemyAttackCount;           // 敌人攻击总次数
     private int playerAttackRecord = 0;     // 玩家已攻击次数
@@ -256,7 +258,7 @@ public class FightManager : Singleton<FightManager>
             if (playerAttackRecord < playerAttackCount)
             {
                 playerAttackRecord++;
-                AlphabetController.Instance.StartWorking(Round.Player, ab_move_speed, area_move_speed);
+                AlphabetController.Instance.StartWorking(Round.Player, ab_move_speed * skillData.abSpeedMultiplier[skillIndex], area_move_speed);
             }
             else
             {
@@ -364,15 +366,16 @@ public class FightManager : Singleton<FightManager>
         var 玩家架势条 = playerData.最大架势条;
         var 敌人架势条 = enemyData.最大架势条;
         var 玩家攻击力 = playerData.攻击力;
+        var 招式攻击力 = 玩家攻击力 * skillData.attackMultiplier[skillIndex];
         var 敌人攻击力 = enemyData.攻击力;
         if (isEnemyBlock)
         {
-            enemyData.当前架势条 = Mathf.Max(enemyData.当前架势条, enemyData.当前架势条 + 敌人架势条 / (10 - (玩家攻击力 - 敌人攻击力)));
+            enemyData.当前架势条 = Mathf.Max(enemyData.当前架势条, enemyData.当前架势条 + 敌人架势条 / (10 - (招式攻击力 - 敌人攻击力)));
         }
         else
         {
-            enemyData.当前架势条 += 敌人架势条 / 10 + 玩家攻击力;
-            enemyData.当前生命值 -= 玩家攻击力;
+            enemyData.当前架势条 += 敌人架势条 / 10 + 招式攻击力;
+            enemyData.当前生命值 -= 招式攻击力;
         }
         // 音效和震动
         if (isEnemyBlock)
@@ -382,9 +385,18 @@ public class FightManager : Singleton<FightManager>
         }
         else
         {
+            // 攻击未被格挡时，执行招式可能带有的血量恢复效果
+            playerData.当前生命值 += 玩家攻击力 * skillData.healMultiplier[skillIndex];
+            if (playerData.当前生命值 >= playerData.最大生命值) { playerData.当前生命值 = playerData.最大生命值; }
+
             noBlockAudio.Play();
             StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, enemyAttackedMag));
         }
+        // 架势条恢复
+        playerData.当前架势条 -= skillData.angerRecovery[skillIndex];
+        if (playerData.当前架势条 < EPS) { playerData.当前架势条 = 0; }
+        // 进入下一招式
+        skillIndex = (skillIndex + 1) % skillData.attackMultiplier.Length;
         // 返回敌人格挡结果
         return isEnemyBlock;
     }
