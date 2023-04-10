@@ -3798,7 +3798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274affd8db0ed241aa6e6e8a5e54d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipUI: {fileID: 0}
+  tipUI: {fileID: 1102691486}
   Maptype: 1
   index: 12
   isstay: 0
@@ -4079,7 +4079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274affd8db0ed241aa6e6e8a5e54d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipUI: {fileID: 0}
+  tipUI: {fileID: 1821392382}
   Maptype: 0
   index: 14
   isstay: 0
@@ -11514,7 +11514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1696414783
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13755,7 +13755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274affd8db0ed241aa6e6e8a5e54d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipUI: {fileID: 0}
+  tipUI: {fileID: 1084680274}
   Maptype: 0
   index: 8
   isstay: 0
@@ -15291,7 +15291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274affd8db0ed241aa6e6e8a5e54d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipUI: {fileID: 0}
+  tipUI: {fileID: 1284859206}
   Maptype: 0
   index: 5
   isstay: 0
@@ -15422,7 +15422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1274affd8db0ed241aa6e6e8a5e54d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipUI: {fileID: 0}
+  tipUI: {fileID: 533545293}
   Maptype: 0
   index: 1
   isstay: 0
