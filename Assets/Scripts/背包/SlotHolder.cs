@@ -32,7 +32,7 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
                 {
                     ItemData_SO temp;
                     temp = itemUI.Bag.items[itemUI.Index].ItemData;
-                    InventoryManager.instance.currentJianJi = temp;
+                    InventoryManager.instance.inventoryData.currentJianJi = temp;
                     PlayerInUI.Instance.slot.transform.GetChild(0).GetChild(0).GetComponent<ItemUI>().SetupItemUI(temp, temp.itemAmount);
                     PlayerInUI.Instance.slot.transform.GetChild(1).GetComponent<Text>().text = "已装备剑技"+temp.itemName;
                     isclick = false;

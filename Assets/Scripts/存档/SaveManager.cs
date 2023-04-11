@@ -20,11 +20,11 @@ public class SaveManager : Singleton<SaveManager>
     }
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.J))  //�������
-        //{
-        //    PlayerPrefs.DeleteAll();
-        //    LoadPlayerData();
-        //}
+      //  if (Input.GetKeyDown(KeyCode.J))  //�������
+      //{
+      //      PlayerPrefs.DeleteAll();
+      //      LoadPlayerData();
+      //  }
         SavePlayerData();
     }
     public void SavePlayerData()

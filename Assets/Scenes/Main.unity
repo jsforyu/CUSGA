@@ -6991,7 +6991,6 @@ MonoBehaviour:
   healthText: {fileID: 0}
   attackText: {fileID: 0}
   tooltip: {fileID: 298927197}
-  currentJianJi: {fileID: 0}
 --- !u!114 &991441100
 MonoBehaviour:
   m_ObjectHideFlags: 0
