@@ -756,6 +756,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 0}
+  eventIndex: -1
 --- !u!61 &102098970
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2361,6 +2363,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 0}
+  eventIndex: -1
 --- !u!61 &419893254
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2664,6 +2668,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 0}
+  eventIndex: -1
 --- !u!61 &435665955
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3657,6 +3663,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 11400000, guid: 2825297868f96cb47b2910ad364179be, type: 2}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
+  eventIndex: 6
 --- !u!61 &522090294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3888,6 +3896,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 0}
+  eventIndex: -1
 --- !u!61 &543696227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4019,6 +4029,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 11400000, guid: 8babcce6668dea34f833b617a1e68e5a, type: 2}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
+  eventIndex: 8
 --- !u!61 &550959591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4300,6 +4312,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 11400000, guid: 3f48aea9473396f4ba67832ecfeedfa5, type: 2}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
+  eventIndex: 4
 --- !u!61 &596411770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4509,6 +4523,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 0}
+  eventIndex: -1
 --- !u!1 &659188688
 GameObject:
   m_ObjectHideFlags: 0
@@ -5449,6 +5465,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 0}
+  eventIndex: -1
 --- !u!61 &814457459
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6646,6 +6664,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 11400000, guid: 6b5a669200837ff4eaac7585c3217abb, type: 2}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
+  eventIndex: 1
 --- !u!61 &954712119
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7844,6 +7864,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 0}
+  eventIndex: -1
 --- !u!61 &1098216063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8545,6 +8567,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 11400000, guid: 780ef60f04109714e9d62a1b1e0bb7f6, type: 2}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
+  eventIndex: 5
 --- !u!61 &1254349633
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8751,6 +8775,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 0}
+  eventIndex: -1
 --- !u!61 &1277389842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9293,6 +9319,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 0}
+  eventIndex: -1
 --- !u!61 &1346438510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12075,6 +12103,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 11400000, guid: efdda9af2531cb64ea980fcb16ea1ea4, type: 2}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
+  eventIndex: 7
 --- !u!61 &1690102651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12205,6 +12235,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 0}
+  eventIndex: -1
 --- !u!61 &1693780529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12292,6 +12324,7 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1696414782}
   optionPanel: {fileID: 479212054}
   optionPrefab: {fileID: 4192193935854938228, guid: c21d3565ea5159c41b864e9dac94bc1e, type: 3}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
   currentData: {fileID: 0}
 --- !u!114 &1696414785
 MonoBehaviour:
@@ -13647,6 +13680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStats: {fileID: 11400000, guid: 19a2fb3a6de8be3449d52e718d14aa15, type: 2}
   bagSO: {fileID: 11400000, guid: c0354a490b7116644b8cc5ffbe2b9bac, type: 2}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
 --- !u!4 &1869247797
 Transform:
   m_ObjectHideFlags: 0
@@ -14498,6 +14532,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 11400000, guid: e15acaefad61acc4ba8b98949a14edbe, type: 2}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
+  eventIndex: 2
 --- !u!61 &1945894581
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14781,6 +14817,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 0}
+  eventIndex: -1
 --- !u!61 &1953647677
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15317,6 +15355,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 0}
+  eventIndex: -1
 --- !u!61 &2009249805
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16034,6 +16074,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 11400000, guid: 8943eb75ef8932b458876994b7b61874, type: 2}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
+  eventIndex: 3
 --- !u!61 &2095280693
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16165,6 +16207,8 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 11400000, guid: d5ca4c3a81e2cb444a8f58694d80316b, type: 2}
   DialoguePanel: {fileID: 1696414782}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
+  eventIndex: 9
 --- !u!61 &2115148781
 BoxCollider2D:
   m_ObjectHideFlags: 0

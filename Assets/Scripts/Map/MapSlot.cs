@@ -22,6 +22,8 @@ public class MapSlot : MonoBehaviour
     public DialogueData_SO currentData;
     public GameObject DialoguePanel;
     bool ischose=false;
+    public EventSO eventSO;
+    [SerializeField]private int eventIndex=-1;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,14 +74,20 @@ public class MapSlot : MonoBehaviour
         switch (Maptype)//请把触发对话写在这个函数中
         {
             case MapSlotType.City:
-            if(tipUI!=null)
-            tipUI.SetActive(true);
-                Maptype = MapSlotType.Outside;
+                if (!eventSO.events[eventIndex])
+                {
+                    eventSO.currentevent = eventIndex;
+                    if (tipUI != null)
+                        tipUI.SetActive(true);
+                }
                 break;
             case MapSlotType.Village:
-                if (tipUI != null)
-                    tipUI.SetActive(true);
-                Maptype = MapSlotType.Outside;
+                if (!eventSO.events[eventIndex])
+                {
+                    eventSO.currentevent = eventIndex;
+                    if (tipUI != null)
+                        tipUI.SetActive(true);
+                }
                 break;
             case MapSlotType.Outside:
                 return;

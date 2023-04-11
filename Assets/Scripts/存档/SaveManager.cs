@@ -6,6 +6,7 @@ public class SaveManager : Singleton<SaveManager>
 {
     public CharacterData_SO currentStats;
     public InventoryData_SO bagSO;
+    public EventSO eventSO;
     private void Start()
     {
         LoadPlayerData();
@@ -30,11 +31,13 @@ public class SaveManager : Singleton<SaveManager>
     {
         Save(currentStats, currentStats.name);
         Save(bagSO, bagSO.name);
+        Save(eventSO, eventSO.name);
     }
     public void LoadPlayerData()
     {
         Load(currentStats, currentStats.name);
         Load(bagSO, bagSO.name);
+        Load(eventSO, eventSO.name);
     }
     public void Load(Object data, string key)
     {
