@@ -18,6 +18,10 @@ public class QuestManager : Singleton<QuestManager>
     {
         LoadQuestManager();
     }
+    private void Update()
+    {
+        SaveQuestSystem();
+    }
     public void LoadQuestManager()
     {
         var questCount = PlayerPrefs.GetInt("QuestCount");

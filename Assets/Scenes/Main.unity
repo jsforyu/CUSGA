@@ -13642,9 +13642,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1869247795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed3cb160f7e72c46a62574681d48eb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a9b6b54b1ea7174eb154e3a2f1d69d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStats: {fileID: 11400000, guid: 19a2fb3a6de8be3449d52e718d14aa15, type: 2}
+  bagSO: {fileID: 11400000, guid: c0354a490b7116644b8cc5ffbe2b9bac, type: 2}
 --- !u!4 &1869247797
 Transform:
   m_ObjectHideFlags: 0
