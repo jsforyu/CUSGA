@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -12,12 +13,15 @@ public class CharacterData_SO : ScriptableObject
     public int 力量;
     public int 敏捷;
     public int 反应;
-    public int 剩余属性点;
+    // public int 剩余属性点;
+    [Tooltip("在玩家数据中代表当前经验值，在敌人数据中代表胜利获得经验值")]
+    public int 经验值;
+
     public float 最大生命值
     {
         get { return 50 + 体质 * 3; }
     }
-    [HideInInspector]
+    [NonSerialized]
     public float 当前生命值;
     public float 攻击力
     {
@@ -35,6 +39,10 @@ public class CharacterData_SO : ScriptableObject
     {
         get { return 50 + 等级 * 5; }
     }
-    [HideInInspector]
+    [NonSerialized]
     public float 当前架势条;
+    public int 升级经验值
+    {
+        get { return (int)(100 * Math.Pow(1.4, 等级 - 1)); }
+    }
 }

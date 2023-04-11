@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+
 //设置背包 武器 盾牌格子  也可设其他的例如鞋子 头盔
 public enum SlotType { BAG,WEAPON,ARMOR,ACTION,TRASH}
 public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandler
@@ -20,8 +23,21 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
     public SlotType slotType;
     public ItemUI itemUI;
     public GameObject tooptip;
+    bool isclick;
     private void Update()
     {
+        if (isclick == true && Input.GetMouseButtonDown(0))
+        {
+                if (transform.GetChild(0).gameObject.activeSelf == true)
+                {
+                    ItemData_SO temp;
+                    temp = itemUI.Bag.items[itemUI.Index].ItemData;
+                    InventoryManager.instance.currentJianJi = temp;
+                    PlayerInUI.Instance.slot.transform.GetChild(0).GetChild(0).GetComponent<ItemUI>().SetupItemUI(temp, temp.itemAmount);
+                    PlayerInUI.Instance.slot.transform.GetChild(1).GetComponent<Text>().text = "已装备剑技"+temp.itemName;
+                    isclick = false;
+                }
+        }
         RefreshitemUI();
     }
     private void Awake()
@@ -31,7 +47,7 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
     }
     private void Start()
     {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
     }
     public void OnPointerEnter(PointerEventData eventData) //当鼠标移到当前格子时 更新道具说明栏的文本
     {
@@ -39,10 +55,12 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
         {
             GameObject.Find("Inventroy Canvas").GetComponent<InventoryManager>().tooltip.SetupTooltip(itemUI.GetItem());
             GameObject.Find("Inventroy Canvas").GetComponent<InventoryManager>().tooltip.gameObject.SetActive(true);
+            isclick = true;
         }
     }
     public void OnPointerExit(PointerEventData eventData) //当鼠标移出则清空道具说明栏文本
     {
+        isclick = false;
         GameObject.Find("Inventroy Canvas").GetComponent<InventoryManager>().tooltip.gameObject.SetActive(false);
     }
       public void OnDisable() //被关闭时启用 防止直接关闭背包道具说明栏没隐藏
@@ -54,6 +72,7 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
     {
         if (itemUI.GetItem())
         {
+            Debug.Log(itemUI.GetItem().itemAmount);
             itemUI.SetupItemUI(itemUI.GetItem(), itemUI.GetItem().itemAmount);
         }
         else itemUI.gameObject.SetActive(false);

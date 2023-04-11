@@ -48,6 +48,6 @@ public class ItemUI : MonoBehaviour
     {
         return Bag.items[Index].ItemData;
     }
-
+    
 
 }

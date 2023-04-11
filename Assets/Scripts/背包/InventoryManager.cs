@@ -33,8 +33,11 @@ public class InventoryManager : MonoBehaviour
     [Header("Tooltip")]
     public ItemTooltip tooltip;
 
+
+    public ItemData_SO currentJianJi;
     private void Start()
     {
+        DontDestroyOnLoad(this);
         Cursor.visible = false;
         //LoadData();    //МгдиЪ§Он
         inventoryUI.RefreshUI();

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309ca51b9a1f1644b9857b19d8c8763d, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  "\u7B49\u7EA7": 5
+  "\u7B49\u7EA7": 1
   "\u4F53\u8D28": 1
   "\u529B\u91CF": 1
-  "\u654F\u6377": 2
+  "\u654F\u6377": 1
   "\u53CD\u5E94": 1
   "\u5269\u4F59\u5C5E\u6027\u70B9": 0
-  "\u5F53\u524D\u751F\u547D\u503C": 53
+  "\u5F53\u524D\u751F\u547D\u503C": -37
   "\u5F53\u524D\u67B6\u52BF\u6761": 0

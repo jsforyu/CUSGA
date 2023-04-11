@@ -19,7 +19,7 @@ MonoBehaviour:
   isFinished: 0
   questRequires:
   - name: "\u5F3A\u76D7"
-    requireAmount: 3
+    requireAmount: 1
     currentAmount: 0
   rewards:
   - ItemData: {fileID: 11400000, guid: f67e310fe4cd70842b0e4c5ca9a2811f, type: 2}
