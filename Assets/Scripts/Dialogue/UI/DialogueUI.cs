@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class DialogueUI : Singleton<DialogueUI>
 {
     [Header("Basic Elements")]
@@ -15,6 +15,7 @@ public class DialogueUI : Singleton<DialogueUI>
     public RectTransform optionPanel;
     public OptionUI optionPrefab;
     [Header("Data")]
+    public EventSO eventSO;
     public DialogueData_SO currentData;
     int currentIndex = 0;
     protected override void Awake()
@@ -24,7 +25,12 @@ public class DialogueUI : Singleton<DialogueUI>
     }
     void ContinueDialogue()
     {
-        if (currentIndex < currentData.dialoguePieces.Count)
+        Debug.Log(currentIndex);
+        if (currentData.dialoguePieces[currentIndex-1].startFight)
+        {
+            SceneManager.LoadSceneAsync(2);
+        }
+        else if (currentIndex < currentData.dialoguePieces.Count)
             UpdateMainDialogue(currentData.dialoguePieces[currentIndex]);
         else dialoguePanel.SetActive(false);
     }
