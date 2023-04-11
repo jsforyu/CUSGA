@@ -1,18 +1,16 @@
-using JetBrains.Annotations;
-using Mono.Cecil.Cil;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
-using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class FightManager : Singleton<FightManager>
 {
     [Header("角色属性")]
     public CharacterData_SO playerData;
     public ItemData_SO skillData;
+    public CharacterData_SO[] enemyDatas;
+    [NonSerialized]
     public CharacterData_SO enemyData;
 
     [Header("字符判定参数")]
@@ -53,6 +51,8 @@ public class FightManager : Singleton<FightManager>
     public AudioSource noBlockAudio;
     [Tooltip("处决特写")]
     public AudioSource exeShotAudio;
+    [Tooltip("落叶")]
+    public ParticleSystem[] leafParticleSystems;
 
     [Header("镜头震动")]
     [Tooltip("震动时间")]
@@ -112,6 +112,8 @@ public class FightManager : Singleton<FightManager>
         enemyData.当前架势条 = 0;
         playerController = PlayerController.Instance;
         enemyController = EnemyController.Instance;
+        enemyData = enemyDatas[playerData.等级 - 1];
+        skillData = InventoryManager.instance.currentJianJi;
 
         // 开始玩家回合
         TurnToPlayer();
@@ -119,7 +121,7 @@ public class FightManager : Singleton<FightManager>
     }
 
     private void Update()
-    {
+    {   
         if (Round.PlayerExecution == round && !stopExecution)
         {
             playerExcutionRecord += Time.deltaTime;
@@ -157,6 +159,66 @@ public class FightManager : Singleton<FightManager>
         yield return new WaitForSeconds(second);
         canEnterNextStep = 2;
     }
+
+    private void LeafSpeedControl(float multiplier)
+    {
+        foreach (var leafParticleSystem in leafParticleSystems)
+        {
+            ParticleSystem.Particle[] particles = new ParticleSystem.Particle[leafParticleSystem.particleCount];
+
+            // 获取粒子系统中所有粒子的信息
+            int particleCount = leafParticleSystem.GetParticles(particles);
+
+            // 修改已存在粒子速度
+            for (int i = 0; i < particleCount; i++)
+            {
+                particles[i].velocity *= multiplier;  // 将当前速度乘以倍率
+            }
+
+            leafParticleSystem.SetParticles(particles, particleCount);
+
+            // 修改粒子系统参数使后续粒子速度乘以倍率
+            ParticleSystem.MainModule mainModule = leafParticleSystem.main;
+            ParticleSystem.EmissionModule emissionModule = leafParticleSystem.emission;
+            ParticleSystem.RotationOverLifetimeModule rotationModule = leafParticleSystem.rotationOverLifetime;
+            ParticleSystem.ForceOverLifetimeModule forceModule = leafParticleSystem.forceOverLifetime;
+            ParticleSystem.MinMaxCurve temp;
+            // 开始速度
+            temp = mainModule.startSpeed;
+            temp.constantMin *= multiplier;
+            temp.constantMax *= multiplier;
+            mainModule.startSpeed = temp;
+            // 发射速度
+            temp = emissionModule.rateOverTime;
+            temp.constant *= multiplier;
+            emissionModule.rateOverTime = temp;
+            // 旋转速度 x
+            temp = rotationModule.x;
+            temp.constantMin *= multiplier;
+            temp.constantMax *= multiplier;
+            rotationModule.x = temp;
+            // 旋转速度 y
+            temp = rotationModule.y;
+            temp.constantMin *= multiplier;
+            temp.constantMax *= multiplier;
+            rotationModule.y = temp;
+            // 旋转速度 z
+            temp = rotationModule.z;
+            temp.constantMin *= multiplier;
+            temp.constantMax *= multiplier;
+            rotationModule.z = temp;
+            // 水平力
+            temp = forceModule.x;
+            temp.constantMin *= multiplier * multiplier;
+            temp.constantMax *= multiplier * multiplier;
+            forceModule.x = temp;
+            // 垂直力
+            temp = forceModule.y;
+            temp.constantMin *= multiplier * multiplier;
+            temp.constantMax *= multiplier * multiplier;
+            forceModule.y = temp;
+        }
+    }
     #endregion
 
     #region ------战斗基本逻辑-------
@@ -176,9 +238,10 @@ public class FightManager : Singleton<FightManager>
         next_rounds.Push(Round.PlayerExecution);
         round = Round.ExecutionShot;
 
-        executionShot.SetInteger("PlayerRandom", Random.Range(0, 4));
+        executionShot.SetInteger("PlayerRandom", UnityEngine.Random.Range(0, 4));
         executionShot.SetTrigger("PlayerExe");
         background.color = new Color(90 / 255f, 90 / 255f, 90 / 255f);
+        LeafSpeedControl(0.25f);
         // 音效
         exeShotAudio.Play();
     }
@@ -199,9 +262,10 @@ public class FightManager : Singleton<FightManager>
         next_rounds.Push(Round.EnemyExecution);
         round = Round.ExecutionShot;
 
-        executionShot.SetInteger("EnemyRandom", Random.Range(0, 3));
+        executionShot.SetInteger("EnemyRandom", UnityEngine.Random.Range(0, 3));
         executionShot.SetTrigger("EnemyExe");
         background.color = new Color(90 / 255f, 90 / 255f, 90 / 255f);
+        LeafSpeedControl(0.25f);
         // 音效
         exeShotAudio.Play();
     }
@@ -285,19 +349,25 @@ public class FightManager : Singleton<FightManager>
             {
                 round = next_rounds.Pop();
                 enemyController.SetAnimatorSpeed(1);
+                LeafSpeedControl(4);
+
                 if (enemyExecutedDamage > EPS)   // 处决期间造成了伤害
                 {
                     enemyController.Block(false);
+                    canEnterNextStep++;
+                    // 音效和震动
+                    noBlockAudio.Play();
+                    StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, enemyAttackedMag));
                 }
-                canEnterNextStep++;
+                else
+                {
+                    canEnterNextStep += 2;
+                }
                 enemyData.当前架势条 = 0;
                 enemyData.当前生命值 -= enemyExecutedDamage;
                 InitExecutionRecord();
                 stopExecution = false;
                 background.color = new Color(200 / 255f, 200 / 255f, 200 / 255f);
-                // 音效和震动
-                noBlockAudio.Play();
-                StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, enemyAttackedMag));
             }
             else
             {
@@ -311,6 +381,7 @@ public class FightManager : Singleton<FightManager>
             {
                 round = next_rounds.Pop();
                 playerController.SetAnimatorSpeed(1);
+                LeafSpeedControl(4);
                 playerController.Block(false);
                 canEnterNextStep++;
                 playerData.当前架势条 = 0;
@@ -327,7 +398,7 @@ public class FightManager : Singleton<FightManager>
                 playerController.SetAnimatorSpeed(0.5f);
                 // 不调用字符判定系统，直接调用敌人处决
                 PlayerExecuted();
-                enemyController.Attack(Random.Range(0, 3), false);
+                enemyController.Attack(UnityEngine.Random.Range(0, 3), false);
                 // 处决结束
                 if (++enemyExecutionRecord >= enemyExecutionCount)
                 {
@@ -362,7 +433,7 @@ public class FightManager : Singleton<FightManager>
     }
     public bool PlayerAttack()
     {
-        bool isEnemyBlock = Random.Range(0, 1.0f) < enemyData.BlockProb(playerData, enemyData) ? true : false;
+        bool isEnemyBlock = UnityEngine.Random.Range(0, 1.0f) < enemyData.BlockProb(playerData, enemyData) ? true : false;
         var 玩家架势条 = playerData.最大架势条;
         var 敌人架势条 = enemyData.最大架势条;
         var 玩家攻击力 = playerData.攻击力;
@@ -393,10 +464,10 @@ public class FightManager : Singleton<FightManager>
             StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, enemyAttackedMag));
         }
         // 架势条恢复
-        playerData.当前架势条 -= skillData.angerRecovery[skillIndex];
+        playerData.当前架势条 -= skillData.angerRecovery;
         if (playerData.当前架势条 < EPS) { playerData.当前架势条 = 0; }
         // 进入下一招式
-        skillIndex = (skillIndex + 1) % skillData.attackMultiplier.Length;
+        skillIndex = (skillIndex + 1) % Mathf.Min(skillData.attackMultiplier.Length, playerData.挥刀次数);
         // 返回敌人格挡结果
         return isEnemyBlock;
     }
