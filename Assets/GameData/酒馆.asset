@@ -21,8 +21,4 @@ MonoBehaviour:
   - name: "\u5F3A\u76D7"
     requireAmount: 1
     currentAmount: 0
-  rewards:
-  - ItemData: {fileID: 11400000, guid: f67e310fe4cd70842b0e4c5ca9a2811f, type: 2}
-    amount: 1
-  - ItemData: {fileID: 11400000, guid: 82eaec5a1dcb56a41915b00a75c46802, type: 2}
-    amount: 1
+  rewards: []

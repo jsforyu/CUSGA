@@ -14,7 +14,8 @@ public class StartUI : MonoBehaviour
 
    public void StartGame()
     {
-        StartCoroutine(LoadScene());
+        SceneManager.LoadSceneAsync(1);
+        //StartCoroutine(LoadScene());
     }
 
     public void EndGame()
