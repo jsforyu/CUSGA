@@ -76,4 +76,11 @@ public class QuestUI : Singleton<QuestUI>
         var item = Instantiate(rewardUI, rewardTransform);
         item.SetupItemUI(itemData,amount);
     }
+    public void ClickButton()
+    {
+        isOpen = !isOpen;
+        questPanel.SetActive(isOpen);
+        questContentText.text = "";
+        SetupQuestList();
+    }
 }

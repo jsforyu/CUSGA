@@ -160,5 +160,13 @@ public class InventoryManager : MonoBehaviour
     {
         return actionData.items.Find(i => i.ItemData == questItem);
     }
+    public void BagOpenButton()
+    {
+        isOpen = !isOpen;
+        Cursor.visible = isOpen;
+        BagCanvas.SetActive(isOpen);
+        //CharactersCanvas.SetActive(isOpen);
+        tooltip.gameObject.SetActive(isOpen);
+    }
 }
 
