@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a60959d7fde374489c0fd7e51ed19df, type: 3}
+  m_Name: JianJI2
+  m_EditorClassIdentifier: 
+  itemType: 0
+  itemName: "\u843D\u96C1\u5251\u6CD5"
+  itemIcon: {fileID: 21300000, guid: 0a8b18c1487eaf1478497983664ca1af, type: 3}
+  itemAmount: 1
+  description: "\u5251\u6CD5\u72B9\u5982\u843D\u96C1\u4E4B\u59FF\uFF0C\u4EE5\u96C1\u7FA4\u98DE\u843D\u7684\u77AC\u95F4\u53D8\u5316\u548C\u817E\u7A7A\u800C\u8D77\u7684\u8EAB\u59FF\u4E3A\u7075\u611F\u521B\u4F5C\uFF0C\u4EE5\u8FC5\u731B\u6765\u53BB\u81EA\u5982\u95FB\u540D\uFF0C\u56E0\u5176\u96BE\u4EE5\u7EC3\u4E60\uFF0C\u4EC5\u4E3A\u8D44\u6DF1\u5251\u5BA2\u6240\u7528\r"
+  stackable: 0
+  attackMultiplier: []
+  abSpeedMultiplier: []
+  healMultiplier: []
+  angerRecovery: []
