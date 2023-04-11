@@ -106,14 +106,14 @@ public class FightManager : Singleton<FightManager>
     private void Start()
     {
         // 初始化
+        enemyData = enemyDatas[playerData.等级 - 1];
         playerData.当前生命值 = playerData.最大生命值;
         enemyData.当前生命值 = enemyData.最大生命值;
         playerData.当前架势条 = 0;
         enemyData.当前架势条 = 0;
         playerController = PlayerController.Instance;
         enemyController = EnemyController.Instance;
-        enemyData = enemyDatas[playerData.等级 - 1];
-        skillData = InventoryManager.instance.currentJianJi;
+        // skillData = InventoryManager.instance.currentJianJi;
 
         // 开始玩家回合
         TurnToPlayer();
