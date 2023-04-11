@@ -74,10 +74,12 @@ public class MapSlot : MonoBehaviour
             case MapSlotType.City:
             if(tipUI!=null)
             tipUI.SetActive(true);
+                Maptype = MapSlotType.Outside;
                 break;
             case MapSlotType.Village:
                 if (tipUI != null)
                     tipUI.SetActive(true);
+                Maptype = MapSlotType.Outside;
                 break;
             case MapSlotType.Outside:
                 return;
