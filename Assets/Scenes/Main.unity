@@ -3465,6 +3465,7 @@ MonoBehaviour:
   ismove: 0
   speed: 5
   currentindex: 0
+  data: {fileID: 11400000, guid: 371db5f7b441b224cafed739183017ce, type: 2}
 --- !u!82 &485434495
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13698,6 +13699,7 @@ MonoBehaviour:
   currentStats: {fileID: 11400000, guid: 19a2fb3a6de8be3449d52e718d14aa15, type: 2}
   bagSO: {fileID: 11400000, guid: c0354a490b7116644b8cc5ffbe2b9bac, type: 2}
   eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
+  mapdata: {fileID: 11400000, guid: 371db5f7b441b224cafed739183017ce, type: 2}
 --- !u!4 &1869247797
 Transform:
   m_ObjectHideFlags: 0

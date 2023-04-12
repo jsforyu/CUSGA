@@ -9,7 +9,7 @@ public class PlayerInMap : MonoBehaviour
     public bool ismove;
     public float speed;
     public int currentindex;
-    //public PlayeInMapData data;
+    public PlayeInMapData data;
 
     int onfirst;
     Line online;
@@ -94,7 +94,7 @@ public class PlayerInMap : MonoBehaviour
             }
         }
         ismove = false;
-        //data.mapindex = mapindex;
+        data.mapindex = mapindex;
         tomapslot.SlotFunction();
         yield return null;
     }
@@ -119,7 +119,7 @@ public class PlayerInMap : MonoBehaviour
 
         }
         ismove = false;
-        //data.mapindex = mapindex;
+        data.mapindex = mapindex;
         tomapslot.SlotFunction();
         yield return null;
     }
@@ -151,7 +151,7 @@ public class PlayerInMap : MonoBehaviour
 
     void LoadPlayer()
     {
-        //mapindex = data.mapindex;
+        mapindex = data.mapindex;
         this.transform.position = MapManager.instance.Mapslots[mapindex].gameObject.transform.position;
     }
 

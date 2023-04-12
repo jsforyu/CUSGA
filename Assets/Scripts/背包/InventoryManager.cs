@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 //背包的管理 有保存背包和读取背包功能  可以创建一个画布放这个脚本  画布下放背包的ui

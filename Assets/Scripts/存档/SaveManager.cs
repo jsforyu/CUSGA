@@ -7,6 +7,7 @@ public class SaveManager : Singleton<SaveManager>
     public CharacterData_SO currentStats;
     public InventoryData_SO bagSO;
     public EventSO eventSO;
+    public PlayeInMapData mapdata;
     private void Start()
     {
         LoadPlayerData();
@@ -47,12 +48,14 @@ public class SaveManager : Singleton<SaveManager>
         Save(currentStats, currentStats.name);
         Save(bagSO, bagSO.name);
         Save(eventSO, eventSO.name);
+        Save(mapdata, mapdata.name);
     }
     public void LoadPlayerData()
     {
         Load(currentStats, currentStats.name);
         Load(bagSO, bagSO.name);
         Load(eventSO, eventSO.name);
+        Load(mapdata, mapdata.name);
     }
     public void Load(Object data, string key)
     {
