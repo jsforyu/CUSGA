@@ -84,6 +84,7 @@ public class FightManager : Singleton<FightManager>
     
     private float ab_move_speed = 400;        // 字符移动速度
     private float area_move_speed = 50;    // 判定区域移动速度
+    private float enemy_move_speed;//敌人字符移动速度
 
     private float enemyExecutedDamage = 0;
     private float playerExecutedDamage = 0;
@@ -114,6 +115,7 @@ public class FightManager : Singleton<FightManager>
         playerController = PlayerController.Instance;
         enemyController = EnemyController.Instance;
         skillData = InventoryManager.instance.inventoryData.currentJianJi;
+        enemy_move_speed = enemyData.攻击符速度;
 
         // 开始玩家回合
         TurnToPlayer();
@@ -337,7 +339,7 @@ public class FightManager : Singleton<FightManager>
             if (enemyAttackRecord < enemyAttackCount)
             {
                 enemyAttackRecord++;
-                AlphabetController.Instance.StartWorking(Round.Enemy, ab_move_speed);
+                AlphabetController.Instance.StartWorking(Round.Enemy, enemy_move_speed);
             }
             else
             {
