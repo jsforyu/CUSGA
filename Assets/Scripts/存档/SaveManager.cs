@@ -20,7 +20,7 @@ public class SaveManager : Singleton<SaveManager>
                 InventoryManager.instance.inventoryData.items.Add(tempitem);
             }
         }
-        if (InventoryManager.instance.inventoryData.items[0] == null)
+        if (InventoryManager.instance.inventoryData.items[0].ItemData == null)
         {
             InventoryManager.instance.inventoryData.AddItem(InventoryManager.instance.FirstJianJi, InventoryManager.instance.FirstJianJi.itemAmount);
             InventoryManager.instance.inventoryData.currentJianJi = InventoryManager.instance.inventoryData.items[0].ItemData;
