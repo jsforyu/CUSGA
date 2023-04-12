@@ -12,6 +12,8 @@ public class InventoryManager : MonoBehaviour
     }
     public GameObject player;
     public static InventoryManager instance;
+    public int baghave = 3;
+    public ItemData_SO FirstJianJi;
     //保存数据
     [Header("Inventory Data")]
     public InventoryData_SO inventoryData;//不同背包
@@ -39,8 +41,9 @@ public class InventoryManager : MonoBehaviour
         DontDestroyOnLoad(this);
         Cursor.visible = false;
         //LoadData();    //加载数据
+        Debug.Log("背包大小"+inventoryData.items.Count);
         inventoryUI.RefreshUI();
-        inventoryData.currentJianJi = inventoryData.items[0].ItemData;
+        //inventoryData.currentJianJi = inventoryData.items[0].ItemData;
         //actionUI.RefreshUI();
         //equipmentUI.RefreshUI();
 
@@ -51,6 +54,7 @@ public class InventoryManager : MonoBehaviour
         {
             instance = this;
         }
+        
     }
     public void Update()
     {
@@ -168,5 +172,6 @@ public class InventoryManager : MonoBehaviour
         //CharactersCanvas.SetActive(isOpen);
         tooltip.gameObject.SetActive(isOpen);
     }
+
 }
 

@@ -10,6 +10,18 @@ public class SaveManager : Singleton<SaveManager>
     private void Start()
     {
         LoadPlayerData();
+        if (InventoryManager.instance.inventoryData.items.Count != InventoryManager.instance.baghave)
+        {
+            for (int i = 0; i < InventoryManager.instance.baghave; i++)
+            {
+                InventoryItem tempitem = new InventoryItem();
+                tempitem.ItemData = null;
+                tempitem.amount = 0;
+                InventoryManager.instance.inventoryData.items.Add(tempitem);
+            }
+        }
+        InventoryManager.instance.inventoryData.AddItem(InventoryManager.instance.FirstJianJi, InventoryManager.instance.FirstJianJi.itemAmount);
+        InventoryManager.instance.inventoryData.currentJianJi = InventoryManager.instance.inventoryData.items[0].ItemData;
         DontDestroyOnLoad(gameObject);
     }
     public void Save(Object data, string key)
@@ -20,11 +32,11 @@ public class SaveManager : Singleton<SaveManager>
     }
     private void Update()
     {
-      //  if (Input.GetKeyDown(KeyCode.J))  //�������
-      //{
-      //      PlayerPrefs.DeleteAll();
-      //      LoadPlayerData();
-      //  }
+        if (Input.GetKeyDown(KeyCode.J))  //�������
+        {
+            PlayerPrefs.DeleteAll();
+            LoadPlayerData();
+        }
         SavePlayerData();
     }
     public void SavePlayerData()

@@ -6979,6 +6979,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  baghave: 3
+  FirstJianJi: {fileID: 11400000, guid: 1b022a4e5b931be4184bab0888ab7ae0, type: 2}
   inventoryData: {fileID: 11400000, guid: c0354a490b7116644b8cc5ffbe2b9bac, type: 2}
   actionData: {fileID: 0}
   equipmentData: {fileID: 0}
