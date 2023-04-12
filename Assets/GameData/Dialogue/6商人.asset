@@ -26,10 +26,4 @@ MonoBehaviour:
     quest: {fileID: 0}
     startFight: 1
     currentIndex: 6
-    options:
-    - text: "\u51FA\u624B\u76F8\u52A9\uFF01"
-      targetID: 
-      takeQuest: 0
-    - text: "\u901F\u901F\u79BB\u53BB"
-      targetID: 
-      takeQuest: 0
+    options: []

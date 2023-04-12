@@ -6,4 +6,5 @@ public class EventSO : ScriptableObject
 {
     public bool[] events;
     public int currentevent;
+    public ItemData_SO accessibleSkill;
 }

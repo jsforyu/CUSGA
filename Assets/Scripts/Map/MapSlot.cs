@@ -23,6 +23,7 @@ public class MapSlot : MonoBehaviour
     public GameObject DialoguePanel;
     bool ischose=false;
     public EventSO eventSO;
+    public ItemData_SO accessibleSkill;
     [SerializeField]private int eventIndex=-1;
     // Start is called before the first frame update
     void Start()
@@ -79,6 +80,8 @@ public class MapSlot : MonoBehaviour
                     eventSO.currentevent = eventIndex;
                     if (tipUI != null)
                         tipUI.SetActive(true);
+                    // 可获得剑技
+                    eventSO.accessibleSkill = accessibleSkill;
                 }
                 break;
             case MapSlotType.Village:

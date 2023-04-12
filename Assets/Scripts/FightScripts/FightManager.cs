@@ -113,7 +113,7 @@ public class FightManager : Singleton<FightManager>
         enemyData.当前架势条 = 0;
         playerController = PlayerController.Instance;
         enemyController = EnemyController.Instance;
-        // skillData = InventoryManager.instance.currentJianJi;
+        skillData = InventoryManager.instance.inventoryData.currentJianJi;
 
         // 开始玩家回合
         TurnToPlayer();
@@ -297,10 +297,12 @@ public class FightManager : Singleton<FightManager>
         if (result) // 赢
         {
             enemyController.Death();
+            FightResultUI.Instance.Settle(true);
         }
         else    // 输
         {
             playerController.Death();
+            FightResultUI.Instance.Settle(false);
         }
         Debug.Log("战斗结果:" +  result);
     }
@@ -467,7 +469,7 @@ public class FightManager : Singleton<FightManager>
         playerData.当前架势条 -= skillData.angerRecovery;
         if (playerData.当前架势条 < EPS) { playerData.当前架势条 = 0; }
         // 进入下一招式
-        skillIndex = (skillIndex + 1) % Mathf.Min(skillData.attackMultiplier.Length, playerData.挥刀次数);
+        skillIndex = (skillIndex + 1) % skillData.attackMultiplier.Length;
         // 返回敌人格挡结果
         return isEnemyBlock;
     }
