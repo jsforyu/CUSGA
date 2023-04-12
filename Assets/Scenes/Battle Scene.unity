@@ -17247,7 +17247,7 @@ MonoBehaviour:
   attackSuccessGap: 30
   executionSuccessGap: 30
   playerExecutionDuration: 6
-  playerExecutionCoef: 1
+  playerExecutionCoef: 0.6
   enemyExecutionCount: 3
   enemyExecutionCoef: 0.6666667
   playerExeAlpMoveSpeed: 1000

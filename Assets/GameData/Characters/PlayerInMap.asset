@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39f9c8bec2bf654aaa4cc39be92e1e3, type: 3}
   m_Name: PlayerInMap
   m_EditorClassIdentifier: 
-  mapindex: 8
+  mapindex: 5
