@@ -20,8 +20,11 @@ public class SaveManager : Singleton<SaveManager>
                 InventoryManager.instance.inventoryData.items.Add(tempitem);
             }
         }
-        InventoryManager.instance.inventoryData.AddItem(InventoryManager.instance.FirstJianJi, InventoryManager.instance.FirstJianJi.itemAmount);
-        InventoryManager.instance.inventoryData.currentJianJi = InventoryManager.instance.inventoryData.items[0].ItemData;
+        if (InventoryManager.instance.inventoryData.items[0] == null)
+        {
+            InventoryManager.instance.inventoryData.AddItem(InventoryManager.instance.FirstJianJi, InventoryManager.instance.FirstJianJi.itemAmount);
+            InventoryManager.instance.inventoryData.currentJianJi = InventoryManager.instance.inventoryData.items[0].ItemData;
+        }
         DontDestroyOnLoad(gameObject);
     }
     public void Save(Object data, string key)
