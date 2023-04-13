@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Event
   m_EditorClassIdentifier: 
   events: 00000000000000000000
-  currentevent: 3
+  currentevent: 1
   accessibleSkill: {fileID: 0}
