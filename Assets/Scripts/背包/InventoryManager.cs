@@ -36,7 +36,7 @@ public class InventoryManager : MonoBehaviour
     [Header("Tooltip")]
     public ItemTooltip tooltip;
 
-
+    
     private void Start()
     {
         DontDestroyOnLoad(this);

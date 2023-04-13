@@ -32,6 +32,7 @@ public class PlayerInUI : MonoBehaviour
     {
         slot.transform.GetChild(0).GetChild(0).GetComponent<ItemUI>().SetupItemUI(InventoryManager.instance.inventoryData.currentJianJi, InventoryManager.instance.inventoryData.currentJianJi.itemAmount);
         slot.transform.GetChild(1).GetComponent<Text>().text = "已装备剑技" + InventoryManager.instance.inventoryData.currentJianJi.itemName;
+        slot.transform.GetChild(2).GetComponent<Text>().text =InventoryManager.instance.inventoryData.currentJianJi.description;
     }
 
     // Update is called once per frame
