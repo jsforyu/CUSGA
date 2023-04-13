@@ -1,7 +1,7 @@
-using OpenCover.Framework.Model;
+//using OpenCover.Framework.Model;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 using UnityEngine;
 
 public class CharacterController<T> : Singleton<T> where T: CharacterController<T>

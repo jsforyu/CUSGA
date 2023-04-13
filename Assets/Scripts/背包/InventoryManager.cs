@@ -40,7 +40,7 @@ public class InventoryManager : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(this);
-        Cursor.visible = false;
+        //Cursor.visible = false;
         //LoadData();    //加载数据
         Debug.Log("背包大小"+inventoryData.items.Count);
         inventoryUI.RefreshUI();
@@ -63,7 +63,7 @@ public class InventoryManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))   //打开or关闭背包
         {
             isOpen = !isOpen;
-            Cursor.visible = isOpen;
+            //Cursor.visible = isOpen;
             BagCanvas.SetActive(isOpen);
             //CharactersCanvas.SetActive(isOpen);
             tooltip.gameObject.SetActive(isOpen);
@@ -168,7 +168,7 @@ public class InventoryManager : MonoBehaviour
     public void BagOpenButton()
     {
         isOpen = !isOpen;
-        Cursor.visible = isOpen;
+        //Cursor.visible = isOpen;
         BagCanvas.SetActive(isOpen);
         //CharactersCanvas.SetActive(isOpen);
         tooltip.gameObject.SetActive(isOpen);
