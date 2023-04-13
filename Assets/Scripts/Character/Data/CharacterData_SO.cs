@@ -34,7 +34,8 @@ public class CharacterData_SO : ScriptableObject
     }
     public float BlockProb(CharacterData_SO player,CharacterData_SO enemy)  // 敌人格挡概率
     {
-        return (float)(0.5 * (enemy.反应 + enemy.敏捷 * 0.6 - player.敏捷 * 0.4 - player.反应 * 0.2));
+        return (float)(0.5 +enemy.反应*0.1 + enemy.敏捷 * 0.06 - player.敏捷 * 0.04 - player.反应 * 0.02);
+        
     }
     public float 最大架势条
     {
