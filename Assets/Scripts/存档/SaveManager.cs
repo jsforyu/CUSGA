@@ -10,6 +10,7 @@ public class SaveManager : Singleton<SaveManager>
     public PlayeInMapData mapdata;
     private void Start()
     {
+        //PlayerPrefs.DeleteAll();
         LoadPlayerData();
         if (InventoryManager.instance.inventoryData.items.Count != InventoryManager.instance.baghave)
         {
