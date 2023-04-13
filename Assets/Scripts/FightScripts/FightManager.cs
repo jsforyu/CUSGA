@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -39,8 +40,10 @@ public class FightManager : Singleton<FightManager>
 
     [Tooltip("处决特写")]
     public Animator executionShot;
-    [Tooltip("背景")]
+    [Tooltip("背景节点")]
     public SpriteRenderer background;
+    [Tooltip("可选择背景图")]
+    public Sprite[] background_sprites;
 
     [Header("音效")]
     [Tooltip("完美格挡")]
@@ -89,6 +92,8 @@ public class FightManager : Singleton<FightManager>
     private float enemyExecutedDamage = 0;
     private float playerExecutedDamage = 0;
 
+    // 可选择的敌人
+    public GameObject[] enemies;
     // 角色控制脚本
     private PlayerController playerController;
     private EnemyController enemyController;
@@ -106,6 +111,12 @@ public class FightManager : Singleton<FightManager>
 
     private void Start()
     {
+        // 随机敌人
+        int random_enemy_index = UnityEngine.Random.Range(0, enemies.Length);
+        enemies[random_enemy_index].SetActive(true);
+        // 随机背景
+        int random_bg_index = UnityEngine.Random.Range(0, background_sprites.Length);
+        background.sprite = background_sprites[random_bg_index];
         // 初始化
         enemyData = enemyDatas[playerData.等级 - 1];
         playerData.当前生命值 = playerData.最大生命值;
