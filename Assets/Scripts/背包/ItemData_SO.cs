@@ -12,6 +12,8 @@ public class ItemData_SO : ScriptableObject
     public int itemAmount; 
     [TextArea]
     public string description = "";
+    [TextArea]
+    public string effect = "";
     public bool stackable; //判断是否可以堆叠
     // 剑技效果
     [Tooltip("攻击倍率")]

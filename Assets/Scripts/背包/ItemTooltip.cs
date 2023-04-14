@@ -19,7 +19,7 @@ public class ItemTooltip : MonoBehaviour
         if (item != null)
         {
             itemNameText.text = item.itemName;
-            itemInfoText.text = item.description;
+            itemInfoText.text = item.effect;
         }
         else
         {
