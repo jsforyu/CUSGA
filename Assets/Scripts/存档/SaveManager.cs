@@ -10,7 +10,7 @@ public class SaveManager : Singleton<SaveManager>
     public PlayeInMapData mapdata;
     private void Start()
     {
-        //PlayerPrefs.DeleteAll();
+        // PlayerPrefs.DeleteAll();
         LoadPlayerData();
         if (InventoryManager.instance.inventoryData.items.Count != InventoryManager.instance.baghave)
         {
@@ -27,7 +27,7 @@ public class SaveManager : Singleton<SaveManager>
             InventoryManager.instance.inventoryData.AddItem(InventoryManager.instance.FirstJianJi, InventoryManager.instance.FirstJianJi.itemAmount);
             InventoryManager.instance.inventoryData.currentJianJi = InventoryManager.instance.inventoryData.items[0].ItemData;
         }
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
     public void Save(Object data, string key)
     {

@@ -38,12 +38,25 @@ public class FightManager : Singleton<FightManager>
     [Tooltip("玩家攻击失败停顿时间")]
     public float attackFailWaitDuration;
 
+    [Header("可控制对象")]
+    [Tooltip("音效根节点")]
+    public Transform sound;
+    [Tooltip("事件数据 包含音量信息")]
+    public EventSO eventSO;
     [Tooltip("处决特写")]
     public Animator executionShot;
     [Tooltip("背景节点")]
     public SpriteRenderer background;
     [Tooltip("可选择背景图")]
     public Sprite[] background_sprites;
+    [Tooltip("玩家出刀次数标记")]
+    public RectTransform playerAttackIcon;
+    [Tooltip("敌人出刀次数标记")]
+    public RectTransform enemyAttackIcon;
+    [Tooltip("玩家等级")]
+    public Text playerLevel;
+    [Tooltip("敌人等级")]
+    public Text enemyLevel;
 
     [Header("音效")]
     [Tooltip("完美格挡")]
@@ -84,10 +97,11 @@ public class FightManager : Singleton<FightManager>
     Stack<Round> next_rounds = new Stack<Round>();   // 临时记录接下来将进入的回合
     int canEnterNextStep = 0;   // 达到2时（玩家、敌人皆准备完毕时），进入下一小回合
 
-    
+
+    private float attack_icon_width = 62.5f;
     private float ab_move_speed = 400;        // 字符移动速度
     private float area_move_speed = 50;    // 判定区域移动速度
-    private float enemy_move_speed;//敌人字符移动速度
+    private float enemy_move_speed;     //敌人字符移动速度
 
     private float enemyExecutedDamage = 0;
     private float playerExecutedDamage = 0;
@@ -111,13 +125,22 @@ public class FightManager : Singleton<FightManager>
 
     private void Start()
     {
+        // 初始化音量
+        foreach (AudioSource audio in sound.GetComponentsInChildren<AudioSource>())
+        {
+            audio.volume = eventSO.gameVolume;
+        }
         // 随机敌人
         int random_enemy_index = UnityEngine.Random.Range(0, enemies.Length);
         enemies[random_enemy_index].SetActive(true);
         // 随机背景
         int random_bg_index = UnityEngine.Random.Range(0, background_sprites.Length);
         background.sprite = background_sprites[random_bg_index];
-        // 初始化
+        // 初始化双方攻击次数标记
+        playerAttackIcon.sizeDelta = new Vector2(0, playerAttackIcon.sizeDelta.y);
+        enemyAttackIcon.sizeDelta = new Vector2(0, enemyAttackIcon.sizeDelta.y);
+
+        // 初始化变量
         enemyData = enemyDatas[playerData.等级 - 1];
         playerData.当前生命值 = playerData.最大生命值;
         enemyData.当前生命值 = enemyData.最大生命值;
@@ -125,8 +148,12 @@ public class FightManager : Singleton<FightManager>
         enemyData.当前架势条 = 0;
         playerController = PlayerController.Instance;
         enemyController = EnemyController.Instance;
-        skillData = InventoryManager.instance.inventoryData.currentJianJi;
+        if (InventoryManager.instance != null) { skillData = InventoryManager.instance.inventoryData.currentJianJi; }
         enemy_move_speed = enemyData.攻击符速度;
+
+        // 初始化双方等级展示
+        playerLevel.text = "Lv " + playerData.等级.ToString();
+        enemyLevel.text = "Lv " + enemyData.等级.ToString();
 
         // 开始玩家回合
         TurnToPlayer();
@@ -242,6 +269,8 @@ public class FightManager : Singleton<FightManager>
         playerAttackCount = playerData.挥刀次数;
         playerController.TurnToStartPos();
         enemyController.TurnToStartPos();
+        // 更新攻击次数标记
+        playerAttackIcon.sizeDelta = new Vector2(playerAttackCount * attack_icon_width, playerAttackIcon.sizeDelta.y);
     }
 
     void TurnToPlayerExecution()
@@ -263,9 +292,11 @@ public class FightManager : Singleton<FightManager>
     {
         InitAttackRecord();
         round = Round.Enemy;
-        enemyAttackCount = enemyData.挥刀次数;   // 暂定
+        enemyAttackCount = enemyData.挥刀次数;
         playerController.TurnToStartPos();
         enemyController.TurnToStartPos();
+        // 更新攻击次数标记
+        enemyAttackIcon.sizeDelta = new Vector2(enemyAttackCount * attack_icon_width, enemyAttackIcon.sizeDelta.y);
     }
 
     void TurnToEnemyExecution()
@@ -544,6 +575,8 @@ public class FightManager : Singleton<FightManager>
         int attackDir = alphabetToAttackDir[ab];
         if (Round.Player == round)
         {
+            // 更新攻击次数标记
+            playerAttackIcon.sizeDelta = new Vector2(playerAttackIcon.sizeDelta.x - attack_icon_width, playerAttackIcon.sizeDelta.y);
             // 攻击判定成功
             if (result <= attackSuccessGap && result >= 0)
             {
@@ -558,6 +591,8 @@ public class FightManager : Singleton<FightManager>
         }
         else if (Round.Enemy == round)
         {
+            // 更新攻击次数标记
+            enemyAttackIcon.sizeDelta = new Vector2(enemyAttackIcon.sizeDelta.x - attack_icon_width, enemyAttackIcon.sizeDelta.y);
             // 完美格挡
             if (result <= blockPerfectGap && result >= 0)
             {

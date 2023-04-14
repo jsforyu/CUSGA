@@ -10,6 +10,7 @@ public class PlayerInMap : MonoBehaviour
     public float speed;
     public int currentindex;
     public PlayeInMapData data;
+    public AudioSource walkingSound;
 
     int onfirst;
     Line online;
@@ -68,6 +69,7 @@ public class PlayerInMap : MonoBehaviour
     }
     public void Move(Line line, int next)
     {
+        walkingSound.Play();
         ismove = true;
         online = line;
         onfirst = next;
@@ -84,6 +86,7 @@ public class PlayerInMap : MonoBehaviour
                 yield return IE_MoveToTarget(tomapslot.gameObject.transform.position);
                 transform.position = Vector3.MoveTowards(transform.position, tomapslot.gameObject.transform.position, speed * Time.deltaTime);
                 ismove = false;
+                walkingSound.Stop();
                 mapindex = next;
                 currentindex = 0;
             }
@@ -94,6 +97,7 @@ public class PlayerInMap : MonoBehaviour
             }
         }
         ismove = false;
+        walkingSound.Stop();
         data.mapindex = mapindex;
         tomapslot.SlotFunction();
         yield return null;
@@ -107,6 +111,7 @@ public class PlayerInMap : MonoBehaviour
             {
                 yield return IE_MoveToTarget(tomapslot.gameObject.transform.position);
                 ismove = false;
+                walkingSound.Stop();
                 mapindex = next;
                 currentindex = 0;
             }
@@ -119,6 +124,7 @@ public class PlayerInMap : MonoBehaviour
 
         }
         ismove = false;
+        walkingSound.Stop();
         data.mapindex = mapindex;
         tomapslot.SlotFunction();
         yield return null;

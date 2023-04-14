@@ -43,7 +43,7 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
     }
     private void Awake()
     {
-        tooptip = GameObject.Find("Inventroy Canvas").GetComponent<InventoryManager>().tooltip.gameObject;
+        tooptip = GameObject.Find("ToolTip");
         //ResfeshitemUI();
     }
     private void Start()

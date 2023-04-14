@@ -15,6 +15,7 @@ public enum MapSlotType
 }
 public class MapSlot : MonoBehaviour
 {
+    public AudioSource btnAudioSource;
     public GameObject tipUI;
     public MapSlotType Maptype;
     public int index;//�����
@@ -80,8 +81,6 @@ public class MapSlot : MonoBehaviour
                     eventSO.currentevent = eventIndex;
                     if (tipUI != null)
                         tipUI.SetActive(true);
-                    // 可获得剑技
-                    eventSO.accessibleSkill = accessibleSkill;
                 }
                 break;
             case MapSlotType.Village:
@@ -96,6 +95,8 @@ public class MapSlot : MonoBehaviour
                 return;
 
         }
+        // 可获得剑技
+        eventSO.accessibleSkill = accessibleSkill;
     }
     IEnumerator FindSlot()
     {
@@ -163,6 +164,7 @@ public class MapSlot : MonoBehaviour
     }
     public void EnterScene()
     {
+        btnAudioSource.Play();
         tipUI.SetActive(false);
         DialoguePanel.SetActive(true);
         DialogueUI.Instance.UpdateDialogueData(currentData);

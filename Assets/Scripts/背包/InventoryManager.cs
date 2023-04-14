@@ -36,10 +36,12 @@ public class InventoryManager : MonoBehaviour
     [Header("Tooltip")]
     public ItemTooltip tooltip;
 
-    
+    public AudioSource btnAudioSource;
+
+
     private void Start()
     {
-        DontDestroyOnLoad(this);
+        // DontDestroyOnLoad(this);
         //Cursor.visible = false;
         //LoadData();    //加载数据
         Debug.Log("背包大小"+inventoryData.items.Count);
@@ -55,7 +57,10 @@ public class InventoryManager : MonoBehaviour
         {
             instance = this;
         }
-        
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
     public void Update()
     {
@@ -66,7 +71,8 @@ public class InventoryManager : MonoBehaviour
             //Cursor.visible = isOpen;
             BagCanvas.SetActive(isOpen);
             //CharactersCanvas.SetActive(isOpen);
-            tooltip.gameObject.SetActive(isOpen);
+            //if (isOpen == false) { tooltip.SetupTooltip(null); }
+            //tooltip.gameObject.SetActive(isOpen);
             
         }
         //更新人物信息
@@ -167,11 +173,13 @@ public class InventoryManager : MonoBehaviour
     }
     public void BagOpenButton()
     {
+        btnAudioSource.Play();
         isOpen = !isOpen;
         //Cursor.visible = isOpen;
         BagCanvas.SetActive(isOpen);
         //CharactersCanvas.SetActive(isOpen);
-        tooltip.gameObject.SetActive(isOpen);
+        //if (isOpen == false) { tooltip.SetupTooltip(null); }
+        //tooltip.gameObject.SetActive(isOpen);
     }
 
 }

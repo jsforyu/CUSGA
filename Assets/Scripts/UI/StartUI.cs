@@ -10,18 +10,31 @@ public class StartUI : MonoBehaviour
 
     public GameObject buttonpanel;
     public Text loadtext;
+    public AudioSource btnClickSE;
 
 
    public void StartGame()
     {
+        StartCoroutine(StartGameEnum());
+    }
+    IEnumerator StartGameEnum()
+    {
+        btnClickSE.Play();
+        yield return new WaitForSeconds(btnClickSE.clip.length);
         SceneManager.LoadSceneAsync(1);
-        //StartCoroutine(LoadScene());
     }
 
     public void EndGame()
     {
+        StartCoroutine(EndGameEnum());
+    }
+    IEnumerator EndGameEnum()
+    {
+        btnClickSE.Play();
+        yield return new WaitForSeconds(btnClickSE.clip.length);
         Application.Quit();
     }
+
 
     IEnumerator LoadScene()
     {

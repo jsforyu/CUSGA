@@ -16,8 +16,16 @@ public class ItemTooltip : MonoBehaviour
     }
     public void SetupTooltip(ItemData_SO item)
     {
-        itemNameText.text = item.itemName;
-        itemInfoText.text = item.description;
+        if (item != null)
+        {
+            itemNameText.text = item.itemName;
+            itemInfoText.text = item.description;
+        }
+        else
+        {
+            itemNameText.text = "";
+            itemInfoText.text = "";
+        }
     }
     void OnEnable()
     {

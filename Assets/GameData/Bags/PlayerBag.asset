@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PlayerBag
   m_EditorClassIdentifier: 
   items:
+  - ItemData: {fileID: 11400000, guid: 1b022a4e5b931be4184bab0888ab7ae0, type: 2}
+    amount: 1
+  - ItemData: {fileID: 11400000, guid: 0f9d3db216d542e4582f32a5631ab42f, type: 2}
+    amount: 1
   - ItemData: {fileID: 0}
     amount: 0
-  - ItemData: {fileID: 0}
-    amount: 0
-  - ItemData: {fileID: 0}
-    amount: 0
-  currentJianJi: {fileID: 21300000, guid: 0a8b18c1487eaf1478497983664ca1af, type: 3}
+  currentJianJi: {fileID: 11400000, guid: 1b022a4e5b931be4184bab0888ab7ae0, type: 2}

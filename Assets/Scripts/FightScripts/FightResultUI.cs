@@ -18,6 +18,12 @@ public class FightResultUI : Singleton<FightResultUI>
     GameObject loseIcon;
     [SerializeField]
     Button exitBtn;
+    [SerializeField]
+    AudioSource btnClickSE;
+    [SerializeField]
+    GameObject accessibleSkill;
+    [SerializeField]
+    GameObject gottenObject_1;
 
     [SerializeField]
     Text expText;
@@ -111,6 +117,13 @@ public class FightResultUI : Singleton<FightResultUI>
 
     public void Exit()
     {
+        StartCoroutine(loadSceneWithSound());
+    }
+
+    IEnumerator loadSceneWithSound()
+    {
+        btnClickSE.Play();
+        yield return new WaitForSeconds(btnClickSE.clip.length);
         if (result)
         {
             // 记录事件完成
@@ -172,7 +185,7 @@ public class FightResultUI : Singleton<FightResultUI>
         settlementUI.SetActive(true);
 
         // 根据战斗结果执行逻辑
-        if (result)
+        if (result) // 赢
         {
             winIcon.SetActive(true);
 
@@ -181,6 +194,17 @@ public class FightResultUI : Singleton<FightResultUI>
             expText.text = string.Format(expTextString, playerData.经验值, playerData.升级所需经验值, enemyData.经验值, 原等级, playerData.等级);
 
             FreshAttributePanel();
+
+            // 可获得剑技
+            if (eventSO.accessibleSkill != null)
+            {
+                GameObject temp = Instantiate(accessibleSkill);
+                temp.transform.parent = gottenObject_1.transform;
+                temp.transform.localPosition = new Vector3(0, 1.4f, 0);
+                temp.transform.localScale = new Vector3(6.043f, 6.043f, 0);
+
+                temp.GetComponent<AccessibleSkillUI>().InitItem(eventSO.accessibleSkill);
+            }
         }
         else
         {
