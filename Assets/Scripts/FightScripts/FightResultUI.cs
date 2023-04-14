@@ -134,6 +134,7 @@ public class FightResultUI : Singleton<FightResultUI>
                 inventoryDataSO.AddItem(eventSO.accessibleSkill, 1);
             }
         }
+        SaveManager.Instance.SavePlayerData();
         SceneManager.LoadSceneAsync(1);
     }
     #endregion

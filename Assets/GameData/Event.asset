@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f129e13a37784ea4b855c3f75eee30ea, type: 3}
   m_Name: Event
   m_EditorClassIdentifier: 
-  events: 00000000000000000100
-  currentevent: 8
-  accessibleSkill: {fileID: 11400000, guid: 0f9d3db216d542e4582f32a5631ab42f, type: 2}
+  events: 00000000000000000000
+  currentevent: 2
+  accessibleSkill: {fileID: 0}
   gameVolume: 1
