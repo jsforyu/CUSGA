@@ -89,6 +89,7 @@ public class PlayerInMap : MonoBehaviour
                 walkingSound.Stop();
                 mapindex = next;
                 currentindex = 0;
+                SaveManager.Instance.SavePlayerData();
             }
             else
             {
@@ -100,6 +101,7 @@ public class PlayerInMap : MonoBehaviour
         walkingSound.Stop();
         data.mapindex = mapindex;
         tomapslot.SlotFunction();
+        SaveManager.Instance.SavePlayerData();
         yield return null;
     }
     IEnumerator BackMove(MapSlot tomapslot, LineRenderer linere, int next)
@@ -114,6 +116,7 @@ public class PlayerInMap : MonoBehaviour
                 walkingSound.Stop();
                 mapindex = next;
                 currentindex = 0;
+                SaveManager.Instance.SavePlayerData();
             }
             else
             {
@@ -127,6 +130,7 @@ public class PlayerInMap : MonoBehaviour
         walkingSound.Stop();
         data.mapindex = mapindex;
         tomapslot.SlotFunction();
+        SaveManager.Instance.SavePlayerData();
         yield return null;
     }
 

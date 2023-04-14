@@ -27,7 +27,7 @@ public class SaveManager : Singleton<SaveManager>
             InventoryManager.instance.inventoryData.AddItem(InventoryManager.instance.FirstJianJi, InventoryManager.instance.FirstJianJi.itemAmount);
             InventoryManager.instance.inventoryData.currentJianJi = InventoryManager.instance.inventoryData.items[0].ItemData;
         }
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
     public void Save(Object data, string key)
     {
@@ -37,12 +37,11 @@ public class SaveManager : Singleton<SaveManager>
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))  //�������
-        {
-            PlayerPrefs.DeleteAll();
-            LoadPlayerData();
-        }
-        SavePlayerData();
+        //if (Input.GetKeyDown(KeyCode.J))  //�������
+        //{
+        //    PlayerPrefs.DeleteAll();
+        //    LoadPlayerData();
+        //}
     }
     public void SavePlayerData()
     {
