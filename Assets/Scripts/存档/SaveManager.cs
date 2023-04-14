@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class SaveManager : Singleton<SaveManager>
@@ -11,22 +12,6 @@ public class SaveManager : Singleton<SaveManager>
     private void Start()
     {
         // PlayerPrefs.DeleteAll();
-        LoadPlayerData();
-        if (InventoryManager.instance.inventoryData.items.Count != InventoryManager.instance.baghave)
-        {
-            for (int i = 0; i < InventoryManager.instance.baghave; i++)
-            {
-                InventoryItem tempitem = new InventoryItem();
-                tempitem.ItemData = null;
-                tempitem.amount = 0;
-                InventoryManager.instance.inventoryData.items.Add(tempitem);
-            }
-        }
-        if (InventoryManager.instance.inventoryData.items[0].ItemData == null)
-        {
-            InventoryManager.instance.inventoryData.AddItem(InventoryManager.instance.FirstJianJi, InventoryManager.instance.FirstJianJi.itemAmount);
-            InventoryManager.instance.inventoryData.currentJianJi = InventoryManager.instance.inventoryData.items[0].ItemData;
-        }
         DontDestroyOnLoad(gameObject);
     }
     public void Save(Object data, string key)
@@ -42,6 +27,32 @@ public class SaveManager : Singleton<SaveManager>
         //    PlayerPrefs.DeleteAll();
         //    LoadPlayerData();
         //}
+    }
+
+    public void InitPlayerData()
+    {
+        // 玩家属性
+        currentStats.等级 = 1;
+        currentStats.体质 = 1;
+        currentStats.力量 = 1;
+        currentStats.敏捷 = 1;
+        currentStats.反应 = 1;
+        currentStats.剩余属性点 = 0;
+        currentStats.经验值 = 0;
+        // 背包内容
+        bagSO.items[1].ItemData = null;
+        bagSO.items[1].amount = 0;
+        bagSO.items[2].ItemData = null;
+        bagSO.items[2].amount = 0;
+        bagSO.currentJianJi = bagSO.items[0].ItemData;
+        // 事件列表
+        for (int i = 0; i < eventSO.events.Length; i++)
+        {
+            eventSO.events[i] = false;
+        }
+        eventSO.gameVolume = 1;
+        // 地图数据
+        mapdata.mapindex = 10;
     }
     public void SavePlayerData()
     {

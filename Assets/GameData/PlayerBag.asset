@@ -16,7 +16,7 @@ MonoBehaviour:
   - ItemData: {fileID: 11400000, guid: 1b022a4e5b931be4184bab0888ab7ae0, type: 2}
     amount: 1
   - ItemData: {fileID: 0}
-    amount: 1
+    amount: 0
   - ItemData: {fileID: 0}
     amount: 0
   currentJianJi: {fileID: 11400000, guid: 1b022a4e5b931be4184bab0888ab7ae0, type: 2}

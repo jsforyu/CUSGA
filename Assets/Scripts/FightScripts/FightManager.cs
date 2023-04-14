@@ -11,6 +11,7 @@ public class FightManager : Singleton<FightManager>
     public CharacterData_SO playerData;
     public ItemData_SO skillData;
     public CharacterData_SO[] enemyDatas;
+    public CharacterData_SO bossData;
     [NonSerialized]
     public CharacterData_SO enemyData;
 
@@ -142,6 +143,10 @@ public class FightManager : Singleton<FightManager>
 
         // 初始化变量
         enemyData = enemyDatas[playerData.等级 - 1];
+        if (eventSO.currentevent == 11) // 进入boss房
+        {
+            enemyData = bossData;
+        }
         playerData.当前生命值 = playerData.最大生命值;
         enemyData.当前生命值 = enemyData.最大生命值;
         playerData.当前架势条 = 0;

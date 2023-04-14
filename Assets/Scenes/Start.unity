@@ -1994,7 +1994,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1992124253}
         m_TargetAssemblyTypeName: StartUI, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: ContinueGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2746,7 +2746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1174857127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4222,6 +4222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ea13b7db5d1884196dc9beeff0075e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueGameBtn: {fileID: 974192722}
   buttonpanel: {fileID: 1488108645}
   loadtext: {fileID: 1185240075}
   btnClickSE: {fileID: 1160478872}

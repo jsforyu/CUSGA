@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
     [Header("设置菜单")]
     public GameObject SetPanel;
@@ -20,6 +20,11 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        InitVolume();
+    }
+
+    void InitVolume()
+    {
         // 初始化游戏音量
         if (eventSO != null)
         {
@@ -29,6 +34,7 @@ public class UIManager : MonoBehaviour
             bgAudioSource.volume = musicSlider.value;
         }
     }
+
     private void Update()
     {
         ChangeMusic();
@@ -42,6 +48,7 @@ public class UIManager : MonoBehaviour
             bgAudioSource.volume = musicSlider.value;
             lastSlider = musicSlider.value;
             eventSO.gameVolume = musicSlider.value;
+            SaveManager.Instance.SavePlayerData();
         }
     }   //调音量
     public void OpenSetting()

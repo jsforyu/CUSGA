@@ -188,6 +188,16 @@ public class FightResultUI : Singleton<FightResultUI>
         // 根据战斗结果执行逻辑
         if (result) // 赢
         {
+            if (eventSO.currentevent == 1)  // 打败boss
+            {
+                // 清除数据
+                PlayerPrefs.DeleteAll();
+                // 击败Boss的处理
+                //
+                //
+                return;
+            }
+
             winIcon.SetActive(true);
 
             // 获得经验值

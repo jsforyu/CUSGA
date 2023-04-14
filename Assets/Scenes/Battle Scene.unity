@@ -17644,6 +17644,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5154005c03af18941864799707c0570b, type: 2}
   - {fileID: 11400000, guid: f3d1bd2788a66fe4d9f612a5bfaa38b0, type: 2}
   - {fileID: 11400000, guid: 7b5c8306029609a448fb325d8b4d0517, type: 2}
+  bossData: {fileID: 11400000, guid: ba2f7f90081f3674b8fb6f47d6e86c1a, type: 2}
   blockPerfectGap: 20
   blockSuccessGap: 30
   attackSuccessGap: 30
