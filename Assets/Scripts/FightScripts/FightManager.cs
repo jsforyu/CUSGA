@@ -55,6 +55,10 @@ public class FightManager : Singleton<FightManager>
     public RectTransform playerAttackIcon;
     [Tooltip("敌人出刀次数标记")]
     public RectTransform enemyAttackIcon;
+    [Tooltip("玩家处决次数标记")]
+    public GameObject playerExecutionIcon;
+    private Image[] playerExecutionIconUnits;
+
     [Tooltip("玩家等级")]
     public Text playerLevel;
     [Tooltip("敌人等级")]
@@ -92,7 +96,8 @@ public class FightManager : Singleton<FightManager>
     private int enemyAttackCount;           // 敌人攻击总次数
     private int playerAttackRecord = 0;     // 玩家已攻击次数
     private int enemyAttackRecord = 0;      // 敌人已攻击次数
-    private float playerExcutionRecord = 0; // 玩家处决已经过时间
+    private float playerExecutionTimeRecord = 0; // 玩家处决已经过时间
+    private int playerExecutionCountRecord = 0;  // 玩家处决成功次数
     private int enemyExecutionRecord = 0;   // 敌人已处决次数
     private bool stopExecution = false;     // 停止处决标志位
     Round round;        // 记录当前处于哪一回合（玩家，敌人，玩家处决，敌人处决）
@@ -138,9 +143,10 @@ public class FightManager : Singleton<FightManager>
         // 随机背景
         int random_bg_index = UnityEngine.Random.Range(0, background_sprites.Length);
         background.sprite = background_sprites[random_bg_index];
-        // 初始化双方攻击次数标记
+        // 初始化双方攻击/处决次数标记
         playerAttackIcon.sizeDelta = new Vector2(0, playerAttackIcon.sizeDelta.y);
         enemyAttackIcon.sizeDelta = new Vector2(0, enemyAttackIcon.sizeDelta.y);
+        playerExecutionIconUnits = playerExecutionIcon.GetComponentsInChildren<Image>();
 
         // 初始化变量
         enemyData = enemyDatas[playerData.等级 - 1];
@@ -174,15 +180,10 @@ public class FightManager : Singleton<FightManager>
             enemyData.当前生命值 = 0;
         }
 
-        if (Round.PlayerExecution == round && !stopExecution)
+        if (Round.PlayerExecution == round) // 玩家处决剩余时间记录
         {
-            playerExcutionRecord += Time.deltaTime;
-            Countdown.Instance.FreshCountDown(playerExcutionRecord, playerExecutionDuration);
-            // 结束玩家处决
-            if (playerExcutionRecord > playerExecutionDuration)
-            {
-                stopExecution = true;
-            }
+            playerExecutionTimeRecord += Time.deltaTime;
+            Countdown.Instance.FreshCountDown(Mathf.Min(playerExecutionTimeRecord, playerExecutionDuration), playerExecutionDuration);
         }
         if (2 <= canEnterNextStep)
         {
@@ -200,7 +201,8 @@ public class FightManager : Singleton<FightManager>
 
     private void InitExecutionRecord()
     {
-        playerExcutionRecord = 0;
+        playerExecutionTimeRecord = 0;
+        playerExecutionCountRecord = 0;
         enemyExecutionRecord = 0;
         enemyExecutedDamage = 0;
         playerExecutedDamage = 0;
@@ -298,6 +300,13 @@ public class FightManager : Singleton<FightManager>
         LeafSpeedControl(0.25f);
         // 音效
         exeShotAudio.Play();
+
+        // 打开处决记录Icon
+        playerExecutionIcon.SetActive(true);
+        foreach(var i in playerExecutionIconUnits)
+        {
+            i.color = new Color(135 / 255f, 135 / 255f, 135 / 255f);
+        }
     }
 
     void TurnToEnemy()
@@ -403,11 +412,19 @@ public class FightManager : Singleton<FightManager>
         }
         else if (Round.PlayerExecution == round)
         {
+            if (playerExecutionTimeRecord >= playerExecutionDuration && playerExecutionCountRecord == 0)
+            {
+                stopExecution = true;
+            }
             if (stopExecution)
             {
                 round = next_rounds.Pop();
                 enemyController.SetAnimatorSpeed(1);
                 LeafSpeedControl(4);
+
+                // 关闭处决记录Icon
+                playerExecutionIcon.SetActive(false);
+                playerExecutionCountRecord = 0;
 
                 if (enemyExecutedDamage > EPS)   // 处决期间造成了伤害
                 {
@@ -429,8 +446,20 @@ public class FightManager : Singleton<FightManager>
             }
             else
             {
-                enemyController.SetAnimatorSpeed(0.5f);
-                AlphabetController.Instance.StartWorking(Round.PlayerExecution, playerExeAlpMoveSpeed);
+                if (playerExecutionTimeRecord < playerExecutionDuration)
+                {
+                    enemyController.SetAnimatorSpeed(0.5f);
+                    AlphabetController.Instance.StartWorking(Round.PlayerExecution, playerExeAlpMoveSpeed);
+                }
+                else
+                {
+                    if (playerExecutionCountRecord > 0)
+                    {
+                        EnemyExecuted();
+                        playerController.Attack(UnityEngine.Random.Range(0, 3), false);
+                        playerExecutionCountRecord--;
+                    }
+                }
             }
         }
         else if (Round.EnemyExecution == round)
@@ -533,6 +562,7 @@ public class FightManager : Singleton<FightManager>
     {
         var 玩家攻击力 = playerData.攻击力;
         enemyExecutedDamage += 玩家攻击力 * playerExecutionCoef;
+
         // 音效
         noBlockAudio.Play();
     }
@@ -636,9 +666,12 @@ public class FightManager : Singleton<FightManager>
             }
             else
             {
-                // 玩家处决成功
-                EnemyExecuted();
-                playerController.Attack(attackDir, false);
+                // 玩家处决成功，记录次数
+                playerExecutionIconUnits[playerExecutionCountRecord].color = new Color(140 / 255f, 44 / 255f, 43 / 255f);
+                playerExecutionCountRecord++;
+                canEnterNextStep += 2;
+                // 判定处决成功的音效
+                //
             }
         }
     }
