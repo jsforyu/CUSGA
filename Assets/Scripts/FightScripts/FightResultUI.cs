@@ -184,25 +184,20 @@ public class FightResultUI : Singleton<FightResultUI>
     public void Settle(bool result_)
     {
         result = result_;
+        if (result && eventSO.currentevent == 11)   // 击败boss
+        {
+            End.SetActive(true);
+            // 清除数据
+            PlayerPrefs.DeleteAll();
+            return;
+        }
+
         // 打开面板
         settlementUI.SetActive(true);
 
         // 根据战斗结果执行逻辑
         if (result) // 赢
         {
-            if (eventSO.currentevent == 1)  // 打败boss
-            {
-               
-                End.SetActive(true);
-                // 清除数据
-                PlayerPrefs.DeleteAll();
-
-                // 击败Boss的处理
-                //
-                //
-                return;
-            }
-
             winIcon.SetActive(true);
 
             // 获得经验值

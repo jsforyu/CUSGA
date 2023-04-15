@@ -38,6 +38,6 @@ MonoBehaviour:
     image: {fileID: 0}
     text: "\u6CE8\uFF1A\u96BE\u5EA6\u6781\u9AD8\uFF0C\u5EFA\u8BAE\u53D8\u5F3A\u540E\u5C1D\u8BD5\uFF0C\u6311\u6218\u5931\u8D25\u540E\u4E0D\u4F1A\u6709\u635F\u5931"
     quest: {fileID: 0}
-    startFight: 0
+    startFight: 1
     currentIndex: 0
     options: []

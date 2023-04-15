@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using OpenCover.Framework.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -166,7 +167,13 @@ public class FightManager : Singleton<FightManager>
     }
 
     private void Update()
-    {   
+    {
+        // 测试员秘籍
+        if (Input.GetKey(KeyCode.R) && Input.GetKey(KeyCode.P) && Input.GetKey(KeyCode.G))
+        {
+            enemyData.当前生命值 = 0;
+        }
+
         if (Round.PlayerExecution == round && !stopExecution)
         {
             playerExcutionRecord += Time.deltaTime;

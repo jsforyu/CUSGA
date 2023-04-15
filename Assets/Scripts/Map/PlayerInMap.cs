@@ -157,6 +157,8 @@ public class PlayerInMap : Singleton<PlayerInMap>
         Debug.Log(data.mapindex);
         mapindex = data.mapindex;
         this.transform.position = MapManager.instance.Mapslots[mapindex].gameObject.transform.position;
+        // 若进入大世界的当前节点就可进入，则打开进入按钮
+        MapManager.instance.Mapslots[mapindex].GetComponent<MapSlot>().SlotFunction();
     }
 
 }

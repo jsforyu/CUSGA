@@ -76,7 +76,7 @@ public class MapSlot : MonoBehaviour
         switch (Maptype)//请把触发对话写在这个函数中
         {
             case MapSlotType.City:
-                if (!eventSO.events[eventIndex])
+                if (eventIndex >= 0 && eventIndex < eventSO.events.Length && !eventSO.events[eventIndex])
                 {
                     eventSO.currentevent = eventIndex;
                     if (tipUI != null)
@@ -84,7 +84,7 @@ public class MapSlot : MonoBehaviour
                 }
                 break;
             case MapSlotType.Village:
-                if (!eventSO.events[eventIndex])
+                if (eventIndex >= 0 && eventIndex < eventSO.events.Length && !eventSO.events[eventIndex])
                 {
                     eventSO.currentevent = eventIndex;
                     if (tipUI != null)
@@ -92,7 +92,7 @@ public class MapSlot : MonoBehaviour
                 }
                 break;
             case MapSlotType.Outside:
-                return;
+                break;
 
         }
         // 可获得剑技

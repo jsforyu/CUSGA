@@ -757,7 +757,7 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
-  eventSO: {fileID: 0}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
   accessibleSkill: {fileID: 0}
   eventIndex: -1
 --- !u!61 &102098970
@@ -2494,7 +2494,7 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
-  eventSO: {fileID: 0}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
   accessibleSkill: {fileID: 0}
   eventIndex: -1
 --- !u!61 &419893254
@@ -2801,7 +2801,7 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
-  eventSO: {fileID: 0}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
   accessibleSkill: {fileID: 0}
   eventIndex: -1
 --- !u!61 &435665955
@@ -4035,7 +4035,7 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
-  eventSO: {fileID: 0}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
   accessibleSkill: {fileID: 0}
   eventIndex: -1
 --- !u!61 &543696227
@@ -5817,7 +5817,7 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
-  eventSO: {fileID: 0}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
   accessibleSkill: {fileID: 0}
   eventIndex: -1
 --- !u!61 &814457459
@@ -8222,7 +8222,7 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
-  eventSO: {fileID: 0}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
   accessibleSkill: {fileID: 0}
   eventIndex: -1
 --- !u!61 &1098216063
@@ -9271,7 +9271,7 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
-  eventSO: {fileID: 0}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
   accessibleSkill: {fileID: 0}
   eventIndex: -1
 --- !u!61 &1277389842
@@ -12740,7 +12740,7 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
-  eventSO: {fileID: 0}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
   accessibleSkill: {fileID: 0}
   eventIndex: -1
 --- !u!61 &1693780529
@@ -14353,7 +14353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1869247796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15637,7 +15637,7 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
-  eventSO: {fileID: 0}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
   accessibleSkill: {fileID: 0}
   eventIndex: -1
 --- !u!61 &1953647677
@@ -16257,7 +16257,7 @@ MonoBehaviour:
   isstay: 0
   currentData: {fileID: 0}
   DialoguePanel: {fileID: 1696414782}
-  eventSO: {fileID: 0}
+  eventSO: {fileID: 11400000, guid: adbf4e9c31c0c82498a482bb357b741e, type: 2}
   accessibleSkill: {fileID: 0}
   eventIndex: -1
 --- !u!61 &2009249805
