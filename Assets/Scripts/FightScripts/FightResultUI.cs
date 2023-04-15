@@ -51,6 +51,8 @@ public class FightResultUI : Singleton<FightResultUI>
 
     [SerializeField]
     Text attributeText;
+    [SerializeField]
+    GameObject End;
     string attributeTextString = "生命值：{0}\r\n架势条：{1}\r\n攻击力：{2}\r\n攻击次数：{3}";
 
     CharacterData_SO playerData;
@@ -190,8 +192,11 @@ public class FightResultUI : Singleton<FightResultUI>
         {
             if (eventSO.currentevent == 1)  // 打败boss
             {
+               
+                End.SetActive(true);
                 // 清除数据
                 PlayerPrefs.DeleteAll();
+
                 // 击败Boss的处理
                 //
                 //
