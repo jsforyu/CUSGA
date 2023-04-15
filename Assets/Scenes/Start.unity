@@ -1374,9 +1374,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a1ff5da187ca94589faec50a5fac6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayeyData: {fileID: 11400000, guid: 19a2fb3a6de8be3449d52e718d14aa15, type: 2}
+  playerData: {fileID: 0}
   Lv: {fileID: 759327777}
   slot: {fileID: 793735579}
+  attributeBody: {fileID: 0}
 --- !u!114 &717600212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3781,7 +3782,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693614831}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 870a6581053a1184da8208e1f27409b1, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: eb9ae3617824bbf4d8ea8a2be4f170f9, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1715662204}
