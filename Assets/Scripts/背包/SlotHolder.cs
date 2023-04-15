@@ -73,7 +73,6 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
     {
         if (itemUI.GetItem())
         {
-            Debug.Log(itemUI.GetItem().itemAmount);
             itemUI.SetupItemUI(itemUI.GetItem(), itemUI.GetItem().itemAmount);
         }
         else itemUI.gameObject.SetActive(false);

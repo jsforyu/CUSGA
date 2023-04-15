@@ -146,9 +146,9 @@ public class FightResultUI : Singleton<FightResultUI>
     {
         jiadianText.text = string.Format(jiadianTextString, playerData.剩余属性点, 原体质, playerData.体质, 原力量, playerData.力量, 原敏捷, playerData.敏捷, 原反应, playerData.反应);
         // 加点带来的属性变化，采用富文字标记变化的属性
-        string 生命值 = string.Format("<color={0}>{1}</color>", (原生命值 == playerData.最大生命值 ? "black" : "green"), playerData.最大生命值);
-        string 架势条 = string.Format("<color={0}>{1}</color>", (原架势条 == playerData.最大架势条 ? "black" : "green"), playerData.最大架势条);
-        string 攻击力 = string.Format("<color={0}>{1}</color>", (原攻击力 == playerData.攻击力 ? "black" : "green"), playerData.攻击力);
+        string 生命值 = string.Format("<color={0}>{1}</color>", (原生命值 == playerData.最大生命值 ? "black" : "green"), (int)playerData.最大生命值);
+        string 架势条 = string.Format("<color={0}>{1}</color>", (原架势条 == playerData.最大架势条 ? "black" : "green"), (int)playerData.最大架势条);
+        string 攻击力 = string.Format("<color={0}>{1}</color>", (原攻击力 == playerData.攻击力 ? "black" : "green"), (int)playerData.攻击力);
         string 挥刀次数 = string.Format("<color={0}>{1}</color>", (原挥刀次数 == playerData.挥刀次数 ? "black" : "green"), playerData.挥刀次数);
         attributeText.text = string.Format(attributeTextString, 生命值, 架势条, 攻击力, 挥刀次数);
 

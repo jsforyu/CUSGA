@@ -20,7 +20,7 @@ public class ItemTooltip : MonoBehaviour
         if (item != null)
         {
             itemNameText.text = item.itemName;
-            itemInfoText.text = item.effect;
+            itemInfoText.text = item.description + "\r\n\r\n" + item.effect;
         }
         else
         {
