@@ -45,6 +45,8 @@ public class FightManager : Singleton<FightManager>
     public Transform sound;
     [Tooltip("事件数据 包含音量信息")]
     public EventSO eventSO;
+    [Tooltip("背包数据")]
+    public InventoryData_SO playerBag;
     [Tooltip("处决特写")]
     public Animator executionShot;
     [Tooltip("背景节点")]
@@ -160,7 +162,7 @@ public class FightManager : Singleton<FightManager>
         enemyData.当前架势条 = 0;
         playerController = PlayerController.Instance;
         enemyController = EnemyController.Instance;
-        if (InventoryManager.instance != null) { skillData = InventoryManager.instance.inventoryData.currentJianJi; }
+        skillData = playerBag.currentJianJi;
         enemy_move_speed = enemyData.攻击符速度;
 
         // 初始化双方等级展示

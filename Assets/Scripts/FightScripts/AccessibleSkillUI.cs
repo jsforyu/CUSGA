@@ -22,12 +22,12 @@ public class AccessibleSkillUI : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerEnter(PointerEventData eventData) //当鼠标移到当前格子时 更新道具说明栏的文本
     {
-        tooltip.GetComponent<ItemTooltip>().SetupTooltip(skillData);
+        tooltip.GetComponent<ItemTooltip>().SetupTooltipWithDescription(skillData);
         tooltip.SetActive(true);
     }
     public void OnPointerExit(PointerEventData eventData) //当鼠标移出则清空道具说明栏文本
     {
-        tooltip.GetComponent<ItemTooltip>().SetupTooltip(null);
+        tooltip.GetComponent<ItemTooltip>().SetupTooltipWithDescription(null);
         tooltip.SetActive(false);
     }
 
