@@ -18537,7 +18537,7 @@ MonoBehaviour:
   blockSuccessGap: 40
   attackSuccessGap: 40
   executionSuccessGap: 40
-  playerExecutionDuration: 0.28
+  playerExecutionDuration: 2.8
   playerExecutionCoef: 0.6
   enemyExecutionCount: 3
   enemyExecutionCoef: 0.6666667
