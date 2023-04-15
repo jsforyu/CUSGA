@@ -80,16 +80,16 @@ public class InventoryManager : MonoBehaviour
     public void Update()
     {
         //SavaData();  //保存数据
-        if (Input.GetKeyDown(KeyCode.B))   //打开or关闭背包
-        {
-            isOpen = !isOpen;
-            //Cursor.visible = isOpen;
-            BagCanvas.SetActive(isOpen);
-            //CharactersCanvas.SetActive(isOpen);
-            //if (isOpen == false) { tooltip.SetupTooltip(null); }
-            //tooltip.gameObject.SetActive(isOpen);
+        //if (Input.GetKeyDown(KeyCode.B))   //打开or关闭背包
+        //{
+        //    isOpen = !isOpen;
+        //    //Cursor.visible = isOpen;
+        //    BagCanvas.SetActive(isOpen);
+        //    //CharactersCanvas.SetActive(isOpen);
+        //    //if (isOpen == false) { tooltip.SetupTooltip(null); }
+        //    //tooltip.gameObject.SetActive(isOpen);
             
-        }
+        //}
         //更新人物信息
         //UpdateStatsText(player.GetComponent<CharacterStats>().characterData.maxHealth, player.GetComponent<CharacterStats>().attackData.minDamge, player.
         //    GetComponent<CharacterStats>().attackData.maxDamge);

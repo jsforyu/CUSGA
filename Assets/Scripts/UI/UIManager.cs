@@ -12,6 +12,8 @@ public class UIManager : Singleton<UIManager>
     private float lastSlider;
     [Tooltip("事件数据汇总存储有音量信息")]
     public EventSO eventSO;
+    [Tooltip("教程面板")]
+    public GameObject jiaocheng;
 
     public AudioSource walkAudioSource;
     public AudioSource btnAudioSource;
@@ -70,5 +72,18 @@ public class UIManager : Singleton<UIManager>
         btnAudioSource.Play();
         yield return new WaitForSeconds(btnAudioSource.clip.length);
         SceneManager.LoadSceneAsync(0);
+    }
+
+    public void OpenJiaocheng()
+    {
+
+        jiaocheng.SetActive(true);
+        btnAudioSource.Play();
+    }
+
+    public void CloseJiaocheng()
+    {
+        jiaocheng.SetActive(false);
+        btnAudioSource.Play();
     }
 }

@@ -28,16 +28,17 @@ public class SlotHolder : MonoBehaviour, IPointerEnterHandler,IPointerExitHandle
     {
         if (isclick == true && Input.GetMouseButtonDown(0))
         {
-                if (transform.GetChild(0).gameObject.activeSelf == true)
-                {
-                    ItemData_SO temp;
-                    temp = itemUI.Bag.items[itemUI.Index].ItemData;
-                    InventoryManager.instance.inventoryData.currentJianJi = temp;
-                    PlayerInUI.Instance.slot.transform.GetChild(0).GetChild(0).GetComponent<ItemUI>().SetupItemUI(temp, temp.itemAmount);
-                    PlayerInUI.Instance.slot.transform.GetChild(1).GetComponent<Text>().text = "已装备剑技"+temp.itemName;
-                    PlayerInUI.Instance.slot.transform.GetChild(2).GetComponent<Text>().text = InventoryManager.instance.inventoryData.currentJianJi.description;
+            if (transform.GetChild(0).gameObject.activeSelf == true)
+            {
+                ItemData_SO temp;
+                temp = itemUI.Bag.items[itemUI.Index].ItemData;
+                InventoryManager.instance.inventoryData.currentJianJi = temp;
+                PlayerInUI.Instance.slot.transform.GetChild(0).GetChild(0).GetComponent<ItemUI>().SetupItemUI(temp, temp.itemAmount);
+                PlayerInUI.Instance.slot.transform.GetChild(1).GetComponent<Text>().text = "已装备剑技"+temp.itemName;
+                PlayerInUI.Instance.slot.transform.GetChild(2).GetComponent<Text>().text = InventoryManager.instance.inventoryData.currentJianJi.description;
+                SaveManager.Instance.SavePlayerData();
                 isclick = false;
-                }
+            }
         }
         RefreshitemUI();
     }
