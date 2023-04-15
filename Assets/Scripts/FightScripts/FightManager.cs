@@ -43,6 +43,8 @@ public class FightManager : Singleton<FightManager>
     [Header("可控制对象")]
     [Tooltip("音效根节点")]
     public Transform sound;
+    [Tooltip("处决成功判定音效")]
+    public AudioSource playerExeSE;
     [Tooltip("事件数据 包含音量信息")]
     public EventSO eventSO;
     [Tooltip("背包数据")]
@@ -531,6 +533,7 @@ public class FightManager : Singleton<FightManager>
         if (isEnemyBlock)
         {
             enemyData.当前架势条 = Mathf.Max(enemyData.当前架势条, enemyData.当前架势条 + 敌人架势条 / (10 - (招式攻击力 - 敌人攻击力)));
+            enemyData.当前生命值 -= 招式攻击力 * 0.1f;
         }
         else
         {
@@ -669,11 +672,12 @@ public class FightManager : Singleton<FightManager>
             else
             {
                 // 玩家处决成功，记录次数
-                playerExecutionIconUnits[playerExecutionCountRecord].color = new Color(140 / 255f, 44 / 255f, 43 / 255f);
+                if (playerExecutionCountRecord < playerExecutionIconUnits.Length)
+                    playerExecutionIconUnits[playerExecutionCountRecord].color = new Color(140 / 255f, 44 / 255f, 43 / 255f);
                 playerExecutionCountRecord++;
                 canEnterNextStep += 2;
                 // 判定处决成功的音效
-                //
+                playerExeSE.Play();
             }
         }
     }
