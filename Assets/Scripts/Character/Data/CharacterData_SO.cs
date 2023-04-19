@@ -20,7 +20,7 @@ public class CharacterData_SO : ScriptableObject
 
     public float 最大生命值
     {
-        get { return 50 + 体质 * 3; }
+        get { return 150 + 体质 * 3; }
     }
     [NonSerialized]
     public float 当前生命值;
@@ -39,7 +39,7 @@ public class CharacterData_SO : ScriptableObject
     }
     public float 最大架势条
     {
-        get { return 50 + 等级 * 5; }
+        get { return 150 + 等级 * 5; }
     }
     [NonSerialized]
     public float 当前架势条;

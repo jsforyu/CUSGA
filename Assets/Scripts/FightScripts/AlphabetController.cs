@@ -54,22 +54,22 @@ public class AlphabetController : Singleton<AlphabetController>
         alphabet_obj.transform.localPosition += new Vector3((float)(ab_move_speed * ab_move_dir * Time.deltaTime), 0, 0);
         active_area.transform.localPosition += new Vector3((float)(area_move_speed * area_move_dir * Time.deltaTime), 0, 0);
         // Íæ¼Ò²Ù×÷ÅÐ¶¨
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (Alphabet.D == alphabet) { RespondResult(Mathf.Abs(alphabet_obj.transform.localPosition.x - active_area.transform.localPosition.x)); }
             else { RespondResult(-1); }
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (Alphabet.W == alphabet) { RespondResult(Mathf.Abs(alphabet_obj.transform.localPosition.x - active_area.transform.localPosition.x)); }
             else { RespondResult(-1); }
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (Alphabet.A == alphabet) { RespondResult(Mathf.Abs(alphabet_obj.transform.localPosition.x - active_area.transform.localPosition.x)); }
             else { RespondResult(-1); }
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (Alphabet.S == alphabet) { RespondResult(Mathf.Abs(alphabet_obj.transform.localPosition.x - active_area.transform.localPosition.x)); }
             else { RespondResult(-1); }

@@ -122,6 +122,10 @@ public class FightManager : Singleton<FightManager>
     // 角色控制脚本
     private PlayerController playerController;
     private EnemyController enemyController;
+    //缩放镜头
+    private CameraZoom cameraZoom;
+
+
 
     // Alphabet与动画攻击方向的对应关系
     Dictionary<Alphabet, int> alphabetToAttackDir = new Dictionary<Alphabet, int>()
@@ -174,6 +178,10 @@ public class FightManager : Singleton<FightManager>
         // 开始玩家回合
         TurnToPlayer();
         canEnterNextStep = 2;
+        GameObject cameraObject = GameObject.Find("Main Camera");
+        //初始化镜头缩放
+        cameraZoom= cameraObject.GetComponent<CameraZoom>();
+
     }
 
     private void Update()
@@ -307,7 +315,7 @@ public class FightManager : Singleton<FightManager>
 
         // 打开处决记录Icon
         playerExecutionIcon.SetActive(true);
-        foreach(var i in playerExecutionIconUnits)
+        foreach (var i in playerExecutionIconUnits)
         {
             i.color = new Color(135 / 255f, 135 / 255f, 135 / 255f);
         }
@@ -373,7 +381,7 @@ public class FightManager : Singleton<FightManager>
             playerController.Death();
             FightResultUI.Instance.Settle(false);
         }
-        Debug.Log("战斗结果:" +  result);
+        Debug.Log("战斗结果:" + result);
     }
 
     // 结束当前小回合，进入下一小回合
@@ -504,7 +512,7 @@ public class FightManager : Singleton<FightManager>
     public void JudgeAnger()
     {
         JudgeEnemyAnger();
-        JudgePlayerAnger(); 
+        JudgePlayerAnger();
     }
     public void JudgeEnemyAnger()
     {
@@ -545,6 +553,10 @@ public class FightManager : Singleton<FightManager>
         {
             normalBlockAudio.Play();
             StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, normalBlockMag));
+
+            
+            StartCoroutine(cameraZoom.Zoom());
+
         }
         else
         {
