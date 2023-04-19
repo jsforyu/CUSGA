@@ -1,5 +1,3 @@
-using JetBrains.Annotations;
-//using OpenCover.Framework.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,7 +23,6 @@ public class FightManager : Singleton<FightManager>
     public float attackSuccessGap;
     [Tooltip("处决成功间隔距离")]
     public float executionSuccessGap;
-
     [Header("控制参数")]
     [Tooltip("玩家处决总持续时间")]
     public float playerExecutionDuration;
@@ -93,7 +90,8 @@ public class FightManager : Singleton<FightManager>
     public float playerAttackedMag = 0.2f;
     [Tooltip("敌人受击震动幅度")]
     public float enemyAttackedMag = 0.25f;
-
+    [Tooltip("摄像机放大倍率")]
+    public float zoomAmount;
     // 控制记录参数
     private int skillIndex = 0;             // 当前处于剑技第几式
     private int playerAttackCount;          // 玩家攻击总次数
@@ -122,8 +120,8 @@ public class FightManager : Singleton<FightManager>
     // 角色控制脚本
     private PlayerController playerController;
     private EnemyController enemyController;
-    //缩放镜头
-    private CameraZoom cameraZoom;
+
+   
 
 
 
@@ -180,7 +178,7 @@ public class FightManager : Singleton<FightManager>
         canEnterNextStep = 2;
         GameObject cameraObject = GameObject.Find("Main Camera");
         //初始化镜头缩放
-        cameraZoom= cameraObject.GetComponent<CameraZoom>();
+     
 
     }
 
@@ -444,7 +442,7 @@ public class FightManager : Singleton<FightManager>
                     canEnterNextStep++;
                     // 音效和震动
                     noBlockAudio.Play();
-                    StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, enemyAttackedMag));
+                    StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, enemyAttackedMag,zoomAmount));
                 }
                 else
                 {
@@ -490,7 +488,7 @@ public class FightManager : Singleton<FightManager>
                 background.color = new Color(200 / 255f, 200 / 255f, 200 / 255f);
                 // 音效和震动
                 noBlockAudio.Play();
-                StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, playerAttackedMag));
+                StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, playerAttackedMag, zoomAmount));
             }
             else
             {
@@ -552,10 +550,10 @@ public class FightManager : Singleton<FightManager>
         if (isEnemyBlock)
         {
             normalBlockAudio.Play();
-            StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, normalBlockMag));
+            StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, normalBlockMag, zoomAmount));
 
             
-            StartCoroutine(cameraZoom.Zoom());
+            
 
         }
         else
@@ -565,7 +563,7 @@ public class FightManager : Singleton<FightManager>
             if (playerData.当前生命值 >= playerData.最大生命值) { playerData.当前生命值 = playerData.最大生命值; }
 
             noBlockAudio.Play();
-            StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, enemyAttackedMag));
+            StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, enemyAttackedMag, zoomAmount));
         }
         // 架势条恢复
         playerData.当前架势条 -= skillData.angerRecovery;
@@ -593,7 +591,7 @@ public class FightManager : Singleton<FightManager>
         playerData.当前架势条 = Mathf.Min(玩家架势条 - 1, playerData.当前架势条 + 玩家架势条 / 20);
         // 音效和震动
         perfectBlockAudio.Play();
-        StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, perfectBlockMag));
+        StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, perfectBlockMag, zoomAmount));
     }
     public void PlayerNormalBlock()
     {
@@ -604,7 +602,7 @@ public class FightManager : Singleton<FightManager>
         playerData.当前架势条 = Mathf.Max(playerData.当前架势条, playerData.当前架势条 + 玩家架势条 / (10 - (敌人攻击力 - 玩家攻击力)));
         // 音效和震动
         normalBlockAudio.Play();
-        StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, normalBlockMag));
+        StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, normalBlockMag, zoomAmount));
     }
     public void PlayerNoBlock()
     {
@@ -616,7 +614,7 @@ public class FightManager : Singleton<FightManager>
         playerData.当前生命值 -= 敌人攻击力;
         // 音效和震动
         noBlockAudio.Play();
-        StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, playerAttackedMag));
+        StartCoroutine(CameraShake.Instance.Shake(shakeDuration, shakeFrequency, playerAttackedMag, zoomAmount));
     }
     public void PlayerExecuted()
     {

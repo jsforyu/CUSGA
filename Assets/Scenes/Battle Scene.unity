@@ -6016,8 +6016,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85d8063085e2ef43ac872c26b55f9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camSize: 2.5
-  zoomTime: 1
 --- !u!1 &274934305
 GameObject:
   m_ObjectHideFlags: 0
@@ -18604,12 +18602,13 @@ MonoBehaviour:
   - {fileID: 1831719818}
   - {fileID: 93494983}
   - {fileID: 283839769}
-  shakeDuration: 0.15
-  shakeFrequency: 40
-  perfectBlockMag: 0.1
+  shakeDuration: 0.3
+  shakeFrequency: 20
+  perfectBlockMag: 0.05
   normalBlockMag: 0.15
-  playerAttackedMag: 0.2
-  enemyAttackedMag: 0.25
+  playerAttackedMag: 0.1
+  enemyAttackedMag: 0.125
+  zoomAmount: 2.5
   enemies:
   - {fileID: 1980147012}
   - {fileID: 1791246752}

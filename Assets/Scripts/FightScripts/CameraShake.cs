@@ -1,30 +1,20 @@
 using UnityEngine;
 using System.Collections;
-using UnityEditor.Build.Content;
-using JetBrains.Annotations;
 
 public class CameraShake : Singleton<CameraShake>
 {
 
-    public IEnumerator Shake(float duration, float frequency, float magnitude)
+    public IEnumerator Shake(float duration, float frequency, float magnitude,float zoomAmount)
     {
-        Camera camera;
-        float camSize = 2.5f;
-        float zoomTime;
-        float originSize;
-        Vector2 playerPos;
-        Vector2 cameraPos;
-        Vector2 originPos;
-        camera = GetComponent<Camera>();
-        originSize = camera.orthographicSize;
-        cameraPos = camera.transform.localPosition;
-        originPos = cameraPos;
-        playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position;
-        Vector3 targetPos = new Vector3(playerPos.x + 2f, playerPos.y + 0.35f, -20f);
-        this.transform.position = targetPos;
-        camera.orthographicSize = camSize;
-        //
+       Camera camera = GetComponent<Camera>();
+       float originSize = camera.orthographicSize;
         Vector3 originalPosition = transform.localPosition;
+       Vector2 playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position;
+        Vector3 targetPos = new Vector3(playerPos.x + 1f, playerPos.y + 0.35f, -20f);
+        this.transform.position = targetPos;
+        camera.orthographicSize = zoomAmount;
+        //
+       
         float elapsed = 0.0f;
         float cycle = 1f / frequency;
         float elapsed_in_cycle = cycle;
@@ -47,6 +37,7 @@ public class CameraShake : Singleton<CameraShake>
 
             yield return null;
         }
+        
         camera.orthographicSize = originSize;
         transform.localPosition = originalPosition;
         
