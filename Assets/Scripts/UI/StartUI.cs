@@ -7,21 +7,55 @@ using UnityEngine.UI;
 public class StartUI : MonoBehaviour
 {
 
-
+    public Button continueGameBtn;
     public GameObject buttonpanel;
     public Text loadtext;
+    public AudioSource btnClickSE;
 
-
-   public void StartGame()
+    private void Start()
     {
+        if (!PlayerPrefs.HasKey("Player"))
+        {
+            continueGameBtn.interactable = false;
+        }
+    }
+
+    public void StartGame()
+    {
+        StartCoroutine(StartGameEnum());
+    }
+    IEnumerator StartGameEnum()
+    {
+        btnClickSE.Play();
+        yield return new WaitForSeconds(btnClickSE.clip.length);
+        SaveManager.Instance.InitPlayerData();
         SceneManager.LoadSceneAsync(1);
-        //StartCoroutine(LoadScene());
+    }
+
+    public void ContinueGame()
+    {
+        StartCoroutine(ContinueGameEnum());
+    }
+
+    IEnumerator ContinueGameEnum()
+    {
+        btnClickSE.Play();
+        yield return new WaitForSeconds(btnClickSE.clip.length);
+        SaveManager.Instance.LoadPlayerData();
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void EndGame()
     {
+        StartCoroutine(EndGameEnum());
+    }
+    IEnumerator EndGameEnum()
+    {
+        btnClickSE.Play();
+        yield return new WaitForSeconds(btnClickSE.clip.length);
         Application.Quit();
     }
+
 
     IEnumerator LoadScene()
     {

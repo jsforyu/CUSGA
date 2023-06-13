@@ -13,7 +13,8 @@ public class CharacterData_SO : ScriptableObject
     public int 力量;
     public int 敏捷;
     public int 反应;
-    // public int 剩余属性点;
+    public int 剩余属性点;
+    public float 攻击符速度;
     [Tooltip("在玩家数据中代表当前经验值，在敌人数据中代表胜利获得经验值")]
     public int 经验值;
 
@@ -33,7 +34,8 @@ public class CharacterData_SO : ScriptableObject
     }
     public float BlockProb(CharacterData_SO player,CharacterData_SO enemy)  // 敌人格挡概率
     {
-        return (float)(0.5 * (enemy.反应 + enemy.敏捷 * 0.6 - player.敏捷 * 0.4 - player.反应 * 0.2));
+        return (float)(0.5 +enemy.反应*0.1 + enemy.敏捷 * 0.06 - player.敏捷 * 0.04 - player.反应 * 0.02);
+        
     }
     public float 最大架势条
     {
@@ -41,8 +43,27 @@ public class CharacterData_SO : ScriptableObject
     }
     [NonSerialized]
     public float 当前架势条;
-    public int 升级经验值
+
+    public int 升级所需经验值
     {
         get { return (int)(100 * Math.Pow(1.4, 等级 - 1)); }
+    }
+        
+    public void 获得经验值(int addExp)
+    {
+        经验值 += addExp;
+        while (true)
+        {
+            if (经验值 >= 升级所需经验值)
+            {
+                经验值 -= 升级所需经验值;
+                等级++;
+                剩余属性点 += 2;
+            }
+            else
+            {
+                break;
+            }
+        }
     }
 }

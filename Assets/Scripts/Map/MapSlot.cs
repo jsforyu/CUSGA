@@ -15,6 +15,7 @@ public enum MapSlotType
 }
 public class MapSlot : MonoBehaviour
 {
+    public AudioSource btnAudioSource;
     public GameObject tipUI;
     public MapSlotType Maptype;
     public int index;//�����
@@ -23,6 +24,7 @@ public class MapSlot : MonoBehaviour
     public GameObject DialoguePanel;
     bool ischose=false;
     public EventSO eventSO;
+    public ItemData_SO accessibleSkill;
     [SerializeField]private int eventIndex=-1;
     // Start is called before the first frame update
     void Start()
@@ -74,7 +76,7 @@ public class MapSlot : MonoBehaviour
         switch (Maptype)//请把触发对话写在这个函数中
         {
             case MapSlotType.City:
-                if (!eventSO.events[eventIndex])
+                if (eventIndex >= 0 && eventIndex < eventSO.events.Length && !eventSO.events[eventIndex])
                 {
                     eventSO.currentevent = eventIndex;
                     if (tipUI != null)
@@ -82,7 +84,7 @@ public class MapSlot : MonoBehaviour
                 }
                 break;
             case MapSlotType.Village:
-                if (!eventSO.events[eventIndex])
+                if (eventIndex >= 0 && eventIndex < eventSO.events.Length && !eventSO.events[eventIndex])
                 {
                     eventSO.currentevent = eventIndex;
                     if (tipUI != null)
@@ -90,9 +92,11 @@ public class MapSlot : MonoBehaviour
                 }
                 break;
             case MapSlotType.Outside:
-                return;
+                break;
 
         }
+        // 可获得剑技
+        eventSO.accessibleSkill = accessibleSkill;
     }
     IEnumerator FindSlot()
     {
@@ -160,6 +164,7 @@ public class MapSlot : MonoBehaviour
     }
     public void EnterScene()
     {
+        btnAudioSource.Play();
         tipUI.SetActive(false);
         DialoguePanel.SetActive(true);
         DialogueUI.Instance.UpdateDialogueData(currentData);

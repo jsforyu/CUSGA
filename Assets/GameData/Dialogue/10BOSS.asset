@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271e0cd647a1ac744a9a963b12494e43, type: 3}
+  m_Name: 10BOSS
+  m_EditorClassIdentifier: 
+  dialoguePieces:
+  - ID: 1
+    image: {fileID: 0}
+    text: "\u4F60\u6765\u5230\u4E86\u4E00\u7247\u5E7F\u9614\u7684\u7A7A\u5730\uFF0C\u56DB\u5468\u8352\u829C\u65E0\u4EBA\uFF0C\u53EA\u6709\u51E0\u68F5\u67AF\u6811\u5728\u98CE\u4E2D\u545C\u54BD\u3002\u7A81\u7136\uFF0C\u4F60\u611F\u5230\u4E00\u80A1\u65E0\u5F62\u7684\u538B\u529B\u5411\u4F60\u6251\u6765\uFF0C\u8BA9\u4F60\u4E0D\u7531\u81EA\u4E3B\u5730\u505C\u4E0B\u811A\u6B65\u3002"
+    quest: {fileID: 0}
+    startFight: 0
+    currentIndex: 0
+    options: []
+  - ID: 2
+    image: {fileID: 0}
+    text: "\u4F60\u671B\u7740\u773C\u524D\u7684\u90A3\u4E2A\u4EBA\uFF0C\u5FC3\u91CC\u4E0D\u7531\u5F97\u4E00\u9635\u53D1\u61B7\u3002\u4ED6\u8EAB\u6750\u9AD8\u5927\uFF0C\u53CC\u80A9\u5BBD\u9614\uFF0C\u6D51\u8EAB\u6563\u53D1\u7740\u8083\u6740\u7684\u6C14\u573A\u3002"
+    quest: {fileID: 0}
+    startFight: 0
+    currentIndex: 0
+    options: []
+  - ID: 3
+    image: {fileID: 0}
+    text: "\u4ED6\u7F13\u7F13\u5411\u4F60\u8D70\u6765\uFF0C\u811A\u6B65\u6C89\u91CD\u5374\u5145\u6EE1\u529B\u91CF\uFF0C\u4EFF\u4F5B\u6BCF\u4E00\u6B65\u90FD\u80FD\u9707\u52A8\u6574\u4E2A\u5927\u5730\u3002\u4F60\u7684\u5FC3\u810F\u5F00\u59CB\u52A0\u901F\u8DF3\u52A8\uFF0C\u611F\u53D7\u5230\u4E86\u4E00\u80A1\u5F3A\u70C8\u7684\u538B\u8FEB\u611F"
+    quest: {fileID: 0}
+    startFight: 0
+    currentIndex: 0
+    options: []
+  - ID: 4
+    image: {fileID: 0}
+    text: "\u6CE8\uFF1A\u96BE\u5EA6\u6781\u9AD8\uFF0C\u5EFA\u8BAE\u53D8\u5F3A\u540E\u5C1D\u8BD5\uFF0C\u6311\u6218\u5931\u8D25\u540E\u4E0D\u4F1A\u6709\u635F\u5931"
+    quest: {fileID: 0}
+    startFight: 1
+    currentIndex: 0
+    options: []

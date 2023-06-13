@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class DialogueUI : Singleton<DialogueUI>
 {
+    public AudioSource btnAudioSource;
     [Header("Basic Elements")]
     public Image icon;        
     public Text mainText;
@@ -25,14 +26,21 @@ public class DialogueUI : Singleton<DialogueUI>
     }
     void ContinueDialogue()
     {
+        btnAudioSource.Play();
         Debug.Log(currentIndex);
         if (currentData.dialoguePieces[currentIndex-1].startFight)
         {
-            SceneManager.LoadSceneAsync(2);
+            StartCoroutine(delayLoadScene());
         }
         else if (currentIndex < currentData.dialoguePieces.Count)
             UpdateMainDialogue(currentData.dialoguePieces[currentIndex]);
         else dialoguePanel.SetActive(false);
+    }
+
+    IEnumerator delayLoadScene()
+    {
+        yield return new WaitForSeconds(btnAudioSource.clip.length);
+        SceneManager.LoadSceneAsync(2);
     }
     public void UpdateDialogueData(DialogueData_SO data)
     {

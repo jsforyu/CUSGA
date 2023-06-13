@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 //背包的管理 有保存背包和读取背包功能  可以创建一个画布放这个脚本  画布下放背包的ui
@@ -12,6 +13,8 @@ public class InventoryManager : MonoBehaviour
     }
     public GameObject player;
     public static InventoryManager instance;
+    public int baghave = 3;
+    public ItemData_SO FirstJianJi;
     //保存数据
     [Header("Inventory Data")]
     public InventoryData_SO inventoryData;//不同背包
@@ -33,14 +36,32 @@ public class InventoryManager : MonoBehaviour
     [Header("Tooltip")]
     public ItemTooltip tooltip;
 
+    public AudioSource btnAudioSource;
 
-    public ItemData_SO currentJianJi;
+
     private void Start()
     {
-        DontDestroyOnLoad(this);
-        Cursor.visible = false;
+        if (InventoryManager.instance.inventoryData.items.Count != InventoryManager.instance.baghave)
+        {
+            for (int i = 0; i < InventoryManager.instance.baghave; i++)
+            {
+                InventoryItem tempitem = new InventoryItem();
+                tempitem.ItemData = null;
+                tempitem.amount = 0;
+                InventoryManager.instance.inventoryData.items.Add(tempitem);
+            }
+        }
+        if (InventoryManager.instance.inventoryData.items[0].ItemData == null)
+        {
+            InventoryManager.instance.inventoryData.AddItem(InventoryManager.instance.FirstJianJi, InventoryManager.instance.FirstJianJi.itemAmount);
+            InventoryManager.instance.inventoryData.currentJianJi = InventoryManager.instance.inventoryData.items[0].ItemData;
+        }
+        // DontDestroyOnLoad(this);
+        //Cursor.visible = false;
         //LoadData();    //加载数据
+        Debug.Log("背包大小"+inventoryData.items.Count);
         inventoryUI.RefreshUI();
+        //inventoryData.currentJianJi = inventoryData.items[0].ItemData;
         //actionUI.RefreshUI();
         //equipmentUI.RefreshUI();
 
@@ -51,19 +72,24 @@ public class InventoryManager : MonoBehaviour
         {
             instance = this;
         }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
     public void Update()
     {
         //SavaData();  //保存数据
-        if (Input.GetKeyDown(KeyCode.B))   //打开or关闭背包
-        {
-            isOpen = !isOpen;
-            Cursor.visible = isOpen;
-            BagCanvas.SetActive(isOpen);
-            //CharactersCanvas.SetActive(isOpen);
-            tooltip.gameObject.SetActive(isOpen);
+        //if (Input.GetKeyDown(KeyCode.B))   //打开or关闭背包
+        //{
+        //    isOpen = !isOpen;
+        //    //Cursor.visible = isOpen;
+        //    BagCanvas.SetActive(isOpen);
+        //    //CharactersCanvas.SetActive(isOpen);
+        //    //if (isOpen == false) { tooltip.SetupTooltip(null); }
+        //    //tooltip.gameObject.SetActive(isOpen);
             
-        }
+        //}
         //更新人物信息
         //UpdateStatsText(player.GetComponent<CharacterStats>().characterData.maxHealth, player.GetComponent<CharacterStats>().attackData.minDamge, player.
         //    GetComponent<CharacterStats>().attackData.maxDamge);
@@ -162,11 +188,14 @@ public class InventoryManager : MonoBehaviour
     }
     public void BagOpenButton()
     {
+        btnAudioSource.Play();
         isOpen = !isOpen;
-        Cursor.visible = isOpen;
+        //Cursor.visible = isOpen;
         BagCanvas.SetActive(isOpen);
         //CharactersCanvas.SetActive(isOpen);
-        tooltip.gameObject.SetActive(isOpen);
+        //if (isOpen == false) { tooltip.SetupTooltip(null); }
+        //tooltip.gameObject.SetActive(isOpen);
     }
+
 }
 

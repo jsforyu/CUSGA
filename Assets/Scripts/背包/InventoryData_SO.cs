@@ -5,7 +5,8 @@ using UnityEngine;
 public class InventoryData_SO : ScriptableObject
 {
     //充当背包功能 
-    public List<InventoryItem> items = new List<InventoryItem>(); 
+    public List<InventoryItem> items = new List<InventoryItem>();
+    public ItemData_SO currentJianJi;
     public void AddItem(ItemData_SO newItemData,int amount)
     {
         bool found = false;
@@ -14,6 +15,7 @@ public class InventoryData_SO : ScriptableObject
 
             if (items[i].ItemData == newItemData && !found)//找到了在背包里
             {
+                if (newItemData.stackable == false) return;
                 items[i].amount += amount;
                 newItemData.itemAmount += amount;
                 found = true;

@@ -1,26 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class PlayerInMap : MonoBehaviour
+public class PlayerInMap : Singleton<PlayerInMap>
 {
     public int mapindex;//当前所在的地图节点
     public MapSlot curretnmapslot;
-    public static PlayerInMap Instance;
     public bool ismove;
     public float speed;
     public int currentindex;
-    //public PlayeInMapData data;
+    public PlayeInMapData data;
+    public AudioSource walkingSound;
 
     int onfirst;
     Line online;
     Animator an;
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +62,7 @@ public class PlayerInMap : MonoBehaviour
     }
     public void Move(Line line, int next)
     {
+        walkingSound.Play();
         ismove = true;
         online = line;
         onfirst = next;
@@ -84,8 +79,10 @@ public class PlayerInMap : MonoBehaviour
                 yield return IE_MoveToTarget(tomapslot.gameObject.transform.position);
                 transform.position = Vector3.MoveTowards(transform.position, tomapslot.gameObject.transform.position, speed * Time.deltaTime);
                 ismove = false;
+                walkingSound.Stop();
                 mapindex = next;
                 currentindex = 0;
+                SaveManager.Instance.SavePlayerData();
             }
             else
             {
@@ -94,8 +91,10 @@ public class PlayerInMap : MonoBehaviour
             }
         }
         ismove = false;
-        //data.mapindex = mapindex;
+        walkingSound.Stop();
+        data.mapindex = mapindex;
         tomapslot.SlotFunction();
+        SaveManager.Instance.SavePlayerData();
         yield return null;
     }
     IEnumerator BackMove(MapSlot tomapslot, LineRenderer linere, int next)
@@ -107,8 +106,10 @@ public class PlayerInMap : MonoBehaviour
             {
                 yield return IE_MoveToTarget(tomapslot.gameObject.transform.position);
                 ismove = false;
+                walkingSound.Stop();
                 mapindex = next;
                 currentindex = 0;
+                SaveManager.Instance.SavePlayerData();
             }
             else
             {
@@ -119,8 +120,10 @@ public class PlayerInMap : MonoBehaviour
 
         }
         ismove = false;
-        //data.mapindex = mapindex;
+        walkingSound.Stop();
+        data.mapindex = mapindex;
         tomapslot.SlotFunction();
+        SaveManager.Instance.SavePlayerData();
         yield return null;
     }
 
@@ -151,8 +154,11 @@ public class PlayerInMap : MonoBehaviour
 
     void LoadPlayer()
     {
-        //mapindex = data.mapindex;
+        Debug.Log(data.mapindex);
+        mapindex = data.mapindex;
         this.transform.position = MapManager.instance.Mapslots[mapindex].gameObject.transform.position;
+        // 若进入大世界的当前节点就可进入，则打开进入按钮
+        MapManager.instance.Mapslots[mapindex].GetComponent<MapSlot>().SlotFunction();
     }
 
 }

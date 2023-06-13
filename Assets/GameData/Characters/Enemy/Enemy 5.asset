@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309ca51b9a1f1644b9857b19d8c8763d, type: 3}
   m_Name: Enemy 5
   m_EditorClassIdentifier: 
-  "\u7B49\u7EA7": 5
+  "\u7B49\u7EA7": 6
   "\u4F53\u8D28": 3
-  "\u529B\u91CF": 3
-  "\u654F\u6377": 3
+  "\u529B\u91CF": 4
+  "\u654F\u6377": 4
   "\u53CD\u5E94": 3
-  "\u7ECF\u9A8C\u503C": 175
+  "\u5269\u4F59\u5C5E\u6027\u70B9": 0
+  "\u653B\u51FB\u7B26\u901F\u5EA6": 530
+  "\u7ECF\u9A8C\u503C": 468
